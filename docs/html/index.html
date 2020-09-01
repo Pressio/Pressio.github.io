@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Overview | Pressio</title>
+  <title>What is Pressio? | Pressio</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -27,22 +27,21 @@
             <li>
               <a href="md_pages_user_guide.html">User Guide</a>
               <ol>
-                <li><a href="md_pages_build_and_install.html">Build and Installation</a></li>
-                <li><a href="md_pages_basic_usage.html">Basic Usage</a></li>
-                <li><a href="md_pages_advanced_usage.html">Advanced Usage</a></li>
-                <li><a href="md_pages_API.html">API</a></li>
+                <li><a href="md_pages_build_and_install.html">Installation</a></li>
+                <li><a href="md_pages_pressio_app.html">Interacting with your app</a></li>
+                <li><a href="md_pages_prep_app.html">Step-by-step on preparing your app</a></li>
               </ol>
             </li>
             <li>
               <a href="md_pages_tutorials.html">Tutorials</a>
               <ol>
-                <li><a href="md_pages_quickstart.html">Quickstart</a></li>
-                <li><a href="md_pages_examples.html">Examples</a></li>
+                <li><a href="md_pages_tutorial1.html">Tutorial1</a></li>
               </ol>
             </li>
-            <li><a href="md_pages_team.html">Team</a></li>
+            <li><a href="md_pages_examples.html">Full Examples</a></li>
+            <li><a href="md_pages_license.html">License</a></li>
           </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="4">
+          <ol class="m-col-t-6 m-col-m-none" start="5">
             <li><a href="annotated.html">Classes</a></li>
             <li><a href="namespaces.html">Namespaces</a></li>
             <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
@@ -59,9 +58,9 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          Overview
+          What is Pressio?
         </h1>
-<p><a name="md_pages_about"></a> Pressio is a collection of repositories providing reduced-order models (ROMs) capabilties. Specifically, the whole Pressio framework currently includes the following repositories:</p><ul><li><code>pressio</code>: the main C++ repo containing the ROM algorithms and supporting functionalities;</li><li><code>pressio-tutorials</code>: C++ tutorials explaining how to use <code>pressio</code> and its functionalities;</li><li><code>pressio-builder</code>: an auxiliary repo with bash helper scripts for configuring/building/installing <code>pressio</code>, and <code>pressio-tutorials</code>.</li></ul>
+<p><a name="md_pages_main"></a></p><aside class="m-note m-default"><div><p><strong><em>Pressio</em></strong> is an open-source project aimed at enabling leading-edge projection-based reduced order models (pROMs) for large-scale nonlinear dynamical systems in science and engineering.</p></div></aside><section id="autotoc_md3"><h2><a href="#autotoc_md3">Why Pressio?</a></h2><p>Projection-based model reduction refers to a class of surrogate models that reduce the number of degrees of freedom in the high-fidelity model through a projection process. This projection step applied to governing equations often enables one to make stronger performance guarantees (e.g., of structure preservation, of accuracy via adaptivity) than other surrogates like data-fits and perform more accurate <em>a posteriori</em> error analysis (e.g., via <em>a posteriori</em> error bounds or error models).</p><p>Despite these benefits, the practical challenges of implementing nonlinear model-reduction techniques in large-scale codes often precludes their adoption in practice; this occurs because standard implementations require modifying low-level operations and solvers for each simulation code of interest. This implementation strategy is simply not practical or sustainable in many modern settings, because industrial simulation codes often evolve rapidly, institutions may employ dozens of simulation codes for different analyses, and commercial codes typically do not expose the required low-level operators and solvers.</p><p><span class="m-text m-success"><strong><em>Pressio</em></strong> aims to break this barrier by mitigating the implementation burden of nonlinear model reduction in large-scale applications without compromising performance.</span></p></section><section id="autotoc_md4"><h2><a href="#autotoc_md4">What steps of pROMs does Pressio cover?</a></h2><p>Projection-based model reduction can be broken into three main steps, namely data collection, basis creation, and ROM deployment. <strong><em>Pressio</em></strong> currently contains capabilities to perform the last step.</p><ul><li>data collection: <span class="m-text m-danger">todo</span> (users do this. Maybe at some point we will provide tools to run the samples, but for now that is not a huge priority.)</li><li>compute basis: <span class="m-text m-danger">todo</span> (this is done externally. But we can develop something later on to aid this step. For example interfacing with efficient POD libraries, providing tools for specific mesh formats (exodus).)</li><li>create/run the ROM: <span class="m-text m-danger">todo</span></li></ul></section><section id="autotoc_md5"><h2><a href="#autotoc_md5">What does Pressio include?</a></h2><p><strong><em>Pressio</em></strong> is a computational framework, comprising a (growing) collection of repositories :</p><ul><li><a href="https://github.com/Pressio/pressio">pressio</a>: &emsp;&ensp;&emsp;&emsp;&ensp;core C++ library based on generic programming;</li><li><a href="https://github.com/Pressio/pressio4py">pressio4py</a>: &emsp;&emsp;&nbsp;&nbsp;Python bindings for the core Pressio C++ functionalities;</li><li><a href="https://github.com/Pressio/pressio-builder">pressio-builder</a>: &nbsp;&nbsp;&nbsp;auxiliary repo with bash scripts for building/testing.</li><li><a href="https://github.com/Pressio/pressio-tutorials">pressio-tutorials</a>: &nbsp;tutorials explaining how to use <code>pressio</code> and its functionalities;</li></ul></section>
       </div>
     </div>
   </div>

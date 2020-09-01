@@ -6,7 +6,8 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Custom Pressio stuff here... </para>
+<para><bold>Tutorials should explain specific functionalities.</bold></para>
+<para>Here we present a set of tutorials to cover some of ... </para>
     </detaileddescription>
   </compounddef>
 </doxygen>

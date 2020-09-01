@@ -2,17 +2,41 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
-    <title>Overview</title>
+    <title>What is Pressio?</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="index_1md_pages_about"/> Pressio is a collection of repositories providing reduced-order models (ROMs) capabilties. Specifically, the whole Pressio framework currently includes the following repositories:</para>
+<para><anchor id="index_1md_pages_main"/>  <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-block m-default" /> <simplesect kind="par"><title></title><para><parblock><para><bold><emphasis>Pressio</emphasis></bold> is an open-source project aimed at enabling leading-edge projection-based reduced order models (pROMs) for large-scale nonlinear dynamical systems in science and engineering. </para>
+</parblock></para>
+</simplesect>
+</para>
+<sect1 id="index_1autotoc_md3">
+<title>Why Pressio?</title>
+<para>Projection-based model reduction refers to a class of surrogate models that reduce the number of degrees of freedom in the high-fidelity model through a projection process. This projection step applied to governing equations often enables one to make stronger performance guarantees (e.g., of structure preservation, of accuracy via adaptivity) than other surrogates like data-fits and perform more accurate <emphasis>a posteriori</emphasis> error analysis (e.g., via <emphasis>a posteriori</emphasis> error bounds or error models).</para>
+<para>Despite these benefits, the practical challenges of implementing nonlinear model-reduction techniques in large-scale codes often precludes their adoption in practice; this occurs because standard implementations require modifying low-level operations and solvers for each simulation code of interest. This implementation strategy is simply not practical or sustainable in many modern settings, because industrial simulation codes often evolve rapidly, institutions may employ dozens of simulation codes for different analyses, and commercial codes typically do not expose the required low-level operators and solvers.</para>
+<para> <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-success"> <bold><emphasis>Pressio</emphasis></bold> aims to break this barrier by mitigating the implementation burden of nonlinear model reduction in large-scale applications without compromising performance.  </mcss:span></para>
+</sect1>
+<sect1 id="index_1autotoc_md4">
+<title>What steps of pROMs does Pressio cover?</title>
+<para>Projection-based model reduction can be broken into three main steps, namely data collection, basis creation, and ROM deployment. <bold><emphasis>Pressio</emphasis></bold> currently contains capabilities to perform the last step.</para>
 <para><itemizedlist>
-<listitem><para><computeroutput>pressio</computeroutput>: the main C++ repo containing the ROM algorithms and supporting functionalities;</para>
-</listitem><listitem><para><computeroutput>pressio-tutorials</computeroutput>: C++ tutorials explaining how to use <computeroutput>pressio</computeroutput> and its functionalities;</para>
-</listitem><listitem><para><computeroutput>pressio-builder</computeroutput>: an auxiliary repo with bash helper scripts for configuring/building/installing <computeroutput>pressio</computeroutput>, and <computeroutput>pressio-tutorials</computeroutput>. </para>
+<listitem><para>data collection: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (users do this. Maybe at some point we will provide tools to run the samples, but for now that is not a huge priority.)</para>
+</listitem><listitem><para>compute basis: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (this is done externally. But we can develop something later on to aid this step. For example interfacing with efficient POD libraries, providing tools for specific mesh formats (exodus).)</para>
+</listitem><listitem><para>create/run the ROM: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span></para>
 </listitem></itemizedlist>
 </para>
+</sect1>
+<sect1 id="index_1autotoc_md5">
+<title>What does Pressio include?</title>
+<para><bold><emphasis>Pressio</emphasis></bold> is a computational framework, comprising a (growing) collection of repositories :</para>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/Pressio/pressio">pressio</ulink>: <emsp/><ensp/><emsp/><emsp/><ensp/>core C++ library based on generic programming;</para>
+</listitem><listitem><para><ulink url="https://github.com/Pressio/pressio4py">pressio4py</ulink>: <emsp/><emsp/><nonbreakablespace/><nonbreakablespace/>Python bindings for the core Pressio C++ functionalities;</para>
+</listitem><listitem><para><ulink url="https://github.com/Pressio/pressio-builder">pressio-builder</ulink>: <nonbreakablespace/><nonbreakablespace/><nonbreakablespace/>auxiliary repo with bash scripts for building/testing.</para>
+</listitem><listitem><para><ulink url="https://github.com/Pressio/pressio-tutorials">pressio-tutorials</ulink>: <nonbreakablespace/>tutorials explaining how to use <computeroutput>pressio</computeroutput> and its functionalities; </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
     </detaileddescription>
   </compounddef>
 </doxygen>
