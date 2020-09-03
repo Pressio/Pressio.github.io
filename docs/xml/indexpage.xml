@@ -10,13 +10,13 @@
 </parblock></para>
 </simplesect>
 </para>
-<sect1 id="index_1autotoc_md3">
+<sect1 id="index_1autotoc_md14">
 <title>Why Pressio?</title>
 <para>Projection-based model reduction refers to a class of surrogate models that reduce the number of degrees of freedom in the high-fidelity model through a projection process. This projection step applied to governing equations often enables one to make stronger performance guarantees (e.g., of structure preservation, of accuracy via adaptivity) than other surrogates like data-fits and perform more accurate <emphasis>a posteriori</emphasis> error analysis (e.g., via <emphasis>a posteriori</emphasis> error bounds or error models).</para>
 <para>Despite these benefits, the practical challenges of implementing nonlinear model-reduction techniques in large-scale codes often precludes their adoption in practice; this occurs because standard implementations require modifying low-level operations and solvers for each simulation code of interest. This implementation strategy is simply not practical or sustainable in many modern settings, because industrial simulation codes often evolve rapidly, institutions may employ dozens of simulation codes for different analyses, and commercial codes typically do not expose the required low-level operators and solvers.</para>
 <para> <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-success"> <bold><emphasis>Pressio</emphasis></bold> aims to break this barrier by mitigating the implementation burden of nonlinear model reduction in large-scale applications without compromising performance.  </mcss:span></para>
 </sect1>
-<sect1 id="index_1autotoc_md4">
+<sect1 id="index_1autotoc_md15">
 <title>Main steps of pROMs</title>
 <para>Projection-based model reduction can be broken into three main steps, namely data collection, basis creation, and ROM deployment.</para>
 <para><itemizedlist>
@@ -26,11 +26,11 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md5">
+<sect1 id="index_1autotoc_md16">
 <title>What steps does Pressio currently cover?</title>
 <para><bold><emphasis>Pressio</emphasis></bold> currently contains capabilities to perform the last step.  <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> Say that we have plans for the other steps too. Maybe at some point we will provide tools to run the samples, but for now that is not a huge priority. we can develop something later on to aid this step. For example interfacing with efficient POD libraries, providing tools for specific mesh formats (exodus).</para>
 </sect1>
-<sect1 id="index_1autotoc_md6">
+<sect1 id="index_1autotoc_md17">
 <title>The Pressio ecosystem</title>
 <para><bold><emphasis>Pressio</emphasis></bold> is a computational framework, comprising a (growing) collection of repositories :</para>
 <para><itemizedlist>
