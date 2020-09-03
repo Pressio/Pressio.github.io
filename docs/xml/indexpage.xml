@@ -17,22 +17,26 @@
 <para> <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-success"> <bold><emphasis>Pressio</emphasis></bold> aims to break this barrier by mitigating the implementation burden of nonlinear model reduction in large-scale applications without compromising performance.  </mcss:span></para>
 </sect1>
 <sect1 id="index_1autotoc_md4">
-<title>What steps of pROMs does Pressio cover?</title>
-<para>Projection-based model reduction can be broken into three main steps, namely data collection, basis creation, and ROM deployment. <bold><emphasis>Pressio</emphasis></bold> currently contains capabilities to perform the last step.</para>
+<title>Main steps of pROMs</title>
+<para>Projection-based model reduction can be broken into three main steps, namely data collection, basis creation, and ROM deployment.</para>
 <para><itemizedlist>
-<listitem><para>data collection: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (users do this. Maybe at some point we will provide tools to run the samples, but for now that is not a huge priority.)</para>
-</listitem><listitem><para>compute basis: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (this is done externally. But we can develop something later on to aid this step. For example interfacing with efficient POD libraries, providing tools for specific mesh formats (exodus).)</para>
-</listitem><listitem><para>create/run the ROM: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span></para>
+<listitem><para>data collection: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (all)</para>
+</listitem><listitem><para>compute basis: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (all)</para>
+</listitem><listitem><para>create/run the ROM: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> (all)</para>
 </listitem></itemizedlist>
 </para>
 </sect1>
 <sect1 id="index_1autotoc_md5">
-<title>What does Pressio include?</title>
+<title>What steps does Pressio currently cover?</title>
+<para><bold><emphasis>Pressio</emphasis></bold> currently contains capabilities to perform the last step.  <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span> Say that we have plans for the other steps too. Maybe at some point we will provide tools to run the samples, but for now that is not a huge priority. we can develop something later on to aid this step. For example interfacing with efficient POD libraries, providing tools for specific mesh formats (exodus).</para>
+</sect1>
+<sect1 id="index_1autotoc_md6">
+<title>The Pressio ecosystem</title>
 <para><bold><emphasis>Pressio</emphasis></bold> is a computational framework, comprising a (growing) collection of repositories :</para>
 <para><itemizedlist>
 <listitem><para><ulink url="https://github.com/Pressio/pressio">pressio</ulink>: <emsp/><ensp/><emsp/><emsp/><ensp/>core C++ library based on generic programming;</para>
 </listitem><listitem><para><ulink url="https://github.com/Pressio/pressio4py">pressio4py</ulink>: <emsp/><emsp/><nonbreakablespace/><nonbreakablespace/>Python bindings for the core Pressio C++ functionalities;</para>
-</listitem><listitem><para><ulink url="https://github.com/Pressio/pressio-builder">pressio-builder</ulink>: <nonbreakablespace/><nonbreakablespace/><nonbreakablespace/>auxiliary repo with bash scripts for building/testing.</para>
+</listitem><listitem><para><ulink url="https://github.com/Pressio/pressio-builder">pressio-builder</ulink>: <nonbreakablespace/><nonbreakablespace/><nonbreakablespace/>auxiliary bash scripts for building/testing.</para>
 </listitem><listitem><para><ulink url="https://github.com/Pressio/pressio-tutorials">pressio-tutorials</ulink>: <nonbreakablespace/>tutorials explaining how to use <computeroutput>pressio</computeroutput> and its functionalities; </para>
 </listitem></itemizedlist>
 </para>

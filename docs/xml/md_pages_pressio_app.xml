@@ -6,7 +6,13 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>todo </para>
+<para>Patrick: <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span><itemizedlist>
+<listitem><para>describe how pressio interacts with the app</para>
+</listitem><listitem><para>use paper to extract things</para>
+</listitem></itemizedlist>
+</para>
+<para>Use the image: <image type="html" name="https://github.com/Pressio/pressio/tree/master/figs/press_app_schematic.png" inline="yes"></image>
+ </para>
     </detaileddescription>
   </compounddef>
 </doxygen>
