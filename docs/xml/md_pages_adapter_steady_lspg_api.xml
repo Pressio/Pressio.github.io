@@ -36,10 +36,10 @@
 <codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>computes<sp/>the<sp/>result<sp/>of<sp/>applying<sp/>the<sp/>jacobian<sp/>to<sp/>the<sp/>argument:<sp/>A<sp/><sp/>=<sp/>Jacobian<sp/>B</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>applyJacobian(state,<sp/>B,<sp/>A)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>computes:<sp/>A<sp/>=<sp/>Jac<sp/>B</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">};</highlight></codeline>
-</programlisting></para>
+</programlisting> </para>
+</parblock></para>
 <para><linebreak/>
  </para>
-</parblock></para>
 <sect2 id="md_pages_adapter_steady_lspg_api_1autotoc_md3">
 <title>Preconditioned steady LSPG</title>
 <para>If you want a preconditioned steady LSPG problem, then the above class must be extended to add:  <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-code-figure" /> <parblock><para><programlisting filename=".cpp"><codeline><highlight class="keyword">class<sp/></highlight><highlight class="normal">AdapterSteadyLSPG</highlight></codeline>
