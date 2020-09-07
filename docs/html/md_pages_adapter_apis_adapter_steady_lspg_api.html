@@ -55,6 +55,7 @@
             <li>
               <a href="md_pages_adapter_api.html">Adapter API</a>
               <ol>
+                <li><a href="md_pages_adapter_apis_adapter_galerkin_api.html">Galerkin ROM</a></li>
                 <li><a href="md_pages_adapter_apis_adapter_steady_lspg_api.html">Steady LSPG ROM</a></li>
                 <li><a href="md_pages_adapter_apis_adapter_unsteady_lspg_api.html">Unsteady LSPG ROM</a></li>
               </ol>
@@ -88,7 +89,7 @@
         <h1>
           Adapter/system class API for Steady LSPG
         </h1>
-<p>Note that the adapter classes shown below serve the purpose of interfacing your native application with pressio, but the actual object instantiated from one of these should be created as part of your application. These classes do <strong>not</strong> contain anything strictly related to pressio, but just contain types native to your application.  <span class="m-text m-danger">todo</span> (fix)</p><section id="autotoc_md2"><h2><a href="#autotoc_md2">Basic Steady LSPG problem</a></h2><p>The adapter class should look like:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterSteadyLSPG</span>
+<p>Note that the adapter classes shown below serve the purpose of interfacing your native application with pressio, but the actual object instantiated from one of these should be created as part of your application. These classes do <strong>not</strong> contain anything strictly related to pressio, but just contain types native to your application.  <span class="m-text m-danger">todo</span> (fix)</p><section id="autotoc_md6"><h2><a href="#autotoc_md6">Basic Steady LSPG problem</a></h2><p>The adapter class should look like:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterSteadyLSPG</span>
 <span class="p">{</span>
   <span class="c1">// ...</span>
 <span class="k">public</span><span class="o">:</span>
@@ -113,7 +114,7 @@
 
   <span class="c1">// computes the result of applying the jacobian to the argument: A  = Jacobian B</span>
   <span class="kt">void</span> <span class="nf">applyJacobian</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// computes: A = Jac B</span>
-<span class="p">};</span></pre></div><p><br /></p><section id="autotoc_md3"><h3><a href="#autotoc_md3">Preconditioned steady LSPG</a></h3><p>If you want a preconditioned steady LSPG problem, then the above class must be extended to add:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterSteadyLSPG</span>
+<span class="p">};</span></pre></div><p><br /></p><section id="autotoc_md7"><h3><a href="#autotoc_md7">Preconditioned steady LSPG</a></h3><p>If you want a preconditioned steady LSPG problem, then the above class must be extended to add:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterSteadyLSPG</span>
 <span class="p">{</span>
   <span class="c1">// everything from above</span>
 

@@ -7,10 +7,10 @@
     </briefdescription>
     <detaileddescription>
 <para>For unsteady, Pressio supports a so-called <emphasis>continuous-time</emphasis> and <emphasis>discrete-time</emphasis> API. <mcss:span xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-text m-danger">todo</mcss:span></para>
-<sect1 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md5">
+<sect1 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md9">
 <title>Continuous-time API</title>
 <para>The continuous-time API operates such that the user is responsible to compute the continuous-time operators, e.g., the velocity, and pressio assembles the discrete-time operators. It is an API that very expressive of the formulation on which pressio relies on.</para>
-<sect2 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md6">
+<sect2 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md10">
 <title>Basic Unsteady LSPG</title>
 <para>For a basic unsteady LSPG with the <emphasis>continuous-time</emphasis> API we have:</para>
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-code-figure" /> <parblock><para><programlisting filename=".cpp"><codeline><highlight class="keyword">class<sp/></highlight><highlight class="normal">AdapterUnsteadyLSPG{</highlight></codeline>
@@ -30,7 +30,7 @@
 </programlisting> </para>
 </parblock></para>
 </sect2>
-<sect2 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md7">
+<sect2 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md11">
 <title>Preconditioned LSPG</title>
 <para>If you want a preconditioned problem, then the above class must be extended to add:  <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-code-figure" /> <parblock><para><programlisting filename=".cpp"><codeline><highlight class="keyword">class<sp/></highlight><highlight class="normal">AdapterSteadyLSPG</highlight></codeline>
 <codeline><highlight class="normal">{</highlight></codeline>
@@ -45,7 +45,7 @@
 </parblock></para>
 </sect2>
 </sect1>
-<sect1 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md8">
+<sect1 id="md_pages_adapter_apis_adapter_unsteady_lspg_api_1autotoc_md12">
 <title>Discrete-time API</title>
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-code-figure" /> <parblock><para><programlisting filename=".cpp"><codeline><highlight class="keyword">class<sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">{</highlight></codeline>

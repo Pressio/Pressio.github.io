@@ -1,5 +1,5 @@
-For unsteady, Pressio supports a so-\/called {\itshape continuous-\/time} and {\itshape discrete-\/time} A\+PI.todo\hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md5}{}\doxysection{Continuous-\/time A\+PI}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md5}
-The continuous-\/time A\+PI operates such that the user is responsible to compute the continuous-\/time operators, e.\+g., the velocity, and pressio assembles the discrete-\/time operators. It is an A\+PI that very expressive of the formulation on which pressio relies on.\hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md6}{}\doxysubsection{Basic Unsteady L\+S\+PG}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md6}
+For unsteady, Pressio supports a so-\/called {\itshape continuous-\/time} and {\itshape discrete-\/time} A\+PI.todo\hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md9}{}\doxysection{Continuous-\/time A\+PI}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md9}
+The continuous-\/time A\+PI operates such that the user is responsible to compute the continuous-\/time operators, e.\+g., the velocity, and pressio assembles the discrete-\/time operators. It is an A\+PI that very expressive of the formulation on which pressio relies on.\hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md10}{}\doxysubsection{Basic Unsteady L\+S\+PG}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md10}
 For a basic unsteady L\+S\+PG with the {\itshape continuous-\/time} A\+PI we have\+:
 
  
@@ -19,7 +19,7 @@ For a basic unsteady L\+S\+PG with the {\itshape continuous-\/time} A\+PI we hav
 \DoxyCodeLine{  \textcolor{keywordtype}{void} applyJacobian(state, \textcolor{keyword}{const} dense\_matrix\_type \& B, time, dense\_matrix\_type \& A) \textcolor{keyword}{const}; \textcolor{comment}{// computes: A = Jac B}}
 \DoxyCodeLine{\};}
 \end{DoxyCode}
- \hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md7}{}\doxysubsection{Preconditioned L\+S\+PG}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md7}
+ \hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md11}{}\doxysubsection{Preconditioned L\+S\+PG}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md11}
 If you want a preconditioned problem, then the above class must be extended to add\+:  
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{class }AdapterSteadyLSPG}
@@ -32,7 +32,7 @@ If you want a preconditioned problem, then the above class must be extended to a
 \DoxyCodeLine{}
 \DoxyCodeLine{\};}
 \end{DoxyCode}
- \hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md8}{}\doxysection{Discrete-\/time A\+PI}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md8}
+ \hypertarget{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md12}{}\doxysection{Discrete-\/time A\+PI}\label{md_pages_adapter_apis_adapter_unsteady_lspg_api_autotoc_md12}
  
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{class }}

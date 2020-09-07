@@ -55,6 +55,7 @@
             <li>
               <a href="md_pages_adapter_api.html">Adapter API</a>
               <ol>
+                <li><a href="md_pages_adapter_apis_adapter_galerkin_api.html">Galerkin ROM</a></li>
                 <li><a href="md_pages_adapter_apis_adapter_steady_lspg_api.html">Steady LSPG ROM</a></li>
                 <li><a href="md_pages_adapter_apis_adapter_unsteady_lspg_api.html">Unsteady LSPG ROM</a></li>
               </ol>
@@ -88,7 +89,7 @@
         <h1>
           Adapter/system class API for Unsteady LSPG
         </h1>
-<p>For unsteady, Pressio supports a so-called <em>continuous-time</em> and <em>discrete-time</em> API. <span class="m-text m-danger">todo</span></p><section id="autotoc_md5"><h2><a href="#autotoc_md5">Continuous-time API</a></h2><p>The continuous-time API operates such that the user is responsible to compute the continuous-time operators, e.g., the velocity, and pressio assembles the discrete-time operators. It is an API that very expressive of the formulation on which pressio relies on.</p><section id="autotoc_md6"><h3><a href="#autotoc_md6">Basic Unsteady LSPG</a></h3><p>For a basic unsteady LSPG with the <em>continuous-time</em> API we have:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterUnsteadyLSPG</span><span class="p">{</span>
+<p>For unsteady, Pressio supports a so-called <em>continuous-time</em> and <em>discrete-time</em> API. <span class="m-text m-danger">todo</span></p><section id="autotoc_md9"><h2><a href="#autotoc_md9">Continuous-time API</a></h2><p>The continuous-time API operates such that the user is responsible to compute the continuous-time operators, e.g., the velocity, and pressio assembles the discrete-time operators. It is an API that very expressive of the formulation on which pressio relies on.</p><section id="autotoc_md10"><h3><a href="#autotoc_md10">Basic Unsteady LSPG</a></h3><p>For a basic unsteady LSPG with the <em>continuous-time</em> API we have:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterUnsteadyLSPG</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="k">using</span> <span class="n">scalar_type</span> <span class="o">=</span>
   <span class="k">using</span> <span class="n">state_type</span> <span class="o">=</span>
@@ -101,7 +102,7 @@
 
   <span class="kt">void</span> <span class="nf">velocity</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">velo</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="kt">void</span> <span class="nf">applyJacobian</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="k">const</span> <span class="n">dense_matrix_type</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">dense_matrix_type</span> <span class="o">&amp;</span> <span class="n">A</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// computes: A = Jac B</span>
-<span class="p">};</span></pre></div></section><section id="autotoc_md7"><h3><a href="#autotoc_md7">Preconditioned LSPG</a></h3><p>If you want a preconditioned problem, then the above class must be extended to add:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterSteadyLSPG</span>
+<span class="p">};</span></pre></div></section><section id="autotoc_md11"><h3><a href="#autotoc_md11">Preconditioned LSPG</a></h3><p>If you want a preconditioned problem, then the above class must be extended to add:</p><div><pre class="m-code"><span class="k">class</span> <span class="nc">AdapterSteadyLSPG</span>
 <span class="p">{</span>
   <span class="c1">// everything from above</span>
 
@@ -109,7 +110,7 @@
   <span class="kt">void</span> <span class="n">applyPreconditioner</span><span class="p">(</span><span class="k">const</span> <span class="n">state_type</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">scalar_type</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">velocity_type</span> <span class="o">&amp;</span> <span class="n">maskedObj</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="kt">void</span> <span class="nf">applyPreconditioner</span><span class="p">(</span><span class="k">const</span> <span class="n">state_type</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">scalar_type</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">dense_matrix_type</span> <span class="o">&amp;</span> <span class="n">discreteTimeJ</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-<span class="p">};</span></pre></div></section></section><section id="autotoc_md8"><h2><a href="#autotoc_md8">Discrete-time API</a></h2><div><pre class="m-code"><span class="k">class</span> 
+<span class="p">};</span></pre></div></section></section><section id="autotoc_md12"><h2><a href="#autotoc_md12">Discrete-time API</a></h2><div><pre class="m-code"><span class="k">class</span> 
 <span class="err">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="k">using</span> <span class="n">scalar_type</span> <span class="o">=</span> <span class="c1">//..;</span>
