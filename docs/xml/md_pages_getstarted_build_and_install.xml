@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
   <compounddef id="md_pages_getstarted_build_and_install" kind="page">
     <compoundname>md_pages_getstarted_build_and_install</compoundname>
-    <title>Dependencies and Installation</title>
+    <title>Installation and Dependencies</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -62,19 +62,9 @@
 </entry><entry thead="yes"><para>Default Value  </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput>PRESSIO_ENABLE_DEBUG_PRINT</computeroutput> </para>
-</entry><entry thead="no"><para>to enable debugging print statements </para>
-</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
-</entry></row>
-<row>
-<entry thead="no"><para><computeroutput>PRESSIO_ENABLE_EIGEN</computeroutput> </para>
+<entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_EIGEN</computeroutput> </para>
 </entry><entry thead="no"><para>self-explanatory </para>
 </entry><entry thead="no"><para><computeroutput>ON</computeroutput>  </para>
-</entry></row>
-<row>
-<entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_MPI</computeroutput> </para>
-</entry><entry thead="no"><para>self-explanatory </para>
-</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_TRILINOS</computeroutput> </para>
@@ -82,28 +72,38 @@
 </entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
 </entry></row>
 <row>
+<entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_MPI</computeroutput> </para>
+</entry><entry thead="no"><para>self-explanatory </para>
+</entry><entry thead="no"><para><computeroutput>OFF</computeroutput> automatically <computeroutput>ON</computeroutput> if <computeroutput>PRESSIO_ENABLE_TPL_TRILINOS=ON</computeroutput>  </para>
+</entry></row>
+<row>
 <entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_KOKKOS</computeroutput> </para>
 </entry><entry thead="no"><para>self-explanatory </para>
-</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>; is set <computeroutput>ON</computeroutput> when <computeroutput>PRESSIO_ENABLE_TPL_TRILINOS=ON</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>; automatically <computeroutput>ON</computeroutput> if <computeroutput>PRESSIO_ENABLE_TPL_TRILINOS=ON</computeroutput>  </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TEUCHOS_TIMERS</computeroutput> </para>
 </entry><entry thead="no"><para>self-explanatory </para>
-</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>OFF</computeroutput> automatically <computeroutput>ON</computeroutput> if <computeroutput>PRESSIO_ENABLE_TPL_TRILINOS=ON</computeroutput>  </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_BLAS</computeroutput> </para>
 </entry><entry thead="no"><para>self-explanatory </para>
-</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>; automatically <computeroutput>ON</computeroutput> if <computeroutput>PRESSIO_ENABLE_TPL_LAPACK=ON</computeroutput> or <computeroutput>PRESSIO_ENABLE_TPL_TRILINOS=ON</computeroutput>  </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_LAPACK</computeroutput> </para>
 </entry><entry thead="no"><para>self-explanatory </para>
-</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>; automatically <computeroutput>ON</computeroutput> if <computeroutput>PRESSIO_ENABLE_TPL_BLAS=ON</computeroutput> or <computeroutput>PRESSIO_ENABLE_TPL_TRILINOS=ON</computeroutput>  </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput>PRESSIO_ENABLE_TPL_PYBIND11</computeroutput> </para>
 </entry><entry thead="no"><para>self-explanatory </para>
+</entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>PRESSIO_ENABLE_DEBUG_PRINT</computeroutput> </para>
+</entry><entry thead="no"><para>to enable debugging print statements </para>
 </entry><entry thead="no"><para><computeroutput>OFF</computeroutput>  </para>
 </entry></row>
 </table>
@@ -112,7 +112,7 @@
 <para>Also, some of the cmake variables listed above are connected. For example, if we enable Trilinos then <computeroutput>pressio</computeroutput> automatically enables also Kokkos, BLAS, LAPACK and MPI. The reason for this is twofold: (a) to simplify what the user needs to provide; and (b) we belive some of these constraints are necessary.</para>
 </sect1>
 <sect1 id="md_pages_getstarted_build_and_install_1autotoc_md15">
-<title>Ok, but what are the steps to get, install and use Pressio in practice?</title>
+<title>In practice, what are the steps to get, install and use Pressio?</title>
 <para>We suggest to use the following steps to install the <computeroutput>pressio</computeroutput> headers such that you can then point to it from within your code: <orderedlist>
 <listitem>
 <para></para>
@@ -139,15 +139,15 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-D<sp/>PRESSIO_ENABLE_TPL_TRILINOS=ON<sp/>..</highlight></codeline>
 <codeline><highlight class="normal">make<sp/>install<sp/>#<sp/>nothing<sp/>is<sp/>built,<sp/>just<sp/>headers<sp/>copied<sp/>to<sp/>installation</highlight></codeline>
 </programlisting> </para>
-<para>This step would process the cmake arguments and copy the <computeroutput>pressio</computeroutput> headers to the install prefix <computeroutput>&lt;where-you-cloned-pressio&gt;/install</computeroutput>. Note that nothing is built yet because <computeroutput>pressio</computeroutput> is header-only.</para>
-<para>Since <computeroutput>pressio</computeroutput> is header-only, any TPL you want to enable is <bold>not</bold> needed now during the installation of <computeroutput>pressio</computeroutput>, but it is needed when you build any code that <emphasis>uses</emphasis> pressio.</para>
+<para>Note that during this step <bold>nothing</bold> is built because <computeroutput>pressio</computeroutput> is header-only. This step only processes the cmake arguments and copy the headers to the install prefix <computeroutput>&lt;where-you-cloned-pressio&gt;/install</computeroutput>, where you can also find a <computeroutput>presssio_cmake_config.h</computeroutput> file containing the cmake variables defined.</para>
+<para>Since <computeroutput>pressio</computeroutput> is header-only, any TPL you want to enable is <bold>not</bold> really needed during this installation of <computeroutput>pressio</computeroutput>, but obviously will be needed when you build any code that <emphasis>uses</emphasis> pressio and that TPL.</para>
 <para><linebreak/>
  </para>
 </parblock></para>
 </listitem>
 <listitem>
 <para></para>
-<para>Now you point to the installed headers when building your application, and include the <computeroutput>pressio</computeroutput> header <computeroutput>pressio.hpp</computeroutput>. For the sake of the argument, imagine a simple main file as follows:  <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-code-figure" /> <parblock><para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;pressio.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<para>Now you point to the installed headers when building your application, and include the <computeroutput>pressio</computeroutput> header <computeroutput>pressio.hpp</computeroutput>, for example as:  <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-code-figure" /> <parblock><para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;pressio.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>...</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(){</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>what<sp/>you<sp/>need</highlight><highlight class="normal"></highlight></codeline>
@@ -157,6 +157,10 @@
 </parblock></para>
 </listitem>
 </orderedlist>
+</para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-block m-warning" /></para>
+<para><simplesect kind="par"><title>Warning:</title><para>The procedue above is highly advised because it enables <computeroutput>pressio</computeroutput> to properly process the cmake options and turn on/off based on certain conditions (as explained above). The alternative way to use pressio would be to just clone the repo, point to its source code and use cmake variables directly when building your code. However, this could have unexpected consequences since you would be resposible to set the variables correctly but you would not know exactly all the possible constrants. Therefore, we suggest to use the steps above. </para>
+</simplesect>
 </para>
 </sect1>
     </detaileddescription>

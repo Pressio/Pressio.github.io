@@ -52,21 +52,21 @@ Enabling/disabling specific dependencies is done via the following cmake variabl
 \hline
 \PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Variable }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Default Value  }\\\cline{1-3}
 \endhead
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT} &to enable debugging print statements &{\ttfamily O\+FF}  \\\cline{1-3}
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+E\+I\+G\+EN} &self-\/explanatory &{\ttfamily ON}  \\\cline{1-3}
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+M\+PI} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+E\+I\+G\+EN} &self-\/explanatory &{\ttfamily ON}  \\\cline{1-3}
 {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+K\+O\+K\+K\+OS} &self-\/explanatory &{\ttfamily O\+FF}; is set {\ttfamily ON} when {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+E\+U\+C\+H\+O\+S\+\_\+\+T\+I\+M\+E\+RS} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+B\+L\+AS} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
-{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+L\+A\+P\+A\+CK} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+M\+PI} &self-\/explanatory &{\ttfamily O\+FF} automatically {\ttfamily ON} if {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+K\+O\+K\+K\+OS} &self-\/explanatory &{\ttfamily O\+FF}; automatically {\ttfamily ON} if {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+E\+U\+C\+H\+O\+S\+\_\+\+T\+I\+M\+E\+RS} &self-\/explanatory &{\ttfamily O\+FF} automatically {\ttfamily ON} if {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+B\+L\+AS} &self-\/explanatory &{\ttfamily O\+FF}; automatically {\ttfamily ON} if {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+L\+A\+P\+A\+CK=ON} or {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+L\+A\+P\+A\+CK} &self-\/explanatory &{\ttfamily O\+FF}; automatically {\ttfamily ON} if {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+B\+L\+AS=ON} or {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
 {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+P\+Y\+B\+I\+N\+D11} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT} &to enable debugging print statements &{\ttfamily O\+FF}  \\\cline{1-3}
 \end{longtabu}
 
 
 Obviously, the choice of T\+P\+Ls to enable is related to the dependency requirements of your application. For example, if you have an application that relies on Trilinos data structures and want to use {\ttfamily pressio}, then it makes sense to enable the Trilinos dependency. If you have an application that relies on Eigen data structures, then it makes sense to only leave only Eigen on.
 
-Also, some of the cmake variables listed above are connected. For example, if we enable Trilinos then {\ttfamily pressio} automatically enables also Kokkos, B\+L\+AS, L\+A\+P\+A\+CK and M\+PI. The reason for this is twofold\+: (a) to simplify what the user needs to provide; and (b) we belive some of these constraints are necessary.\hypertarget{md_pages_getstarted_build_and_install_autotoc_md15}{}\doxysection{Ok, but what are the steps to get, install and use Pressio in practice?}\label{md_pages_getstarted_build_and_install_autotoc_md15}
+Also, some of the cmake variables listed above are connected. For example, if we enable Trilinos then {\ttfamily pressio} automatically enables also Kokkos, B\+L\+AS, L\+A\+P\+A\+CK and M\+PI. The reason for this is twofold\+: (a) to simplify what the user needs to provide; and (b) we belive some of these constraints are necessary.\hypertarget{md_pages_getstarted_build_and_install_autotoc_md15}{}\doxysection{In practice, what are the steps to get, install and use Pressio?}\label{md_pages_getstarted_build_and_install_autotoc_md15}
 We suggest to use the following steps to install the {\ttfamily pressio} headers such that you can then point to it from within your code\+: 
 \begin{DoxyEnumerate}
 \item 
@@ -104,15 +104,15 @@ Use cmake to configure by passing to the comand line the target list of cmake va
 \end{DoxyCode}
  
 
-This step would process the cmake arguments and copy the {\ttfamily pressio} headers to the install prefix {\ttfamily $<$where-\/you-\/cloned-\/pressio$>$/install}. Note that nothing is built yet because {\ttfamily pressio} is header-\/only.
+Note that during this step {\bfseries{nothing}} is built because {\ttfamily pressio} is header-\/only. This step only processes the cmake arguments and copy the headers to the install prefix {\ttfamily $<$where-\/you-\/cloned-\/pressio$>$/install}, where you can also find a {\ttfamily presssio\+\_\+cmake\+\_\+config.\+h} file containing the cmake variables defined.
 
-Since {\ttfamily pressio} is header-\/only, any T\+PL you want to enable is {\bfseries{not}} needed now during the installation of {\ttfamily pressio}, but it is needed when you build any code that {\itshape uses} pressio.
+Since {\ttfamily pressio} is header-\/only, any T\+PL you want to enable is {\bfseries{not}} really needed during this installation of {\ttfamily pressio}, but obviously will be needed when you build any code that {\itshape uses} pressio and that T\+PL.
 
 ~\newline
  
 \item 
 
-Now you point to the installed headers when building your application, and include the {\ttfamily pressio} header {\ttfamily pressio.\+hpp}. For the sake of the argument, imagine a simple main file as follows\+:  
+Now you point to the installed headers when building your application, and include the {\ttfamily pressio} header {\ttfamily pressio.\+hpp}, for example as\+:  
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "pressio.hpp"}}
 \DoxyCodeLine{\textcolor{comment}{// ...}}
@@ -124,3 +124,9 @@ Now you point to the installed headers when building your application, and inclu
 
 
 \end{DoxyEnumerate}
+
+
+
+\begin{DoxyParagraph}{Warning\+:}
+The procedue above is highly advised because it enables {\ttfamily pressio} to properly process the cmake options and turn on/off based on certain conditions (as explained above). The alternative way to use pressio would be to just clone the repo, point to its source code and use cmake variables directly when building your code. However, this could have unexpected consequences since you would be resposible to set the variables correctly but you would not know exactly all the possible constrants. Therefore, we suggest to use the steps above. 
+\end{DoxyParagraph}
