@@ -10,6 +10,14 @@
   </compound>
   <compound refid="example1_8md" kind="file"><name>example1.md</name>
   </compound>
+  <compound refid="get__started_8md" kind="file"><name>get_started.md</name>
+  </compound>
+  <compound refid="adapting__app_8md" kind="file"><name>adapting_app.md</name>
+  </compound>
+  <compound refid="build__and__install_8md" kind="file"><name>build_and_install.md</name>
+  </compound>
+  <compound refid="pressio__app_8md" kind="file"><name>pressio_app.md</name>
+  </compound>
   <compound refid="hyperreduction_8md" kind="file"><name>hyperreduction.md</name>
   </compound>
   <compound refid="hyperred__eigen__example_8md" kind="file"><name>hyperred_eigen_example.md</name>
@@ -23,14 +31,6 @@
   <compound refid="tutorials_8md" kind="file"><name>tutorials.md</name>
   </compound>
   <compound refid="tutorial1_8md" kind="file"><name>tutorial1.md</name>
-  </compound>
-  <compound refid="user__guide_8md" kind="file"><name>user_guide.md</name>
-  </compound>
-  <compound refid="adapting__app_8md" kind="file"><name>adapting_app.md</name>
-  </compound>
-  <compound refid="build__and__install_8md" kind="file"><name>build_and_install.md</name>
-  </compound>
-  <compound refid="prep__app_8md" kind="file"><name>prep_app.md</name>
   </compound>
   <compound refid="various_8md" kind="file"><name>various.md</name>
   </compound>
@@ -52,6 +52,14 @@
   </compound>
   <compound refid="md_pages_examples" kind="page"><name>md_pages_examples</name>
   </compound>
+  <compound refid="md_pages_get_started" kind="page"><name>md_pages_get_started</name>
+  </compound>
+  <compound refid="md_pages_getstarted_adapting_app" kind="page"><name>md_pages_getstarted_adapting_app</name>
+  </compound>
+  <compound refid="md_pages_getstarted_build_and_install" kind="page"><name>md_pages_getstarted_build_and_install</name>
+  </compound>
+  <compound refid="md_pages_getstarted_pressio_app" kind="page"><name>md_pages_getstarted_pressio_app</name>
+  </compound>
   <compound refid="md_pages_hyperreduction_hyperred_eigen_example" kind="page"><name>md_pages_hyperreduction_hyperred_eigen_example</name>
   </compound>
   <compound refid="md_pages_hyperreduction_hyperred_how_to_enable" kind="page"><name>md_pages_hyperreduction_hyperred_how_to_enable</name>
@@ -63,14 +71,6 @@
   <compound refid="md_pages_tutorials_tutorial1" kind="page"><name>md_pages_tutorials_tutorial1</name>
   </compound>
   <compound refid="md_pages_tutorials" kind="page"><name>md_pages_tutorials</name>
-  </compound>
-  <compound refid="md_pages_user_guide" kind="page"><name>md_pages_user_guide</name>
-  </compound>
-  <compound refid="md_pages_userguide_adapting_app" kind="page"><name>md_pages_userguide_adapting_app</name>
-  </compound>
-  <compound refid="md_pages_userguide_build_and_install" kind="page"><name>md_pages_userguide_build_and_install</name>
-  </compound>
-  <compound refid="md_pages_userguide_prep_app" kind="page"><name>md_pages_userguide_prep_app</name>
   </compound>
   <compound refid="md_pages_various_formulation_galerkin" kind="page"><name>md_pages_various_formulation_galerkin</name>
   </compound>
@@ -86,13 +86,13 @@
   </compound>
   <compound refid="dir_c8b5f49f42f70cbb2789196c6be03b08" kind="dir"><name>pages/examples</name>
   </compound>
+  <compound refid="dir_72e76ac6147c72c291306ebceacd125b" kind="dir"><name>pages/getstarted</name>
+  </compound>
   <compound refid="dir_c47e5d700743d14fcf5d1e609c4d899d" kind="dir"><name>pages/hyperreduction</name>
   </compound>
   <compound refid="dir_208d2690607c4e3d3fabfa1d18673d36" kind="dir"><name>pages</name>
   </compound>
   <compound refid="dir_d37f90f6dfa16220c69059cd0bfa7aa7" kind="dir"><name>pages/tutorials</name>
-  </compound>
-  <compound refid="dir_b66bbe26efea6d221a517682df16dc04" kind="dir"><name>pages/userguide</name>
   </compound>
   <compound refid="dir_641e6e2d6329e01ae5e5715108e316c1" kind="dir"><name>pages/various</name>
   </compound>

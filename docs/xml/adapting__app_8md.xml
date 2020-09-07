@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="pages/userguide/adapting_app.md"/>
+    <location file="pages/getstarted/adapting_app.md"/>
   </compounddef>
 </doxygen>

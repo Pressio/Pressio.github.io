@@ -1,0 +1,126 @@
+
+
+\begin{DoxyParagraph}{What does this page cover?}
+This page describes the dependencies of {\ttfamily pressio} and its installation process. By the end, you should be able to get pressio, install it, and point to the installed headers from your application. 
+\end{DoxyParagraph}
+
+
+
+
+\begin{DoxyParagraph}{Overview}
+{\ttfamily pressio} is header-\/only, so to use it one does not need to precompile it into a library and linking to it. However, since we use preprocessor directives to conditionally enable/disable code based on target third-\/party libraries, one needs to account for this. See below for the details. 
+\end{DoxyParagraph}
+\hypertarget{md_pages_getstarted_build_and_install_autotoc_md14}{}\doxysection{Dependencies}\label{md_pages_getstarted_build_and_install_autotoc_md14}
+{\ttfamily pressio} contains code that is specific to third-\/party libraries (T\+P\+Ls) to benefit the integration into existing applications. We can distinguish between {\itshape optional} and {\itshape required} dependencies.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|p{1cm}}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ T\+PL Library Name }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Optional/\+Required  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ T\+PL Library Name }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Optional/\+Required  }\\\cline{1-2}
+\endhead
+Eigen &Required  \\\cline{1-2}
+Trilinos &Optional  \\\cline{1-2}
+M\+PI &Optional  \\\cline{1-2}
+Kokkos &Optional  \\\cline{1-2}
+B\+L\+AS &Optional  \\\cline{1-2}
+L\+A\+P\+A\+CK &Optional  \\\cline{1-2}
+Pybind11 &Optional  \\\cline{1-2}
+\end{longtabu}
+
+
+
+
+\begin{DoxyParagraph}{}
+Eigen is the only required dependency because it is the default choice for instantiating the (dense) R\+OM operators and solving the (dense) R\+OM problem. 
+\end{DoxyParagraph}
+
+
+Enabling/disabling specific dependencies is done via the following cmake variables\+: todo fix the autoamtic setting of pressio based on what is selected.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|p{1cm}}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Variable }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Default Value  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Variable }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Default Value  }\\\cline{1-3}
+\endhead
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+NT} &to enable debugging print statements &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+E\+I\+G\+EN} &self-\/explanatory &{\ttfamily ON}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+M\+PI} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+K\+O\+K\+K\+OS} &self-\/explanatory &{\ttfamily O\+FF}; is set {\ttfamily ON} when {\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+T\+R\+I\+L\+I\+N\+OS=ON}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+E\+U\+C\+H\+O\+S\+\_\+\+T\+I\+M\+E\+RS} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+B\+L\+AS} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+L\+A\+P\+A\+CK} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+{\ttfamily P\+R\+E\+S\+S\+I\+O\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+P\+L\+\_\+\+P\+Y\+B\+I\+N\+D11} &self-\/explanatory &{\ttfamily O\+FF}  \\\cline{1-3}
+\end{longtabu}
+
+
+Obviously, the choice of T\+P\+Ls to enable is related to the dependency requirements of your application. For example, if you have an application that relies on Trilinos data structures and want to use {\ttfamily pressio}, then it makes sense to enable the Trilinos dependency. If you have an application that relies on Eigen data structures, then it makes sense to only leave only Eigen on.
+
+Also, some of the cmake variables listed above are connected. For example, if we enable Trilinos then {\ttfamily pressio} automatically enables also Kokkos, B\+L\+AS, L\+A\+P\+A\+CK and M\+PI. The reason for this is twofold\+: (a) to simplify what the user needs to provide; and (b) we belive some of these constraints are necessary.\hypertarget{md_pages_getstarted_build_and_install_autotoc_md15}{}\doxysection{Ok, but what are the steps to get, install and use Pressio in practice?}\label{md_pages_getstarted_build_and_install_autotoc_md15}
+We suggest to use the following steps to install the {\ttfamily pressio} headers such that you can then point to it from within your code\+: 
+\begin{DoxyEnumerate}
+\item 
+
+Clone {\ttfamily pressio}
+
+
+
+
+\item 
+
+Create a build and install subdirectories
+
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd <where-\/you-\/cloned-\/pressio>}
+\DoxyCodeLine{mkdir build \&\& mkdir install}
+\end{DoxyCode}
+ 
+
+
+
+~\newline
+ 
+\item 
+
+Use cmake to configure by passing to the comand line the target list of cmake variables to define. For example, if we want to enable support in {\ttfamily pressio} for Trilinos, one would do\+:
+
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd <where-\/you-\/cloned-\/pressio>/build}
+\DoxyCodeLine{cmake -\/D CMAKE\_INSTALL\_PREFIX=../install \(\backslash\)}
+\DoxyCodeLine{      -\/D PRESSIO\_ENABLE\_TPL\_TRILINOS=ON ..}
+\DoxyCodeLine{make install \# nothing is built, just headers copied to installation}
+\end{DoxyCode}
+ 
+
+This step would process the cmake arguments and copy the {\ttfamily pressio} headers to the install prefix {\ttfamily $<$where-\/you-\/cloned-\/pressio$>$/install}. Note that nothing is built yet because {\ttfamily pressio} is header-\/only.
+
+Since {\ttfamily pressio} is header-\/only, any T\+PL you want to enable is {\bfseries{not}} needed now during the installation of {\ttfamily pressio}, but it is needed when you build any code that {\itshape uses} pressio.
+
+~\newline
+ 
+\item 
+
+Now you point to the installed headers when building your application, and include the {\ttfamily pressio} header {\ttfamily pressio.\+hpp}. For the sake of the argument, imagine a simple main file as follows\+:  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "pressio.hpp"}}
+\DoxyCodeLine{\textcolor{comment}{// ...}}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{  \textcolor{comment}{// do what you need}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+
+
+\end{DoxyEnumerate}
