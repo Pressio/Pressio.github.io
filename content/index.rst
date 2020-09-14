@@ -2,7 +2,7 @@ Pressio
 #############
 
 :save_as: index.html
-:cover: {static}/img/342303.png
+:cover: {static}/img/top1.jpg
 :url:
 :description: Projection-based model reduction for dynamical systems.
 :summary: Model reduction for ...
@@ -43,9 +43,9 @@ Pressio
 
             .. raw:: html
 
-                <p class="m-text m-primary m-big">Pressio aims to mitigate the
+                <p class="m-text m-default m-big"><i>Pressio aims to mitigate the
                 implementation burden of projection-based model reduction
-                in large-scale applications without compromising performance.</p>
+                in large-scale applications without compromising performance.</i></p>
 
 
     .. container:: m-row
@@ -69,7 +69,7 @@ Pressio
                 :figclass: m-fullwidth m-warning
                 :alt: Core features
 
-            .. block-primary:: Core C++ library
+            .. block-default:: Core C++ library
 
                 Do you have a C++ application and want to know how to use *pressio* from C++?
                 Follow this link below to read about the userguide.
@@ -91,7 +91,7 @@ Pressio
                 *without* touching C++? We have Python bindings for that!
                 This is the link for you.
 
-                .. button-default:: https://github.com/Pressio/pressio4py
+                .. button-primary:: https://github.com/Pressio/pressio4py
                     :class: m-fullwidth
 
                     Explore **pressio4py**
