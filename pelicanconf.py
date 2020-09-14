@@ -51,7 +51,7 @@ TAGS_SAVE_AS = None # Not used
 PAGINATION_PATTERNS = [(1, '{base_name}/', '{base_name}/index.html'),
                        (2, '{base_name}/{number}/', '{base_name}/{number}/index.html')]
 
-TIMEZONE = 'Europe/Prague'
+TIMEZONE = 'Europe/Rome'
 
 DEFAULT_LANG = 'en'
 
@@ -69,8 +69,15 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 M_LINKS_NAVBAR1 = [('Overview', '', '', [
-                    ("What are pROMs", 'overview/proms/', 'overview/proms'),
-                    ("Design Approach", 'overview/design/', 'overview/design')])]
+                        ("What are pROMs", 'overview/proms/', 'overview/proms'),
+                        ("Design Approach", 'overview/design/', 'overview/design')]),
+                   ('Supported Algorithms', '', '', [
+                     ("Galerkin", 'algos/galerkin/', 'algos/galerkin'),
+                     ("LSPG", 'algos/lspg/', 'algos/lspg'),
+                     ("WLS", 'algos/wls/', 'algos/wls')]),
+                   ('Various', '', '', [
+                     ("License", 'various/license/', 'various/license')])]
+
 M_LINKS_NAVBAR2 = []
 M_LINKS_FOOTER1 = []
 M_LINKS_FOOTER2 = []
@@ -117,7 +124,7 @@ THEME_STATIC_DIR = 'static/'
 
 M_THEME_COLOR = '#22272e'
 # M_SOCIAL_TWITTER_SITE = ''
-# M_SOCIAL_TWITTER_SITE_ID = 
+# M_SOCIAL_TWITTER_SITE_ID =
 # M_SOCIAL_IMAGE = ''
 # M_SHOW_AUTHOR_LIST = True
 

@@ -50,9 +50,11 @@ Pressio
 
     .. container:: m-row
 
-        .. container:: m-col-l-6 m-push-l-1
+        .. container:: m-col-l-9 m-push-l-1
 
-            If you want to know, from here you can explore...s
+            Interested in more? Explore the `steps typically involved
+	    in pROMs <{filename}/overview/proms.rst>`_ or
+	    the `design idea behind Pressio <{filename}/overview/design.rst>`_.
 
 
     .. raw:: html

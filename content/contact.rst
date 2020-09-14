@@ -1,17 +1,16 @@
 Contact Us
 ##########
 
-:summary: Ways to contact the team, follow the development, contribute, support
-    the project and get premium support and consulting offers
+:summary: fill
 
-You can contact the team and follow the development via the following means:
+You can contact the team and follow the development via the following:
 
--   somthing 
+-   something
 
 `Contribute to the project`_
 ============================
 
-bla bla 
+bla bla
 
 `Support the development`_
 ==========================
