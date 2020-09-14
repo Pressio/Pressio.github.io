@@ -91,7 +91,7 @@ M_CSS_FILES = ['https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i
 M_FINE_PRINT = """
 | Pressio. Site created by Francesco Rizzi, powered by `Pelican <https://getpelican.com>`_
   and `m.css <https://mcss.mosra.cz>`_, using a theme adapted from `magnum <https://magnum.graphics/>`_.
-| This site content is `available on GitHub <https://github.com/Pressio/Pressio.github.io>`_.
+| Pressio logo designed by Brent Haglund. This site content is `available on GitHub <https://github.com/Pressio/Pressio.github.io>`_.
 """
 
 # M_NEWS_ON_INDEX = ("Latest news on our blog", 3)
