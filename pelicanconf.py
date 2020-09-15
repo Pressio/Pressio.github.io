@@ -89,7 +89,7 @@ M_CSS_FILES = ['https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i
                'static/m-dark.css']
 
 M_FINE_PRINT = """
-| Pressio. Site created by Francesco Rizzi, powered by `Pelican <https://getpelican.com>`_
+| Pressio. Site created by the Pressio team. Powered by `Pelican <https://getpelican.com>`_
   and `m.css <https://mcss.mosra.cz>`_, using a theme adapted from `magnum <https://magnum.graphics/>`_.
 | Pressio logo designed by Brent Haglund. This site content is `available on GitHub <https://github.com/Pressio/Pressio.github.io>`_.
 """
