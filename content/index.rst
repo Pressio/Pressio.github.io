@@ -72,9 +72,9 @@ Pressio
             .. block-default:: Core C++ library
 
                 Do you have a C++ application and want to know how to use *pressio* from C++?
-                Follow this link below to read about the userguide.
+                Follow this link to the userguide and documentation.
 
-                .. button-primary:: https://github.com/Pressio/pressio
+                .. button-primary:: https://pressio.github.io/pressio/html/index.html
                     :class: m-fullwidth
 
                     Explore the C++ library
