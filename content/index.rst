@@ -91,7 +91,7 @@ Pressio
                 *without* touching C++? We have Python bindings for that!
                 This is the link for you.
 
-                .. button-primary:: https://github.com/Pressio/pressio4py
+                .. button-primary:: https://pressio.github.io/pressio4py/html/index.html
                     :class: m-fullwidth
 
                     Explore **pressio4py**
