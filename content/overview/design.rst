@@ -14,15 +14,15 @@ Fundamental Design
 	.. math::
 	    :class: m-success
 
-		\frac{d \boldsymbol{x}}{dt} =
-		\boldsymbol{f}(\boldsymbol{x},t; \boldsymbol{\mu}),
-		\quad \boldsymbol{x}(0;\boldsymbol{\mu}) = \boldsymbol{x}(\boldsymbol{\mu}),
+		\frac{d \boldsymbol{y}}{dt} =
+		\boldsymbol{f}(\boldsymbol{y},t; \boldsymbol{\mu}),
+		\quad \boldsymbol{y}(0;\boldsymbol{\mu}) = \boldsymbol{y}(\boldsymbol{\mu}),
 
-	where :math-info:`\boldsymbol{x}: [0, T] \times {\cal D} \rightarrow  \mathbb{R}^N`
-	denotes the state, :math-info:`\boldsymbol{x}^0: {\cal D} \rightarrow \mathbb{R}^{N}`
+	where :math-info:`\boldsymbol{y}` denotes the state, :math-info:`\boldsymbol{y}^0`
 	denotes the initial state, :math-info:`\boldsymbol{\mu} \in {\cal D}
 	\subseteq \mathbb{R}^{n_{\mu}}` denotes the system parameters,
-	:math-info:`\boldsymbol{f}:\mathbb{R}^{N} \times [0,T] \times {\cal D} \rightarrow \mathbb{R}^{N}` denotes the velocity that may be linear or nonlinear in its first argument,
+	:math-info:`\boldsymbol{f}` denotes the velocity that may be linear or nonlinear
+        in its first argument,
 	and :math-info:`t\in[0,T]` denotes time with :math-info:`T>0` denoting the final time.
 	We note that the model form above is highly expressive, as it may be derived
 	from the spatial discretization of a PDE problem or from naturally
@@ -36,4 +36,4 @@ Fundamental Design
 	programming interface (API) that is natural to dynamical systems.
 
 
-.. figure:: {static}/img/schematic.svg
+.. figure:: {static}/img/schem.svg

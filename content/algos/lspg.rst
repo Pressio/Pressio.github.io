@@ -17,13 +17,23 @@ LSPG ROM
    .. math::
       :class: m-default
 
-	 \frac{d \boldsymbol{x}}{dt} =
-      \boldsymbol{f}(\boldsymbol{x},t; \boldsymbol{\mu}),
-	 \quad \boldsymbol{x}(0;\boldsymbol{\mu}) = \boldsymbol{x}(\boldsymbol{\mu}),
+      \frac{d \boldsymbol{y}}{dt} =
+      \boldsymbol{f}(\boldsymbol{y},t; \boldsymbol{\mu}),
+      \quad \boldsymbol{y}(0;\boldsymbol{\mu}) = \boldsymbol{y}(\boldsymbol{\mu}),
 
-   where :math-info:`\boldsymbol{x}: [0, T] \times {\cal D} \rightarrow  \mathbb{R}^N`
+   where :math-info:`\boldsymbol{y}: \mathbb{R}^N`,
+   :math-info:`t` is time, and :math-info:`\mu` are parameters.
+   We refer to this system as the full-order model (FOM).
 
-   \todo missing the approximation of the state
+   The key assumption is to approximate the FOM state, :math-info:`y`, as:
+
+   .. math::
+      :class: m-default
+
+	      \boldsymbol{y} = g(\boldsymbol{\hat{y}})
+
+   where :math-info:`\boldsymbol{\hat{y}}` is the reduced state (or generalized coordinates),
+   and :math-info:`g(.)` represents a linear or nonlinear mapping.
 
 
 .. container::
