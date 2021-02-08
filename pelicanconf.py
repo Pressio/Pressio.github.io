@@ -68,15 +68,21 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-M_LINKS_NAVBAR1 = [('Overview', '', '', [
-                        ("What are pROMs", 'overview/proms/', 'overview/proms'),
-                        ("Design Approach", 'overview/design/', 'overview/design')]),
-                   ('Supported Algorithms', '', '', [
-                     ("Galerkin", 'algos/galerkin/', 'algos/galerkin'),
-                     ("LSPG", 'algos/lspg/', 'algos/lspg'),
-                     ("WLS", 'algos/wls/', 'algos/wls')]),
-                   ('Various', '', '', [
-                     ("License", 'various/license/', 'various/license')])]
+M_LINKS_NAVBAR1 = [('Overview', '', '',
+                    [
+                      ("What are pROMs", 'overview/proms/', 'overview/proms')
+                    ]),
+                   ('Supported Algorithms', '', '',
+                    [
+                      ("Galerkin", 'algos/galerkin/', 'algos/galerkin'),
+                      ("LSPG", 'algos/lspg/', 'algos/lspg'),
+                      ("WLS", 'algos/wls/', 'algos/wls')
+                    ]),
+                   ('Various', '', '',
+                    [
+                     ("License", 'various/license/', 'various/license')
+                    ])
+                   ]
 
 M_LINKS_NAVBAR2 = []
 M_LINKS_FOOTER1 = []
