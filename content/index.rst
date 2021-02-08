@@ -52,9 +52,8 @@ Pressio
 
         .. container:: m-col-l-9 m-push-l-1
 
-            Interested in more? Explore the `steps typically involved
-	    in pROMs <{filename}/overview/proms.rst>`_ or
-	    the `design idea behind Pressio <{filename}/overview/design.rst>`_.
+            Want to learn more about pROMs? Explore the `steps typically involved
+	    in pROMs <{filename}/overview/proms.rst>`_.
 
 
     .. raw:: html
