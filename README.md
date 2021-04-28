@@ -12,7 +12,7 @@ How to build the website
 
 - Install pelican (MUST BE 4.2)
 
-  `pip install pelican==4.2`
+pip install pelican==4.2
 
 - cd Pressio.github.io
 
