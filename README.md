@@ -27,3 +27,10 @@ Disregard errors related to date.
 - View it on your local browser: http://localhost:8000/
 
 - Now, leave the browser open so that any edits you make in the source files inside `./content/` will be immediately reflected in the website.
+
+
+# License and Citation
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+# Questions?
+Find us on Slack: https://pressioteam.slack.com or open an issue [here](https://github.com/Pressio/Pressio.github.io/issues).
