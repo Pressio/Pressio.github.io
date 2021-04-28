@@ -31,6 +31,8 @@ Pressio
 
             Projection-based model reduction refers to a class of surrogate models that reduce the number of degrees of freedom in the high-fidelity model through a projection process. This projection step applied to the governing equations often enables one to make stronger performance guarantees (e.g., of structure preservation, of accuracy via adaptivity) than other surrogates like data-fits and perform more accurate a posteriori error analysis (e.g., via a posteriori error bounds or error models).
 
+	    Want to learn more about pROMs? Explore the `steps typically involved in pROMs <{filename}/overview/proms.rst>`_.
+
 
         .. container:: m-col-l-2 m-push-l-2 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2
 
@@ -48,12 +50,13 @@ Pressio
                 in large-scale applications without compromising performance.</i></p>
 
 
-    .. container:: m-row
+    ..
+       .. container:: m-row
 
-        .. container:: m-col-l-9 m-push-l-1
+	   .. container:: m-col-l-9 m-push-l-1
 
-            Want to learn more about pROMs? Explore the `steps typically involved
-	    in pROMs <{filename}/overview/proms.rst>`_.
+	       Want to learn more about pROMs? Explore the `steps typically involved
+	       in pROMs <{filename}/overview/proms.rst>`_.
 
 
     .. raw:: html
@@ -64,11 +67,7 @@ Pressio
 
         .. container:: m-col-m-6 m-text-center
 
-            .. figure: : {static}/img/feature-6.png
-                :figclass: m-fullwidth m-warning
-                :alt: Core features
-
-            .. block-default:: Core C++ library
+            .. block-primary:: Core C++ library
 
                 Do you have a C++ application and want to know how to use *pressio* from C++?
                 Follow this link to the userguide and documentation.
@@ -76,15 +75,12 @@ Pressio
                 .. button-primary:: https://pressio.github.io/pressio/html/index.html
                     :class: m-fullwidth
 
-                    Explore the C++ library
+                    Take me there
+
 
         .. container:: m-col-m-6 m-text-center
 
-            .. figure: : {static}/img/feature-9.png
-                :figclass: m-fullwidth m-info
-                :alt: Feature
-
-            .. block-default:: Python bindings
+            .. block-primary:: Python bindings library
 
                 Do you have a Python application and would like to use Pressio
                 *without* touching C++? We have Python bindings for that!
@@ -93,4 +89,25 @@ Pressio
                 .. button-primary:: https://pressio.github.io/pressio4py/html/index.html
                     :class: m-fullwidth
 
-                    Explore **pressio4py**
+                    Take me there
+
+
+
+
+    .. container:: m-row m-text-center
+
+        .. container:: m-push-l-3 m-col-m-6 m-text-center
+
+            .. block-flat:: Tutorials/Demos
+
+		Want to skip directly to the tutorials/demos?
+
+		.. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
+		    :class: m-fullwidth
+
+                    c++ tutorials
+
+		.. button-default:: https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html
+		    :class: m-fullwidth
+
+                    pressio4py demos
