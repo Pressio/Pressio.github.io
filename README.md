@@ -2,7 +2,7 @@
 
 Content for https://pressio.github.io
 
-The site is writtein in rst, leverages the m.css library and is built using Pelican.
+The site is writtein in rst, leverages the [m.css](https://mcss.mosra.cz/) library and is built using [Pelican](https://docs.getpelican.com/en/latest/#).
 
 # How to build the website
 
