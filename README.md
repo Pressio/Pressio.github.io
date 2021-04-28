@@ -13,17 +13,13 @@ The site is writtein in rst, leverages the m.css library and is built using Peli
 
 - cd Pressio.github.io
 
-- Build it:
+- Build it with: `pelican -o docs/ -s pelicanconf.py`
 
-`pelican -o docs/ -s pelicanconf.py`
+  * It should say at the end: ``Done: Processed 0 articles...``
 
-It should say at the end: 
-  ``Done: Processed 0 articles...``
+  * Disregard errors related to date.
 
-Disregard errors related to date.
-
-- Start the webserver for it:
-`pelican -Dlr`
+- Start the webserver for it: `pelican -Dlr`
 
 - View it on your local browser: http://localhost:8000/
 
