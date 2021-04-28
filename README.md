@@ -14,10 +14,11 @@ The site is writtein in rst, leverages the m.css library and is built using Peli
 - cd Pressio.github.io
 
 - Build it:
+
 `pelican -o docs/ -s pelicanconf.py`
 
 It should say at the end: 
-``Done: Processed 0 articles...``
+  ``Done: Processed 0 articles...``
 
 Disregard errors related to date.
 
