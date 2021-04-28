@@ -4,7 +4,7 @@ Content for https://pressio.github.io
 
 The site is writtein in rst, leverages the m.css library and is built using Pelican.
 
-## How to build the website
+# How to build the website
 
 - Needs python 3.7
 
