@@ -70,13 +70,13 @@ AUTHOR_FEED_RSS = None
 
 M_LINKS_NAVBAR1 = [('Overview', '', '',
                     [
-                      ("What are pROMs", 'overview/proms/', 'overview/proms')
+                      ("What is Pressio", 'overview/proms/', 'overview/proms'),
+                      ("How does Pressio work?", 'overview/design/', 'overview/design'),
+
                     ]),
                    ('Supported Algorithms', '', '',
                     [
-                      ("Galerkin", 'algos/galerkin/', 'algos/galerkin'),
-                      ("LSPG", 'algos/lspg/', 'algos/lspg'),
-                      ("WLS", 'algos/wls/', 'algos/wls')
+                      ("ROMs", 'algos/galerkin/', 'algos/galerkin'),
                     ]),
                    ('Various', '', '',
                     [

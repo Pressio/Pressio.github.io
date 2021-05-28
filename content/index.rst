@@ -16,28 +16,6 @@ Pressio
 
                 <h1 style="text-transform:capitalize">Pressio</h1>
 
-    .. container:: m-row
-
-        .. container:: m-col-l-6 m-push-l-1
-
-            **Open-source project aimed at enabling leading-edge projection-based
-            reduced order models (pROMs) for dynamical systems
-            in science and engineering.**
-
-
-    .. container:: m-row
-
-        .. container:: m-col-l-6 m-push-l-1
-
-            Projection-based model reduction refers to a class of surrogate models that reduce the number of degrees of freedom in the high-fidelity model through a projection process. This projection step applied to the governing equations often enables one to make stronger performance guarantees (e.g., of structure preservation, of accuracy via adaptivity) than other surrogates like data-fits and perform more accurate a posteriori error analysis (e.g., via a posteriori error bounds or error models).
-
-	    Want to learn more about pROMs? Explore the `steps typically involved in pROMs <{filename}/overview/proms.rst>`_.
-
-
-        .. container:: m-col-l-2 m-push-l-2 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2
-
-            .. figure:: {static}/img/plogo.png
-
 
     .. container:: m-row
 
@@ -45,9 +23,30 @@ Pressio
 
             .. raw:: html
 
-                <p class="m-text m-default m-big"><i>Pressio aims to mitigate the
-                implementation burden of projection-based model reduction
-                in large-scale applications without compromising performance.</i></p>
+                <p class="m-text m-default m-big"><i>Pressio is an open-source project aimed at alleviating the intrusive nature of projection-based reduced-order models for large-scale codes. The core of the Pressio project is a header-only C++ library designed to interface with distributed memory applications characterized by arbitrary data-types. This library provides numerous routines and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.</i></p>
+
+    .. container:: m-row
+
+        .. container:: m-col-l-15 m-push-l-1
+
+          **Features of the Pressio C++ library include**
+            1. Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections
+            2. Native support for multiple datatypes, including Eigen, Kokkos, and Tpetra
+            3. Support for arbitrary datatypes through custom operations
+
+        .. container:: m-col-l-15 m-push-l-1
+
+          **Features of the Pressio project include**
+            1. `Python bindings <https://pypi.org/project/pressio4py/>`_ enabling Pressio's C++ library to be natively used in Python-only applications.
+            2. The *pressio-tools* library, which contains algorithms required for end-to-end pROM workflows such as distributed SVD. 
+            3. A suite of demo applications for testing ROM methodologies
+
+        .. container:: m-col-l-15 m-push-l-1
+
+          **Want to learn more about pROMs and Pressio? Click here**
+
+
+
 
 
     ..
@@ -55,7 +54,7 @@ Pressio
 
 	   .. container:: m-col-l-9 m-push-l-1
 
-	       Want to learn more about pROMs? Explore the `steps typically involved
+	       Want to learn more about pROMs? Explore `steps typically involved
 	       in pROMs <{filename}/overview/proms.rst>`_.
 
 
