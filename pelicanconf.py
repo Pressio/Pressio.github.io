@@ -2,7 +2,7 @@ import re
 import shutil
 import logging
 
-AUTHOR = 'Francesco  Rizzi'
+AUTHOR = 'Francesco Rizzi'
 
 # M_SITE_LOGO = 'gr/logo.png'
 M_SITE_LOGO_TEXT = 'Pressio'
@@ -11,8 +11,8 @@ SITENAME = ''
 SITESUBTITLE = 'Model reduction library'
 SITEURL = ''
 
-# M_BLOG_NAME = ''
-# M_BLOG_URL = 'blog/'
+M_BLOG_NAME = 'Pressio Blog'
+M_BLOG_URL = 'blog/'
 
 PATH = 'content'
 
@@ -21,8 +21,8 @@ STATIC_SAVE_AS = 'static/{path}'
 STATIC_PATHS = ['img', 'showcase']
 EXTRA_PATH_METADATA = {'img/favicon.ico': {'path': '../favicon.ico'}}
 
-# ARTICLE_PATHS = ['blog']
-# ARTICLE_EXCLUDES = ['blog/authors', 'blog/categories', 'blog/tags']
+ARTICLE_PATHS = ['blog']
+ARTICLE_EXCLUDES = ['blog/authors', 'blog/categories', 'blog/tags']
 
 PAGE_PATHS = ['']
 PAGE_EXCLUDES = ['doc', 'img']
@@ -31,18 +31,18 @@ READERS = {'html': None} # HTML files are only ever included from reST
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
-# ARCHIVES_URL = 'blog/'
-# ARCHIVES_SAVE_AS = 'blog/index.html'
-# ARTICLE_URL = 'blog/{slug}/' # category/ is part of the slug
-# ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
-# DRAFT_URL = 'blog/{slug}/' # so the URL is the final one
-# DRAFT_SAVE_AS = 'blog/{slug}/index.html'
-# AUTHOR_URL = 'blog/author/{slug}/'
-# AUTHOR_SAVE_AS = 'blog/author/{slug}/index.html'
-# CATEGORY_URL = 'blog/{slug}/'
-# CATEGORY_SAVE_AS = 'blog/{slug}/index.html'
-# TAG_URL = 'blog/tag/{slug}/'
-# TAG_SAVE_AS = 'blog/tag/{slug}/index.html'
+ARCHIVES_URL = 'blog/'
+ARCHIVES_SAVE_AS = 'blog/index.html'
+ARTICLE_URL = 'blog/{slug}/' # category/ is part of the slug
+ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
+DRAFT_URL = 'blog/{slug}/' # so the URL is the final one
+DRAFT_SAVE_AS = 'blog/{slug}/index.html'
+AUTHOR_URL = 'blog/author/{slug}/'
+AUTHOR_SAVE_AS = 'blog/author/{slug}/index.html'
+CATEGORY_URL = 'blog/{slug}/'
+CATEGORY_SAVE_AS = 'blog/{slug}/index.html'
+TAG_URL = 'blog/tag/{slug}/'
+TAG_SAVE_AS = 'blog/tag/{slug}/index.html'
 
 AUTHORS_SAVE_AS = None # Not used
 CATEGORIES_SAVE_AS = None # Not used
@@ -68,19 +68,20 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-M_LINKS_NAVBAR1 = [('Overview', '', '',
+M_LINKS_NAVBAR1 = [('Overview', 'overview/', 'overview',
                     [
                       ("What is Pressio", 'overview/proms/', 'overview/proms'),
-                      ("How does Pressio work?", 'overview/design/', 'overview/design'),
-
+                      ("How does Pressio work?", 'overview/design/', 'overview/design')
                     ]),
-                   ('Supported Algorithms', '', '',
+                   ('Supported Algorithms', 'algos/', 'algos',
                     [
                       ("ROMs", 'algos/galerkin/', 'algos/galerkin'),
                     ]),
+                   ('Blog', M_BLOG_URL, '[blog]', []),
                    ('Various', '', '',
                     [
-                     ("License", 'various/license/', 'various/license')
+                     ("License", 'various/license/', 'various/license'),
+                     ("Contact", 'contact/', 'contact')
                     ])
                    ]
 
@@ -100,8 +101,7 @@ M_FINE_PRINT = """
 | Pressio logo designed by Brent Haglund. This site content is `available on GitHub <https://github.com/Pressio/Pressio.github.io>`_.
 """
 
-# M_NEWS_ON_INDEX = ("Latest news on our blog", 3)
-
+M_NEWS_ON_INDEX = ("Latest news on our blog", 2)
 DEFAULT_PAGINATION = 10
 
 PLUGIN_PATHS = ['m.css/plugins']
@@ -132,10 +132,13 @@ M_THEME_COLOR = '#22272e'
 # M_SOCIAL_TWITTER_SITE = ''
 # M_SOCIAL_TWITTER_SITE_ID =
 # M_SOCIAL_IMAGE = ''
-# M_SHOW_AUTHOR_LIST = True
+M_SHOW_AUTHOR_LIST = True
 
 M_HTMLSANITY_SMART_QUOTES = True
 M_HTMLSANITY_HYPHENATION = True
+M_METADATA_AUTHOR_PATH = 'blog/authors'
+M_METADATA_CATEGORY_PATH = 'blog/categories'
+M_METADATA_TAG_PATH = 'blog/tags'
 
 _magnum_colors_src = re.compile(r"""<span class="mh">0x(?P<hex>[0-9a-f]{6})(?P<alpha>[0-9a-f]{2})?(?P<literal>_s?rgba?f?)</span>""")
 _magnum_colors_dst = r"""<span class="mh">0x\g<hex>\g<alpha>\g<literal><span class="m-code-color" style="background-color: #\g<hex>;"></span></span>"""

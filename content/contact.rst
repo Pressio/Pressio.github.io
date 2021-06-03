@@ -1,18 +1,14 @@
 Contact Us
 ##########
 
-:summary: fill
+:summary: To contact the team, follow the development, contribute, etc
 
-You can contact the team and follow the development via the following:
+You can contact the team and follow the development via the following means:
 
--   something
+-   GitHub --- https://github.com/Pressio 
+-   Slack --- https://pressioteam.slack.com  
 
 `Contribute to the project`_
 ============================
 
-bla bla
-
-`Support the development`_
-==========================
-
-bla bla
+Best way to contribute is via the GitHub project page.

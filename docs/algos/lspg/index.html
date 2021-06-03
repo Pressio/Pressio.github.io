@@ -28,23 +28,24 @@
         <div class="m-row">
           <ol class="m-col-t-12 m-col-m-none">
             <li>
-              <a href="/">Overview</a>
+              <a href="/overview/">Overview</a>
               <ol>
-                <li><a href="/overview/proms/">What are pROMs</a></li>
+                <li><a href="/overview/proms/">What is Pressio</a></li>
+                <li><a href="/overview/design/">How does Pressio work?</a></li>
               </ol>
             </li>
             <li>
-              <a href="/">Supported Algorithms</a>
+              <a href="/algos/">Supported Algorithms</a>
               <ol>
-                <li><a href="/algos/galerkin/">Galerkin</a></li>
-                <li><a href="/algos/lspg/" id="m-navbar-current">LSPG</a></li>
-                <li><a href="/algos/wls/">WLS</a></li>
+                <li><a href="/algos/galerkin/">ROMs</a></li>
               </ol>
             </li>
+            <li><a href="/blog/">Blog</a></li>
             <li>
               <a href="/">Various</a>
               <ol>
                 <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
               </ol>
             </li>
           </ol>
@@ -66,9 +67,8 @@
         </h1>
 <!-- content -->
 <div>
-<p>The LSPG ROM is …
-todo( put some references)</p>
-<p>To formulate the problem, consider a dynamical system of the form</p>
+<p>Least-squares Petrov–Galerkin (LSPG) projection is a popular alternative to Galerkin projection. Unlike Galerkin projection, which relies on residual orthogonality, LSPG relies on residual minimization. In general, LSPG projection yields more robust ROMs than Galerkin projection for nonsymmetric systems. Additionally, as LSPG is defined from residual minimization principles, aspects such as hyper-reduction and physical contraints can be more easily integrated into the ROM framework.
+To formulate the problem, consider a dynamical system of the form</p>
 <div class="m-default m-math">
 <svg style="width: 18.317em; height: 2.562em;" viewBox="106.946166 -24.590612 175.846162 24.590612">
 <title>

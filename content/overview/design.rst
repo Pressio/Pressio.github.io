@@ -1,5 +1,5 @@
 Fundamental Design
-###################
+##################
 
 :breadcrumb: {filename}/overview.rst Overview
 :summary: Design Idea

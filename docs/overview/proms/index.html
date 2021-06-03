@@ -2,15 +2,15 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Overview &raquo; What are pROMs | </title>
+  <title>Overview &raquo; Projection-based reduced-order models and Pressio | </title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&amp;subset=latin-ext" />
   <link rel="stylesheet" href="/static/m-dark.css" />
   <link rel="canonical" href="/overview/proms/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
   <meta property="og:site_name" content="" />
-  <meta property="og:title" content="What are pROMs" />
-  <meta name="twitter:title" content="What are pROMs" />
+  <meta property="og:title" content="Projection-based reduced-order models and Pressio" />
+  <meta name="twitter:title" content="Projection-based reduced-order models and Pressio" />
   <meta property="og:url" content="/overview/proms/" />
   <meta property="og:description" content="Intro to pROMs" />
   <meta name="twitter:description" content="Intro to pROMs" />
@@ -28,23 +28,24 @@
         <div class="m-row">
           <ol class="m-col-t-12 m-col-m-none">
             <li>
-              <a href="/">Overview</a>
+              <a href="/overview/">Overview</a>
               <ol>
-                <li><a href="/overview/proms/" id="m-navbar-current">What are pROMs</a></li>
+                <li><a href="/overview/proms/" id="m-navbar-current">What is Pressio</a></li>
+                <li><a href="/overview/design/">How does Pressio work?</a></li>
               </ol>
             </li>
             <li>
-              <a href="/">Supported Algorithms</a>
+              <a href="/algos/">Supported Algorithms</a>
               <ol>
-                <li><a href="/algos/galerkin/">Galerkin</a></li>
-                <li><a href="/algos/lspg/">LSPG</a></li>
-                <li><a href="/algos/wls/">WLS</a></li>
+                <li><a href="/algos/galerkin/">ROMs</a></li>
               </ol>
             </li>
+            <li><a href="/blog/">Blog</a></li>
             <li>
               <a href="/">Various</a>
               <ol>
                 <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
               </ol>
             </li>
           </ol>
@@ -62,39 +63,33 @@
           <span class="m-breadcrumb">
             <a href="/overview/">Overview</a> &raquo;
           </span>
-          What are pROMs
+          Projection-based reduced-order models and Pressio
         </h1>
 <!-- content -->
-<div>
-<p>Projection-based model reduction refers to a class of surrogate models
-that reduce the number of degrees
-of freedom in the full-order model (FOM) through a projection process.
-This projection step applied to the governing equations often enables one
-to make stronger performance guarantees
-(e.g., of structure preservation, of accuracy via adaptivity) than other
-surrogates like data-fits and perform more accurate <em>a posteriori</em>
-error analysis (e.g., via <em>a posteriori</em> error bounds or error models).</p>
-<p>Despite these benefits, the practical challenges of
-implementing model-reduction techniques in large-scale codes often
-precludes their adoption in practice; this occurs because standard implementations
-require modifying low-level operations and solvers for each simulation code of interest.
-This implementation strategy is not practical or sustainable
-in many modern settings, because industrial simulation codes often evolve rapidly,
-institutions may employ dozens of simulation codes for different analyses,
-and commercial codes typically do not expose the required low-level
-operators and solvers.</p>
-</div>
-<div class="m-row">
-<div>
-<p>Projection-based model reduction can be broken into three main steps,
-namely data collection, basis creation, and ROM deployment.</p>
-<ul>
-<li>data collection: todo (all)</li>
-<li>compute basis: todo (all)</li>
-<li>create/run the ROM: todo (all)</li>
-</ul>
-</div>
-</div>
+<section id="executive-summary">
+<h2>Executive summary</h2>
+<p>In a nutshell, projection-based reduced-order models are fast and accurate surrogate models. They are constructed via a combination of <em>a priori</em> training data and projection processes applied to governing equations. Many pROMs are <em>intrusive</em>, meaning that they require interfacing with the application code that they are seeking to approximate.  Implementing this coupling into large-scale codes poses numerous practical challenges. Pressio aims to address this issue by providing intrusive model reduction capabilities to large-scale application codes.</p>
+</section>
+<section id="why-do-we-need-proms">
+<h2>Why do we need pROMs?</h2>
+<blockquote>
+Simulating parameterized systems of equations is ubiquitous in science and engineering, playing an important role in fields such as engineering, ecology, and epidemiology. It is often the case that solving such systems is a computationally intensive process. For many-query analyses such as uncertainty quantification and optimization, lower-cost approximate models are need to make the analysis tractable.</blockquote>
+</section>
+<section id="what-exactly-are-proms">
+<h2>What exactly are pROMs?</h2>
+<blockquote>
+Projection-based ROMs (pROMs) comprise a class of approximation techniques that, at their core, operate by replacing a high-dimensional system with a low-dimensional system. pROMs operate in an online—offline paradigm. In the offline stage, a computationally intensive process is undertaken to identify a low-dimensional trial subspace on which the system state can be well approximated. Typically, this process involves solving the original system, i.e., the <em>full-order model (FOM)</em>, for select parameter instances. In the online phase, pROMs then compute approximations to the governing equations that reside on this low-dimensional trial subspace. The results of this process is a fast approximate model that adheres to the governing equations.</blockquote>
+</section>
+<section id="what-role-does-pressio-play">
+<h2>What role does Pressio play?</h2>
+<blockquote>
+Broadly speaking, pROM methods can be classified as <em>non-intrusive</em> or <em>intrusive</em>. For systems described by complex nonlinear dynamics, <em>intrusive</em> pROM techniques are popular. The online phase of these intrusive pROMs involves querying operators associated with the original full-order model, which means that these methods need to interface with the full-order model. Implementing this coupling into large-scale codes poses numerous practical challenges, including managing different data types and data communication. Further, intrusive pROMs often require solvers that are not standard in application codes. These aforementioned challenges pose a significant entry barrier for intrusive pROM methods. <strong>Pressio is designed to address the entry barrier associated with intrusive ROM methods.</strong></blockquote>
+</section>
+<section id="what-is-pressio-and-how-does-it-address-the-intrusiveness-of-proms">
+<h2>What is Pressio, and how does it address the intrusiveness of pROMs?</h2>
+<blockquote>
+Pressio is an open-source project aimed at providing intrusive model reduction capabilities to large-scale application codes. The core of the Pressio project is a header-only C++ library that is designed to (1) interface with applications characterized by arbitrary data-types and (2) provide these applications with the necessary routines for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.</blockquote>
+</section>
 <!-- /content -->
       </div>
     </div>
