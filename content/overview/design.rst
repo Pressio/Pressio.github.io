@@ -7,6 +7,8 @@ Fundamental Design
 .. role:: math-info(math)
     :class: m-default
 
+Scope of Pressio
+=================
 .. container::
 
 	Pressio is applicable to any system expressible as:
@@ -18,7 +20,7 @@ Fundamental Design
 		\boldsymbol{f}(\boldsymbol{y},t; \boldsymbol{\mu}),
 		\quad \boldsymbol{y}(0;\boldsymbol{\mu}) = \boldsymbol{y}(\boldsymbol{\mu}),
 
-	where :math-info:`\boldsymbol{y}` denotes the state, :math-info:`\boldsymbol{y}^0`
+	where :math-info:`\boldsymbol{y}(t,\boldsymbol \mu) \in \mathbb{R}^N` denotes the state, :math-info:`\boldsymbol{y}(\boldsymbol \mu)^0`
 	denotes the initial state, :math-info:`\boldsymbol{\mu} \in {\cal D}
 	\subseteq \mathbb{R}^{n_{\mu}}` denotes the system parameters,
 	:math-info:`\boldsymbol{f}` denotes the velocity that may be linear or nonlinear
@@ -28,12 +30,12 @@ Fundamental Design
 	from the spatial discretization of a PDE problem or from naturally
 	discrete systems (e.g., molecular-dynamics problems).
 
+.. container:: 
 
-.. block-primary:: Design Idea
+  .. block-primary:: Design Idea
 
-	We leverage this simple, expressive mathematical framework
-	as a pivotal design choice to enable a minimal application
-	programming interface (API) that is natural to dynamical systems.
+	  We leverage this simple, expressive mathematical framework
+	  as a pivotal design choice to enable a minimal application
+	  programming interface (API) that is natural to dynamical systemsss.
 
 
-.. figure:: {static}/img/schem.svg

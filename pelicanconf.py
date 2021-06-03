@@ -68,14 +68,16 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-M_LINKS_NAVBAR1 = [('Overview', 'overview/', 'overview',
+M_LINKS_NAVBAR1 = [('Overview', 'overview/proms/', 'overview/proms',
                     [
                       ("What is Pressio", 'overview/proms/', 'overview/proms'),
                       ("How does Pressio work?", 'overview/design/', 'overview/design')
                     ]),
-                   ('Supported Algorithms', 'algos/', 'algos',
+                   ('Supported Algorithms', 'algos/roms/', 'algos/roms',
                     [
-                      ("ROMs", 'algos/galerkin/', 'algos/galerkin'),
+                      ("ROMs", 'algos/roms/', 'algos/roms'),
+                      ("Hyper-reduction", 'algos/hyper/', 'algos/hyper'),
+
                     ]),
                    ('Blog', M_BLOG_URL, '[blog]', []),
                    ('Various', '', '',

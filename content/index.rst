@@ -41,9 +41,19 @@ Pressio
             2. The *pressio-tools* library, which contains algorithms required for end-to-end pROM workflows such as distributed SVD.
             3. A suite of demo applications for testing ROM methodologies
 
-        .. container:: m-col-l-15 m-push-l-1
 
-          **Want to learn more about pROMs and Pressio? Click here**
+    .. container:: m-row m-container-inflate
+
+        .. container:: m-col-c-15 m-text-center
+
+            .. block-primary:: Learn more about Pressio 
+
+                Follow this link to learn more about Pressio, projection-based ROMs, and supported features 
+
+                .. button-primary:: {filename}/overview.rst
+                    :class: m-fullwidth
+
+                    Take me there
 
 
     ..
