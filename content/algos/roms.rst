@@ -31,7 +31,11 @@ Overview of the Galerkin ROM
 
   \
 
-  Want to learn more about the Galerkin ROM and implement it in Pressio? See our `Python <https://pressio.github.io/pressio4py/html/md_pages_tutorials_tutorial3.html>`__ and `C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_rom_tutorial2.html>`__ tutorials on the Galerkin ROM!
+  **Pressio tutorials and demos on the Galerkin ROM**
+    1. Learn to setup a Galerkin ROM with explicit time stepping with `pressio4py <https://pressio.github.io/pressio4py/html/md_pages_tutorials_tutorial3.html>`__ or `C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_rom_tutorial2.html>`__
+    2. Setup a Galerkin ROM with masked collocation with `pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo4.html>`__
+
+  \
 
 |
 
@@ -53,8 +57,14 @@ Overview of the least-squares Petrov--Galerkin ROM
 
   \
 
-  Want to learn more about the LSPG ROM and implement it in Pressio? See our `Python <https://pressio.github.io/pressio4py/html/md_pages_demos_demo2.html>`__ and `C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_swe_lspg.html>`__ tutorials using LSPG!
+  **Pressio tutorials and demos on LSPG**
+    1. Solve an LSPG ROM for the 1D advection diffusion equation in pressio4py `here <https://pressio.github.io/pressio4py/html/md_pages_demos_demo2.html>`_
+    2. Walk through an end-to-end example of setting up and running an LSPG ROM with hyperreduction in C++ `here <https://pressio.github.io/pressio-tutorials/html/md_pages_swe_main.html>`__
+    3. Solve an LSPG ROM on a kernel PCA nonlinear manifold for the 1D advection diffusion equation in pressio4py `here <https://pressio.github.io/pressio4py/html/md_pages_demos_demo3.html>`__
+    4. Solve an LSPG ROM on a multilayer perceptron nonlinear manifold for the 1D advection diffusion equation in pressio4py `here <https://pressio.github.io/pressio4py/html/md_pages_demos_demo6.html>`__
+    5. Compare masked LSPG to masked Galerkin `here <https://pressio.github.io/pressio4py/html/md_pages_demos_demo5.html>`__
 
+  \
 
 |
 

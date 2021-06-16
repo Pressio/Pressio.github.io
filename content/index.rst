@@ -21,9 +21,7 @@ Pressio
 
         .. container:: m-col-l-9 m-push-l-1
 
-            .. raw:: html
-
-                <p class="m-text m-default m-big"><i>Pressio is an open-source project aimed at alleviating the intrusive nature of projection-based reduced-order models for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types. Pressio provides numerous functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.</i></p>
+                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types. Pressio provides numerous functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
 
     .. container:: m-row
 
@@ -36,24 +34,10 @@ Pressio
 
         .. container:: m-col-l-15 m-push-l-1
 
-          **Features of the Pressio project include**
-            1. `Python bindings <https://pypi.org/project/pressio4py/>`_ enabling Pressio's C++ library to be natively used in Python-only applications.
-            2. The *pressio-tools* library, which contains algorithms required for end-to-end pROM workflows such as distributed SVD.
-            3. A suite of demo applications for testing ROM methodologies
-
-
-    .. container:: m-row m-container-inflate
-
-        .. container:: m-col-c-15 m-text-center
-
-            .. block-primary:: Learn more about Pressio 
-
-                Follow this link to learn more about Pressio, projection-based ROMs, and supported features 
-
-                .. button-primary:: {filename}/overview.rst
-                    :class: m-fullwidth
-
-                    Take me there
+          **The Pressio ecosystem also offers**
+            1. `pressio4py <https://pypi.org/project/pressio4py/>`_: Python bindings enabling Pressio's C++ library to be natively used in Python-only applications.
+            2. `pressio-tools <https://github.com/Pressio/pressio-tools>`_: A library for large-scale SVD, QR, and sample meshes.
+            3. `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.
 
 
     ..

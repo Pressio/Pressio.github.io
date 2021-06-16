@@ -27,3 +27,19 @@ What role does Pressio play?
 What is Pressio, and how does it address the intrusiveness of pROMs?
 ====================================================================
   Pressio is an open-source project aimed at providing intrusive model reduction capabilities to large-scale application codes. The core of the Pressio project is a header-only C++ library that is designed to (1) interface with applications characterized by arbitrary data-types and (2) provide these applications with the necessary routines for performing model reduction, such as Galerkin and least-squares Petrov--Galerkin projections.
+
+
+
+
+.. container:: m-row m-container-inflate
+
+    .. container:: m-col-c-10 m-text-center
+
+        .. block-primary:: Design of Pressio 
+
+            Want to know about how Pressio is designed, and how it works? 
+
+            .. button-primary:: {filename}/overview/design.rst
+                :class: m-fullwidth
+
+                Take me there

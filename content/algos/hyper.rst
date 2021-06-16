@@ -18,10 +18,12 @@ When applied to systems that display non-polynomial nonlinearities in the state,
 
 How does Pressio support hyper-reduction?
 ==========================================
-Hyper-reduction requires modifications to the full-order model (e.g., telling it where to sample the residual), and is thus an intrusive process. Pressio supports hyper-reduction in the following ways:
-  1. Pressio assumes the velocity is returned at the sample points
+Hyperreduction is composed of two aspects. First, hyper-reduction places a burden on the application to only compute the velocity/residual on the sample mesh. As this burden is on the application, Pressio is unable to provide this functionality to a code. The second aspect of hyper-reduction is a modification to the underlying pROM problem. Pressio has support for this aspect of hyper-reduction, as it is application agnostic. Specifically, Pressio supports hyper-reduction in the following ways:
+
+  1. Pressio assumes the velocity/residual is returned at the sample points
   2. Pressio assumes that the basis is provided at the stencil points
   3. Pressio keeps track of the bookkeeping between the sample and stencil points
+  4. Pressio modifies the projection process as required by the hyper-reduction method of interest.
 
 We emphasize that if the target application cannot return the residual/velocity at only the sample points, Pressio will not be able to provide the code with real hyper-reduction.
 
