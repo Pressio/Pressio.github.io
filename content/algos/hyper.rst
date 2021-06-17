@@ -29,14 +29,12 @@ How does Pressio support hyper-reduction?
 ==========================================
 Hyperreduction is composed of two aspects. First, hyper-reduction places a burden on the application to only compute the velocity/residual on the sample mesh. As this burden is on the application, Pressio is unable to provide this functionality to a code. The second aspect of hyper-reduction is a modification to the underlying pROM problem. Pressio has support for this aspect of hyper-reduction, as it is application agnostic. Specifically, Pressio supports hyper-reduction in the following ways:
 
-  1. Pressio assumes the velocity/residual is returned at the sample points
-  2. Pressio assumes that the basis is provided at the stencil points
-  3. Pressio keeps track of the bookkeeping between the sample and stencil points
+  1. Pressio assumes the velocity/residual is returned at the sample nodes/elements
+  2. Pressio assumes that the basis is provided at the stencil nodes/elements
+  3. Pressio keeps track of the bookkeeping between the sample and stencil nodes/elements
   4. Pressio modifies the projection process as required by the hyper-reduction method of interest.
 
-**We emphasize that if the target application cannot return the residual/velocity at only the sample points, Pressio will not be able to provide the code with real hyper-reduction.**
-
-*In the above, the stencil points refer to the union of the sample points with all additional points that are required to compute the velocity/residual at the sample points*.
+**We emphasize that if the target application cannot return the residual/velocity at only the sample nodes/elements, Pressio will not be able to provide the code with real hyper-reduction.**
 
 What type of hyper-reduction does Pressio support?
 =====================================================
