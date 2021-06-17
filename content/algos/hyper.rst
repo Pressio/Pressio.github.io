@@ -18,6 +18,10 @@ At the core of hyper-reduction implementations is the **sample mesh**, a disjoin
 
 .. figure:: {static}/img/sample_stencil_mesh.pdf
 
+Here is another example for a three dimensional mesh:
+
+.. figure:: {static}/img/3dsm.png
+
 The sample mesh serves two purposes:
 
   1. Limit computations of the velocity of residual vectors to a given subset of nodes or elements.
