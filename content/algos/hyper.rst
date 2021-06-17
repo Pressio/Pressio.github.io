@@ -25,6 +25,8 @@ The sample mesh serves two purposes:
 
 These are both crucial for enabling the ROM to be run on smaller, less powerful computers than the corresponding full order model. 
 
+A number of techniques have been proposed to determine which elements/nodes should be included in the sample mesh. Some popular approaches include the empirical interpolation method (EIM), discrete empirical interpolation (DEIM), and Gauss-Newton with approximate tensors (GNAT); references for these methods are included below. This is an area of active research so more options are becoming available. 
+
 How does Pressio support hyper-reduction?
 ==========================================
 Hyperreduction is composed of two aspects. First, hyper-reduction places a burden on the application to only compute the velocity/residual on the sample mesh. As this burden is on the application, Pressio is unable to provide this functionality to a code. The second aspect of hyper-reduction is a modification to the underlying pROM problem. Pressio has support for this aspect of hyper-reduction, as it is application agnostic. Specifically, Pressio supports hyper-reduction in the following ways:
@@ -36,6 +38,8 @@ Hyperreduction is composed of two aspects. First, hyper-reduction places a burde
 
 **We emphasize that if the target application cannot return the residual/velocity at only the sample nodes/elements, Pressio will not be able to provide the code with real hyper-reduction.**
 
+Although Pressio itself does not contain any sampling methods, some of these are supported in the `pressio-tools repository <https://github.com/Pressio/pressio-tools>`__.
+
 What type of hyper-reduction does Pressio support?
 =====================================================
 **Pressio supports**
@@ -45,4 +49,17 @@ What type of hyper-reduction does Pressio support?
 
 For a quick-start guide on how to set up hyper-reduction in Pressio, see our syntax synopsis for C++ (needs to be added) and `Python <https://pressio.github.io/pressio4py/html/md_pages_synopsis_galerkin.html>`__, as well as our `C++ tutorial <https://pressio.github.io/pressio-tutorials/html/md_pages_swe_main.html>`__.
 
+To learn more about hyper-reduction:
+=====================================
+
+A selection of papers on sampling techniques:
+
+Maxime Barrault, Yvon Maday, Ngoc Cuong Nguyen, Anthony T. Patera, *An ‘empirical interpolation’ method: application to efficient reduced-basis discretization of partial differential equations*, Comptes Rendus Mathematique, Volume 339, Issue 9,
+2004, Pages 667-672, ISSN 1631-073X, https://doi.org/10.1016/j.crma.2004.08.006.
+
+Saifon Chaturantabut and Danny C. Sorensen, *Nonlinear Model Reduction via Discrete Empirical Interpolation*, SIAM Journal on Scientific Computing, Volume 32, Issue 5, Pages 2737-2764, https://doi.org/10.1137/090766498.
+
+Zlatko Drmač and Serkan Gugercin, *A New Selection Operator for the Discrete Empirical Interpolation Method---Improved A Priori Error Bound and Extensions*, SIAM Journal on Scientific Computing, Volume 38, Issue 2, Pages A631-A648, https://doi.org/10.1137/15M1019271.
+
+Kevin Carlberg, Charbel Farhat, Julien Cortial, David Amsallem, *The GNAT method for nonlinear model reduction: Effective implementation and application to computational fluid dynamics and turbulent flows*, Journal of Computational Physics, Volume 242, 2013, Pages 623-647, ISSN 0021-9991, https://doi.org/10.1016/j.jcp.2013.02.028.
 
