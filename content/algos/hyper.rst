@@ -3,7 +3,7 @@ Supported hyper-reduction algorithms
 
 :breadcrumb: {filename}/algos.rst Algorithms
 :summary: Algos
-:authors: Eric Parish
+:authors: Eric Parish, Patrick Blonigan
 
 .. role:: math-info(math)
     :class: m-default
@@ -12,9 +12,18 @@ Supported hyper-reduction algorithms
 
 What is hyper-reduction
 ========================
-When applied to systems that display non-polynomial nonlinearities in the state, or are non-affine in their parametric dependence, pROMs don't directly result in computational savings as evaluating the velocity/residual requires operations that scale with the dimension of the full-order model. Hyper-reduction techniques alleviate this issue. At their core, **hyper-reduction techniques are sampling-based methods that query the full-order model for only a subset of the velocity or residual**. This process enables ROMs that do not scale with the dimensionality of the full-order model. 
+When applied to systems that display non-polynomial nonlinearities in the state, or are non-affine in their parametric dependence, pROMs do not directly result in computational savings as evaluating the velocity/residual requires operations that scale with the dimension of the full-order model. Hyper-reduction techniques alleviate this issue. At their core, **hyper-reduction techniques are sampling-based methods that query the full-order model for only a subset of the velocity or residual vectors**. This process enables ROMs whose cost does not scale with the dimensionality of the full-order model. 
 
+At the core of hyper-reduction implementations is the **sample mesh**, a disjoint collection of nodes or elements at which the velocity or residual vector are computed. The sample mesh is used in conjunction with what we refer to as the **stencil mesh**, which contains all nodes or elements needed to compute the velocity or residual vector on the sample mesh. For example, consider the case when the state in neighboring elements is needed to compute the residual or velocity contribution for a given element in the sample mesh. One sample and stencil mesh for a two dimensional rectangle is shown below. The sample mesh elements are dark blue and the corresponding stencil mesh is comprised of the light blue elements: 
 
+.. figure:: {static}/img/sample_stencil_mesh.pdf
+
+The sample mesh serves two purposes:
+
+  1. Limit computations of the velocity of residual vectors to a given subset of nodes or elements.
+  2. Minimize the memory needed to store the ROM basis and other ROM operators. 
+
+These are both crucial for enabling the ROM to be run on smaller, less powerful computers than the corresponding full order model. 
 
 How does Pressio support hyper-reduction?
 ==========================================
@@ -25,7 +34,7 @@ Hyperreduction is composed of two aspects. First, hyper-reduction places a burde
   3. Pressio keeps track of the bookkeeping between the sample and stencil points
   4. Pressio modifies the projection process as required by the hyper-reduction method of interest.
 
-We emphasize that if the target application cannot return the residual/velocity at only the sample points, Pressio will not be able to provide the code with real hyper-reduction.
+**We emphasize that if the target application cannot return the residual/velocity at only the sample points, Pressio will not be able to provide the code with real hyper-reduction.**
 
 *In the above, the stencil points refer to the union of the sample points with all additional points that are required to compute the velocity/residual at the sample points*.
 
