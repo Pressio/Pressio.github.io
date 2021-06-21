@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Algorithms &raquo; Supported hyper-reduction algorithms | </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&amp;subset=latin-ext" />
+  <link rel="stylesheet" href="/static/m-dark.css" />
+  <link rel="canonical" href="/algos/hyper/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="Supported hyper-reduction algorithms" />
+  <meta name="twitter:title" content="Supported hyper-reduction algorithms" />
+  <meta property="og:url" content="/algos/hyper/" />
+  <meta property="og:description" content="Algos" />
+  <meta name="twitter:description" content="Algos" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:type" content="page" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="/" id="m-navbar-brand" class="m-col-t-9 m-col-m-none m-left-m">Pressio</a>
+      <a id="m-navbar-show" href="#navigation" title="Show navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <a id="m-navbar-hide" href="#" title="Hide navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-12 m-col-m-none">
+            <li>
+              <a href="/">Overview</a>
+              <ol>
+                <li><a href="/overview/proms/">What is Pressio</a></li>
+                <li><a href="/overview/design/">How does Pressio work?</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="/algos/roms/">Supported Algorithms</a>
+              <ol>
+                <li><a href="/algos/roms/">ROMs</a></li>
+                <li><a href="/algos/hyper/" id="m-navbar-current">Hyper-reduction</a></li>
+              </ol>
+            </li>
+            <li><a href="/blog/">Blog</a></li>
+            <li>
+              <a href="/">Various</a>
+              <ol>
+                <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main>
+<article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb">
+            <a href="/algos/">Algorithms</a> &raquo;
+          </span>
+          Supported hyper-reduction algorithms
+        </h1>
+<!-- content -->
+<section id="what-is-hyper-reduction">
+<h2>What is hyper-reduction</h2>
+<p>When applied to systems that display non-polynomial nonlinearities in the state, or are non-affine in their parametric dependence, pROMs do not directly result in computational savings as evaluating the velocity/residual requires operations that scale with the dimension of the full-order model. Hyper-reduction techniques alleviate this issue. At their core, <strong>hyper-reduction techniques are sampling-based methods that query the full-order model for only a subset of the velocity or residual vectors</strong>. This process enables ROMs whose cost does not scale with the dimensionality of the full-order model.</p>
+<p>At the core of hyper-reduction implementations is the <strong>sample mesh</strong>, a disjoint collection of nodes or elements at which the velocity or residual vector are computed. The sample mesh is used in conjunction with what we refer to as the <strong>stencil mesh</strong>, which contains all nodes or elements needed to compute the velocity or residual vector on the sample mesh. For example, consider the case when the state in neighboring elements is needed to compute the residual or velocity contribution for a given element in the sample mesh. One sample and stencil mesh for a two dimensional rectangle is shown below. The sample mesh elements are dark blue and the corresponding stencil mesh is comprised of the light blue elements:</p>
+<figure class="m-figure">
+<img src="/static/img/sample_stencil_mesh.png" style="width: 556px" />
+</figure>
+<p>The sample mesh serves two purposes:</p>
+<blockquote>
+<ol>
+<li>Limit computations of the velocity of residual vectors to a given subset of nodes or elements.</li>
+<li>Minimize the memory needed to store the ROM basis and other ROM operators.</li>
+</ol>
+</blockquote>
+<p>These are both crucial for enabling the ROM to be run on smaller, less powerful computers than the corresponding full order model.</p>
+</section>
+<section id="how-does-pressio-support-hyper-reduction">
+<h2>How does Pressio support hyper-reduction?</h2>
+<p>Hyperreduction is composed of two aspects. First, hyper-reduction places a burden on the application to only compute the velocity/residual on the sample mesh. As this burden is on the application, Pressio is unable to provide this functionality to a code. The second aspect of hyper-reduction is a modification to the underlying pROM problem. Pressio has support for this aspect of hyper-reduction, as it is application agnostic. Specifically, Pressio supports hyper-reduction in the following ways:</p>
+<blockquote>
+<ol>
+<li>Pressio assumes the velocity/residual is returned at the sample nodes/elements</li>
+<li>Pressio assumes that the basis is provided at the stencil nodes/elements</li>
+<li>Pressio keeps track of the bookkeeping between the sample and stencil nodes/elements</li>
+<li>Pressio modifies the projection process as required by the hyper-reduction method of interest.</li>
+</ol>
+</blockquote>
+<p><strong>We emphasize that if the target application cannot return the residual/velocity at only the sample nodes/elements, Pressio will not be able to provide the code with real hyper-reduction.</strong></p>
+<p>
+<br />
+</p>
+</section>
+<section id="what-type-of-hyper-reduction-does-pressio-support">
+<h2>What type of hyper-reduction does Pressio support?</h2>
+<dl>
+<dt><strong>Pressio supports</strong></dt>
+<dd><ol>
+<li>Collocation-based hyper-reduction</li>
+<li>Weighted hyper-reduction techniques such as Gappy POD, Discrete Empirical Interpolation, etc., via an abstract projection operator</li>
+<li>Masked hyper-reduction. Masked hyper-reduction mimics real hyper-reduction, but doesn’t result in computational savings</li>
+</ol>
+</dd>
+</dl>
+<p>For a quick-start guide on how to set up hyper-reduction in Pressio, see our syntax synopsis for C++ (needs to be added) and <a href="https://pressio.github.io/pressio4py/html/md_pages_synopsis_galerkin.html">Python</a>, as well as our <a href="https://pressio.github.io/pressio-tutorials/html/md_pages_swe_main.html">C++ tutorial</a>.</p>
+</section>
+<!-- /content -->
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>
+        Site created by the Pressio team. Powered by <a href="https://getpelican.com">Pelican</a>
+        and <a href="https://mcss.mosra.cz">m.css</a>, using a theme adapted from <a href="https://magnum.graphics/">magnum</a>.<br />
+        Pressio logo designed by Brent Haglund. This site content is <a href="https://github.com/Pressio/Pressio.github.io">available on GitHub</a>.<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -12,7 +12,7 @@ To work on this, you follow:
 
 2. Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/)
 
-3. run `docker-compose up`
+3. run `docker-compose up`, and wait until it says: `Serving at port 8080, server .`
 
 4. Open your browser on: http://localhost:8080/
 

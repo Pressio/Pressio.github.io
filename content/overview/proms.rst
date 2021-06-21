@@ -33,13 +33,11 @@ What is Pressio, and how does it address the intrusiveness of pROMs?
 
 .. container:: m-row m-container-inflate
 
-    .. container:: m-col-c-10 m-text-center
+    .. container:: m-col-m-8 m-push-l-2 m-text-center
 
-        .. block-primary:: Design of Pressio 
+        .. block-success:: Design of Pressio
 
-            Want to know about how Pressio is designed, and how it works? 
-
-            .. button-primary:: {filename}/overview/design.rst
+            .. button-default:: {filename}/overview/design.rst
                 :class: m-fullwidth
 
-                Take me there
+                Learn how Pressio is designed, and how it works!

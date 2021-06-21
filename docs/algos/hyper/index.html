@@ -69,21 +69,35 @@
 <!-- content -->
 <section id="what-is-hyper-reduction">
 <h2>What is hyper-reduction</h2>
-<p>When applied to systems that display non-polynomial nonlinearities in the state, or are non-affine in their parametric dependence, pROMs don’t directly result in computational savings as evaluating the velocity/residual requires operations that scale with the dimension of the full-order model. Hyper-reduction techniques alleviate this issue. At their core, <strong>hyper-reduction techniques are sampling-based methods that query the full-order model for only a subset of the velocity or residual</strong>. This process enables ROMs that do not scale with the dimensionality of the full-order model.</p>
+<p>When applied to systems that display non-polynomial nonlinearities in the state, or are non-affine in their parametric dependence, pROMs do not directly result in computational savings as evaluating the velocity/residual requires operations that scale with the dimension of the full-order model. Hyper-reduction techniques alleviate this issue. At their core, <strong>hyper-reduction techniques are sampling-based methods that query the full-order model for only a subset of the velocity or residual vectors</strong>. This process enables ROMs whose cost does not scale with the dimensionality of the full-order model.</p>
+<p>At the core of hyper-reduction implementations is the <strong>sample mesh</strong>, a disjoint collection of nodes or elements at which the velocity or residual vector are computed. The sample mesh is used in conjunction with what we refer to as the <strong>stencil mesh</strong>, which contains all nodes or elements needed to compute the velocity or residual vector on the sample mesh. For example, consider the case when the state in neighboring elements is needed to compute the residual or velocity contribution for a given element in the sample mesh. One sample and stencil mesh for a two dimensional rectangle is shown below. The sample mesh elements are dark blue and the corresponding stencil mesh is comprised of the light blue elements:</p>
+<figure class="m-figure">
+<img src="/static/img/sample_stencil_mesh.png" style="width: 556px" />
+</figure>
+<p>The sample mesh serves two purposes:</p>
+<blockquote>
+<ol>
+<li>Limit computations of the velocity of residual vectors to a given subset of nodes or elements.</li>
+<li>Minimize the memory needed to store the ROM basis and other ROM operators.</li>
+</ol>
+</blockquote>
+<p>These are both crucial for enabling the ROM to be run on smaller, less powerful computers than the corresponding full order model.</p>
 </section>
 <section id="how-does-pressio-support-hyper-reduction">
 <h2>How does Pressio support hyper-reduction?</h2>
 <p>Hyperreduction is composed of two aspects. First, hyper-reduction places a burden on the application to only compute the velocity/residual on the sample mesh. As this burden is on the application, Pressio is unable to provide this functionality to a code. The second aspect of hyper-reduction is a modification to the underlying pROM problem. Pressio has support for this aspect of hyper-reduction, as it is application agnostic. Specifically, Pressio supports hyper-reduction in the following ways:</p>
 <blockquote>
 <ol>
-<li>Pressio assumes the velocity/residual is returned at the sample points</li>
-<li>Pressio assumes that the basis is provided at the stencil points</li>
-<li>Pressio keeps track of the bookkeeping between the sample and stencil points</li>
+<li>Pressio assumes the velocity/residual is returned at the sample nodes/elements</li>
+<li>Pressio assumes that the basis is provided at the stencil nodes/elements</li>
+<li>Pressio keeps track of the bookkeeping between the sample and stencil nodes/elements</li>
 <li>Pressio modifies the projection process as required by the hyper-reduction method of interest.</li>
 </ol>
 </blockquote>
-<p>We emphasize that if the target application cannot return the residual/velocity at only the sample points, Pressio will not be able to provide the code with real hyper-reduction.</p>
-<p><em>In the above, the stencil points refer to the union of the sample points with all additional points that are required to compute the velocity/residual at the sample points</em>.</p>
+<p><strong>We emphasize that if the target application cannot return the residual/velocity at only the sample nodes/elements, Pressio will not be able to provide the code with real hyper-reduction.</strong></p>
+<p>
+<br />
+</p>
 </section>
 <section id="what-type-of-hyper-reduction-does-pressio-support">
 <h2>What type of hyper-reduction does Pressio support?</h2>

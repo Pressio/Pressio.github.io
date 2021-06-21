@@ -10,7 +10,7 @@ Pressio
 :landing:
     .. container:: m-row
 
-        .. container:: m-col-l-6 m-push-l-1 m-col-m-7 m-nopadb
+        .. container:: m-col-l-6 m-push-l-0 m-col-m-7 m-nopadb
 
             .. raw:: html
 
@@ -19,34 +19,33 @@ Pressio
 
     .. container:: m-row
 
-        .. container:: m-col-l-9 m-push-l-1
+        .. container:: m-col-l-9 m-push-l-0
 
-                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types. Pressio provides numerous functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
+                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types and diverse programming models. Pressio provides several functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
+
+		The name comes from the Latin *compressionem*: pressing together, squeezing.
+
+        .. container:: m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2
+
+	   .. figure:: {static}/img/plogo.png
+
 
     .. container:: m-row
 
-        .. container:: m-col-l-15 m-push-l-1
+        .. container:: m-col-l-15 m-push-l-0
 
-          **Features of the Pressio C++ library include**
-            1. Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections
-            2. Native support for multiple datatypes, including Eigen, Kokkos, and Tpetra
-            3. Support for arbitrary datatypes through custom operations
+          **Features of the Pressio C++ library include:**
+            * Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections
+            * Support for arbitrary datatypes via generic programming and custom operations
+            * Built-in support to use Eigen, Kokkos, and Trilinos (with more in progress)
+	    * Several time integration schemes
 
-        .. container:: m-col-l-15 m-push-l-1
+        .. container:: m-col-l-15 m-push-l-0
 
-          **The Pressio ecosystem also offers**
-            1. `pressio4py <https://pypi.org/project/pressio4py/>`_: Python bindings enabling Pressio's C++ library to be natively used in Python-only applications.
-            2. `pressio-tools <https://github.com/Pressio/pressio-tools>`_: A library for large-scale SVD, QR, and sample meshes.
-            3. `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.
-
-
-    ..
-       .. container:: m-row
-
-	   .. container:: m-col-l-9 m-push-l-1
-
-	       Want to learn more about pROMs? Explore `steps typically involved
-	       in pROMs <{filename}/overview/proms.rst>`_.
+          **The Pressio ecosystem also offers:**
+            * `pressio4py <https://pypi.org/project/pressio4py/>`_: Python bindings enabling Pressio's C++ library to be used in pure-Python applications.
+            * `pressio-tools <https://github.com/Pressio/pressio-tools>`_: A library to compute large-scale SVD, QR, and sample meshes.
+            * `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.
 
 
     .. container:: m-row m-container-inflate
@@ -79,8 +78,7 @@ Pressio
 
         .. container:: m-col-m-4 m-text-center
 
-            .. block-flat:: Want to skip directly to the tutorials/demos?
-
+            .. block-flat:: Skip directly to:
 
                 .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
                     :class: m-fullwidth

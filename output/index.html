@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pressio | </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&amp;subset=latin-ext" />
+  <link rel="stylesheet" href="/static/m-dark.css" />
+  <link rel="canonical" href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+  <meta name="description" content="Projection-based model reduction for dynamical systems." />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="Pressio" />
+  <meta name="twitter:title" content="Pressio" />
+  <meta property="og:url" content="/" />
+  <meta property="og:description" content="Model reduction for …" />
+  <meta name="twitter:description" content="Model reduction for …" />
+  <meta property="og:image" content="/static/img/top1.jpg" />
+  <meta name="twitter:image" content="/static/img/top1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="page" />
+</head>
+<body>
+<header><nav id="navigation" class="m-navbar-landing">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="/" id="m-navbar-brand" class="m-col-t-9 m-col-m-none m-left-m m-navbar-brand-hidden">Pressio</a>
+      <a id="m-navbar-show" href="#navigation" title="Show navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <a id="m-navbar-hide" href="#" title="Hide navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-12 m-col-m-none">
+            <li>
+              <a href="/">Overview</a>
+              <ol>
+                <li><a href="/overview/proms/">What is Pressio</a></li>
+                <li><a href="/overview/design/">How does Pressio work?</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="/algos/roms/">Supported Algorithms</a>
+              <ol>
+                <li><a href="/algos/roms/">ROMs</a></li>
+                <li><a href="/algos/hyper/">Hyper-reduction</a></li>
+              </ol>
+            </li>
+            <li><a href="/blog/">Blog</a></li>
+            <li>
+              <a href="/">Various</a>
+              <ol>
+                <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main>
+<article>
+  <div id="m-landing-image" style="background-image: url('/static/img/top1.jpg');">
+    <div id="m-landing-cover">
+      <div class="m-container">
+<!-- landing -->
+<div class="m-row">
+<div class="m-col-l-6 m-push-l-0 m-col-m-7 m-nopadb">
+<h1 style="text-transform:capitalize">Pressio</h1></div>
+</div>
+<div class="m-row">
+<div class="m-col-l-9 m-push-l-0">
+<p><em>Pressio is an open-source project aimed at alleviating the intrusive nature of</em> <a href="/overview/proms/">projection-based reduced-order models</a> <em>for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types and diverse programming models. Pressio provides several functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.</em></p>
+<p>The name comes from the Latin <em>compressionem</em>: pressing together, squeezing.</p>
+</div>
+<div class="m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2">
+<figure class="m-figure">
+<img src="/static/img/plogo.png" />
+</figure>
+</div>
+</div>
+<div class="m-row">
+<div class="m-col-l-15 m-push-l-0">
+<dl>
+<dt><strong>Features of the Pressio C++ library include:</strong></dt>
+<dd><ul>
+<li>Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections</li>
+<li>Support for arbitrary datatypes via generic programming and custom operations</li>
+<li>Built-in support to use Eigen, Kokkos, and Trilinos (with more in progress)</li>
+<li>Several time integration schemes</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="m-col-l-15 m-push-l-0">
+<dl>
+<dt><strong>The Pressio ecosystem also offers:</strong></dt>
+<dd><ul>
+<li><a href="https://pypi.org/project/pressio4py/">pressio4py</a>: Python bindings enabling Pressio’s C++ library to be used in pure-Python applications.</li>
+<li><a href="https://github.com/Pressio/pressio-tools">pressio-tools</a>: A library to compute large-scale SVD, QR, and sample meshes.</li>
+<li><a href="https://github.com/Pressio/pressio-demoapps">pressio-demoapps</a>: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="m-row m-container-inflate">
+<div class="m-col-m-4 m-text-center">
+<aside class="m-block m-primary">
+<h3>Core C++ library</h3>
+<p>Do you have a C++ application and want to know how to use <em>pressio</em> from C++?
+Follow this link to the userguide and documentation.</p>
+<div class="m-fullwidth m-button m-primary">
+<a href="https://pressio.github.io/pressio/html/index.html"><span>Take me there</span></a>
+</div>
+</aside>
+</div>
+<div class="m-col-m-4 m-text-center">
+<aside class="m-block m-primary">
+<h3>Python bindings library</h3>
+<p>Do you have a Python application and would like to use Pressio
+<em>without</em> touching C++? We have Python bindings for that!</p>
+<div class="m-fullwidth m-button m-primary">
+<a href="https://pressio.github.io/pressio4py/html/index.html"><span>Take me there</span></a>
+</div>
+</aside>
+</div>
+<div class="m-col-m-4 m-text-center">
+<aside class="m-block m-flat">
+<h3>Skip directly to:</h3>
+<div class="m-fullwidth m-button m-default">
+<a href="https://pressio.github.io/pressio-tutorials/html/index.html"><span>c++ tutorials</span></a>
+</div>
+<div class="m-fullwidth m-button m-default">
+<a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html"><span>pressio4py demos</span></a>
+</div>
+</aside>
+</div>
+</div>
+<!-- /landing -->
+      </div>
+    </div>
+  </div>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+      </div>
+    </div>
+    <div class="m-row">
+      <div class="m-col-l-8 m-push-l-2">
+        <div><div class="m-note m-default m-landing-news">
+          <h3><a href="/blog/">Latest news on our blog &raquo;</a></h3>
+          <ul class="m-unstyled">
+            <li><time class="m-text m-dim" datetime="2021-06-21T00:00:00+02:00">Jun 21, 2021</time><a href="blog/announcements/2021.06/">Pressio-demoapps released</a></li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</article>
+</main>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>
+        Site created by the Pressio team. Powered by <a href="https://getpelican.com">Pelican</a>
+        and <a href="https://mcss.mosra.cz">m.css</a>, using a theme adapted from <a href="https://magnum.graphics/">magnum</a>.<br />
+        Pressio logo designed by Brent Haglund. This site content is <a href="https://github.com/Pressio/Pressio.github.io">available on GitHub</a>.<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
