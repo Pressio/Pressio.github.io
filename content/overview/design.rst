@@ -35,12 +35,13 @@ Fundamental Design
 
 .. container::
 
-  .. block-primary:: Design Idea
+  .. block-primary:: Design Idea and Flow of Information
 
 	  We leverage this simple, expressive mathematical framework as a pivotal design choice to enable a minimal application
 	  programming interface (API) that is natural to dynamical systems: you choose the formulation more convenient to you,
 	  and interface your application to Pressio by creating a corresponding *adapter class* to expose the operators needed for the chosen formulation.
-	  This adapter class serves as intermediary between Pressio and your application. A schematic depicting this design idea and the flow of information is given below.
+	  This adapter class serves as intermediary between Pressio and your application.
+	  A schematic depicting the design and the flow of information is given below.
 
 |
 
@@ -53,18 +54,18 @@ Fundamental Design
   .. block-warning:: Which API to pick?
 
 		     In general, you don't need to support both APIs: they both have advantages and disadvantages.
-		     For example, the continuous-time API is more general while the discrete-time API is a natural fit for doing implicit time integration.
+		     For example, the continuous-time API is more general and flexible, while the discrete-time API is a natural fit for doing implicit time integration.
 		     Sometimes the choice is dictated directly by your native application (for example, in some cases it might be easier to directly expose the residual).
 
 
-  .. block-primary:: Learn more about the API of the adapter class:
+  .. block-primary:: Learn more about the adapter API:
 
-       .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
+       .. button-default:: https://pressio.github.io/pressio/html/md_pages_coreconcepts_adapter_api.html
 	   :class: m-fullwidth
 
-	   c++ tutorials
+	   C++ API code details
 
-       .. button-default:: https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html
+       .. button-default:: https://pressio.github.io/pressio4py/html/md_pages_prepare_your_app.html
 	   :class: m-fullwidth
 
-	   pressio4py demos
+	   Python API code details
