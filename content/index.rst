@@ -1,9 +1,9 @@
 Pressio
-#############
+#######
 
 :save_as: index.html
-:cover: {static}/img/top1.jpg
 :url:
+:cover: {static}/img/top1.jpg
 :description: Projection-based model reduction for dynamical systems.
 :summary: Model reduction for ...
 :hide_navbar_brand: True
@@ -16,38 +16,28 @@ Pressio
 
                 <h1 style="text-transform:capitalize">Pressio</h1>
 
-    .. container:: m-row
-
-        .. container:: m-col-l-6 m-push-l-1
-
-            **Open-source project aimed at enabling leading-edge projection-based
-            reduced order models (pROMs) for dynamical systems
-            in science and engineering.**
-
-
-    .. container:: m-row
-
-        .. container:: m-col-l-6 m-push-l-1
-
-            Projection-based model reduction refers to a class of surrogate models that reduce the number of degrees of freedom in the high-fidelity model through a projection process. This projection step applied to the governing equations often enables one to make stronger performance guarantees (e.g., of structure preservation, of accuracy via adaptivity) than other surrogates like data-fits and perform more accurate a posteriori error analysis (e.g., via a posteriori error bounds or error models).
-
-	    Want to learn more about pROMs? Explore the `steps typically involved in pROMs <{filename}/overview/proms.rst>`_.
-
-
-        .. container:: m-col-l-2 m-push-l-2 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2
-
-            .. figure:: {static}/img/plogo.png
-
 
     .. container:: m-row
 
         .. container:: m-col-l-9 m-push-l-1
 
-            .. raw:: html
+                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types. Pressio provides numerous functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
 
-                <p class="m-text m-default m-big"><i>Pressio aims to mitigate the
-                implementation burden of projection-based model reduction
-                in large-scale applications without compromising performance.</i></p>
+    .. container:: m-row
+
+        .. container:: m-col-l-15 m-push-l-1
+
+          **Features of the Pressio C++ library include**
+            1. Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections
+            2. Native support for multiple datatypes, including Eigen, Kokkos, and Tpetra
+            3. Support for arbitrary datatypes through custom operations
+
+        .. container:: m-col-l-15 m-push-l-1
+
+          **The Pressio ecosystem also offers**
+            1. `pressio4py <https://pypi.org/project/pressio4py/>`_: Python bindings enabling Pressio's C++ library to be natively used in Python-only applications.
+            2. `pressio-tools <https://github.com/Pressio/pressio-tools>`_: A library for large-scale SVD, QR, and sample meshes.
+            3. `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.
 
 
     ..
@@ -55,17 +45,13 @@ Pressio
 
 	   .. container:: m-col-l-9 m-push-l-1
 
-	       Want to learn more about pROMs? Explore the `steps typically involved
+	       Want to learn more about pROMs? Explore `steps typically involved
 	       in pROMs <{filename}/overview/proms.rst>`_.
 
 
-    .. raw:: html
-
-        <br>
-
     .. container:: m-row m-container-inflate
 
-        .. container:: m-col-m-6 m-text-center
+        .. container:: m-col-m-4 m-text-center
 
             .. block-primary:: Core C++ library
 
@@ -78,13 +64,12 @@ Pressio
                     Take me there
 
 
-        .. container:: m-col-m-6 m-text-center
+        .. container:: m-col-m-4 m-text-center
 
             .. block-primary:: Python bindings library
 
                 Do you have a Python application and would like to use Pressio
                 *without* touching C++? We have Python bindings for that!
-                This is the link for you.
 
                 .. button-primary:: https://pressio.github.io/pressio4py/html/index.html
                     :class: m-fullwidth
@@ -92,22 +77,17 @@ Pressio
                     Take me there
 
 
+        .. container:: m-col-m-4 m-text-center
+
+            .. block-flat:: Want to skip directly to the tutorials/demos?
 
 
-    .. container:: m-row m-text-center
-
-        .. container:: m-push-l-3 m-col-m-6 m-text-center
-
-            .. block-flat:: Tutorials/Demos
-
-		Want to skip directly to the tutorials/demos?
-
-		.. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
-		    :class: m-fullwidth
+                .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
+                    :class: m-fullwidth
 
                     c++ tutorials
 
-		.. button-default:: https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html
-		    :class: m-fullwidth
+                .. button-default:: https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html
+                    :class: m-fullwidth
 
                     pressio4py demos

@@ -1,5 +1,5 @@
 License
-#################
+#######
 
 :summary: Legal info
 

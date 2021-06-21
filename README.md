@@ -6,7 +6,19 @@ The site is writtein in rst, leverages the [m.css](https://mcss.mosra.cz/) libra
 
 # How to build and view it
 
-- Needs python 3.7
+To work on this, you follow:
+
+1. Fork, clone or download this project
+
+2. Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/)
+
+3. run `docker-compose up`
+
+4. Open your browser on: http://localhost:8080/
+
+- Now, leave the browser open so that any edits you make to the files inside the `./content` will be reflected on the website after just refreshing it.
+
+<!-- - Needs python 3.7
 
 - Install pelican (MUST BE 4.2)
 `pip install pelican==4.2`
@@ -20,10 +32,8 @@ The site is writtein in rst, leverages the [m.css](https://mcss.mosra.cz/) libra
   * Disregard errors related to date.
 
 - Start the webserver for it: `pelican -Dlr`
-
-- View it on your local browser: http://localhost:8000/
-
-- Now, leave the browser open so that any edits you make in the source files inside `./content/` will be immediately reflected in the website.
+- View it on your local browser: http://localhost:8080/
+ -->
 
 
 # License and Citation

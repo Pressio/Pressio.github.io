@@ -1,17 +1,16 @@
 LSPG ROM
-###################
+########
 
 :breadcrumb: {filename}/algos.rst Algorithms
 :summary: LSPG ROM
+:authors: Eric Parish
 
 .. role:: math-info(math)
     :class: m-default
 
 .. container::
 
-   The LSPG ROM is ...
-   todo( put some references)
-
+   Least-squares Petrov--Galerkin (LSPG) projection is a popular alternative to Galerkin projection. Unlike Galerkin projection, which relies on residual orthogonality, LSPG relies on residual minimization. In general, LSPG projection yields more robust ROMs than Galerkin projection for nonsymmetric systems. Additionally, as LSPG is defined from residual minimization principles, aspects such as hyper-reduction and physical contraints can be more easily integrated into the ROM framework.
    To formulate the problem, consider a dynamical system of the form
 
    .. math::
