@@ -1,12 +1,12 @@
 # Pressio project website
 
-Content for https://pressio.github.io
+This repo hosts the content for https://pressio.github.io.
 
 The site is writtein in rst, leverages the [m.css](https://mcss.mosra.cz/) library and is built using [Pelican](https://docs.getpelican.com/en/latest/#).
 
-# How to build and view it
+# Building and working on it
 
-To work on this, you follow:
+Follow these steps:
 
 1. Fork, clone or download this project
 
@@ -16,7 +16,7 @@ To work on this, you follow:
 
 4. Open your browser on: http://localhost:8080/
 
-- Now, leave the browser open so that any edits you make to the files inside the `./content` will be reflected on the website after just refreshing it.
+5. Now, leave the browser open so that any edits you make to the files inside the `./content` will be reflected on the website after just refreshing it.
 
 <!-- - Needs python 3.7
 
