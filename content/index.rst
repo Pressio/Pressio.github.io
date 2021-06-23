@@ -21,7 +21,7 @@ Pressio
 
         .. container:: m-col-l-9 m-push-l-0
 
-                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types and diverse programming models. Pressio provides several functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
+                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models (pROMs) <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types and diverse programming models. Pressio provides several functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
 
 		The name comes from the Latin *compressionem*: pressing together, squeezing.
 

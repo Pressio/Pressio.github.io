@@ -1,12 +1,15 @@
-Projection-based reduced-order models and Pressio
+pROMs and Pressio
 ##################################################
 
 :breadcrumb: {filename}/overview.rst Overview
 :summary: Intro to pROMs
 
-Executive summary
-=================
-In a nutshell, projection-based reduced-order models are fast and accurate surrogate models. They are constructed via a combination of *a priori* training data and projection processes applied to governing equations. Many pROMs are *intrusive*, meaning that they require interfacing with the application code that they are seeking to approximate.  Implementing this coupling into large-scale codes poses numerous practical challenges. Pressio aims to address this issue by providing intrusive model reduction capabilities to large-scale application codes.
+.. Executive summary
+.. =================
+
+Projection-based reduced-order models (pROMs) are surrogate models 
+constructed via a combination of *a priori* training data and a projection process 
+applied to governing equations. Many pROMs are *intrusive*, meaning that they require interfacing with the application code that they are seeking to approximate. Implementing this coupling into large-scale codes poses numerous practical challenges. Pressio aims to address this issue by providing intrusive model reduction capabilities to large-scale application codes.
 
 
 
