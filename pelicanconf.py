@@ -79,6 +79,10 @@ M_LINKS_NAVBAR1 = [('Overview', 'overview/proms/', 'overview/proms',
                       ("Hyper-reduction", 'algos/hyper/', 'algos/hyper'),
 
                     ]),
+                   ('Use Cases', '', '', 
+                    [
+                      ("Hypersonic Aerodynamics", 'usecases/hifire/', 'usecases/hifire'),
+                    ]),
                    ('Blog', M_BLOG_URL, '[blog]', []),
                    ('Various', '', '',
                     [
