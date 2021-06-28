@@ -1,6 +1,9 @@
 Hypersonic Aerodynamics
 #######################
 
+:breadcrumb: {filename}/hypaero.rst Hypersonic Aerodynamics
+:summary: pROMs for Hypersonic Aerodynamics
+
 One of our driving use cases for Pressio is for simulations of hypersonic
 aerodynamics. Model reduction is necessary because computational models
 are widely used in the hypersonic flight regime due to the expense and difficulty 
@@ -22,9 +25,7 @@ Blottner Sphere
 The Blottner Sphere is a commonly used verification case for hypersonic flow CFD codes [Blottner 1990][1]. A schematic of the problem is
 shown below. 
 
-
-.. figure:: {static}/img/blottner_sphere/blottner_schematic.pdf
-  :scale: 40 %
+TODO add schematic
 
 The main feature is the bow shockwave just
 upstream of the sphere, which can be difficult to capture accurately due to the shock
@@ -55,14 +56,12 @@ equivalent to roughly 1% of the full mesh. It is shown below:
 
 Using this sample mesh resulted in a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively. 
 
-.. figure:: {static}/img/blottner_sphere/mach-heat-3d-fom.png
-  :scale: 40 %
-
-.. figure:: {static}/img/blottner_sphere/mach-heat-3d-hrom.png
-  :scale: 40 %
-
-.. figure:: {static}/img/blottner_sphere/mach-heat-3d-mrom.png
-  :scale: 40 %
+.. image:: {static}/img/blottner_sphere/mach-heat-3d-fom.png
+   :scale: 20 %
+.. image:: {static}/img/blottner_sphere/mach-heat-3d-hrom.png
+   :scale: 20 %
+.. image:: {static}/img/blottner_sphere/mach-heat-3d-mrom.png
+   :scale: 20 %
 
 HIFiRE-1
 ========
