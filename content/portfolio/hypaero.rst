@@ -25,7 +25,12 @@ Blottner Sphere
 The Blottner Sphere is a commonly used verification case for hypersonic flow CFD codes [Blottner 1990][1]. A schematic of the problem is
 shown below. 
 
-TODO add schematic
+.. figure:: {static}/img/blottner_sphere/blottner_schematic.png
+    :scale: 100 %
+    :alt: Blottner Sphere Schematic
+
+    Blottner sphere schematic. Infinity subscript indicates a freestream quantity. 
+
 
 The main feature is the bow shockwave just
 upstream of the sphere, which can be difficult to capture accurately due to the shock
@@ -38,7 +43,10 @@ The full order model (FOM) is based on a spatial discretization using a structur
 shown below
 
 .. figure:: {static}/img/blottner_sphere/mesh.png
-  :scale: 40 %
+    :scale: 40 %
+    :alt: Blottner Sphere Mesh
+
+    Blottner sphere full model mesh 
 
 We focus on the pseudo-transient behavior of the system from a uniform Mach 5.0 flow to steady state.
 The pseudo time stepping is performed using the (implicit) backward Euler scheme with
@@ -52,16 +60,19 @@ cells and neighbors of neighbors, yielding 41,414 cells in total,
 equivalent to roughly 1% of the full mesh. It is shown below:
 
 .. figure:: {static}/img/blottner_sphere/sample_mesh.png
-  :scale: 40 %
+    :scale: 40 %
+    :alt: Blottner Sphere Sample Mesh
+
+    Blottner sphere sample mesh
 
 Using this sample mesh resulted in a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively. 
 
 .. image:: {static}/img/blottner_sphere/mach-heat-3d-fom.png
-   :scale: 20 %
+    :scale: 20 %
 .. image:: {static}/img/blottner_sphere/mach-heat-3d-hrom.png
-   :scale: 20 %
+    :scale: 20 %
 .. image:: {static}/img/blottner_sphere/mach-heat-3d-mrom.png
-   :scale: 20 %
+    :scale: 20 %
 
 HIFiRE-1
 ========
