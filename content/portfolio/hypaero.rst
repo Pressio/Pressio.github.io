@@ -17,12 +17,12 @@ Model reduction with Pressio enables these many query analysis for higher
 fidelity aerodynamic simulations such as finite volume models of the 
 Navier-Stokes and Reynolds-Averaged Navier--Stokes (RANS) equations. The
 following section contains results obtained using Pressio and the Sandia
-Aerodynamics and Reentry Code (SPARC). 
+Aerodynamics and Reentry Code (SPARC) [Howard et al. 2017][1]. 
 
 Blottner Sphere
 ===============
 
-The Blottner Sphere is a commonly used verification case for hypersonic flow CFD codes [Blottner 1990][1]. A schematic of the problem is
+The Blottner Sphere is a commonly used verification case for hypersonic flow CFD codes [Blottner 1990][2]. A schematic of the problem is
 shown below. 
 
 .. figure:: {static}/img/blottner_sphere/blottner_schematic.png
@@ -50,7 +50,7 @@ shown below
 
 We focus on the pseudo-transient behavior of the system from a uniform Mach 5.0 flow to steady state.
 The pseudo time stepping is performed using the (implicit) backward Euler scheme with
-fixed time step of $2.5\times 10^{-6}$ seconds, yielding 64 time instances.
+fixed time step of :math:`2.5\times 10^{-6}` seconds, yielding 64 time instances.
 During the pseudo-transient phase, the bow shock
 upstream of the sphere moves and deforms until it reaches a steady state.
 
@@ -67,12 +67,11 @@ equivalent to roughly 1% of the full mesh. It is shown below:
 
 Using this sample mesh resulted in a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively. 
 
-.. image:: {static}/img/blottner_sphere/mach-heat-3d-fom.png
-    :scale: 20 %
-.. image:: {static}/img/blottner_sphere/mach-heat-3d-hrom.png
-    :scale: 20 %
-.. image:: {static}/img/blottner_sphere/mach-heat-3d-mrom.png
-    :scale: 20 %
+.. image-grid:: 
+
+    {static}/img/blottner_sphere/mach-heat-3d-fom.png FOM solution
+    {static}/img/blottner_sphere/mach-heat-3d-hrom.png ROM solution on the sample mesh
+    {static}/img/blottner_sphere/mach-heat-3d-mrom.png ROM solution reconstructed on full mesh
 
 HIFiRE-1
 ========
@@ -83,5 +82,6 @@ TODO
 References
 ==========
 
-- [1]: F. G. Blottner, "Accurate Navier-Stokes Results for the Hypersonic Flow over a Spherical Nosetip", Journal of Spacecraft, Vol. 27, No. 2, March-April 1990, DOI: 10.2514/3.26115
+- [1]: Micah Howard, Andrew Bradley, Steven W. Bova, James Overfelt, Ross Wagnild, Derek Dinzl, Mark Hoemmen and Alicia Klinvex. "Towards Performance Portability in a Compressible CFD Code," AIAA 2017-4407. 23rd AIAA Computational Fluid Dynamics Conference. June 2017.
+- [2]: F. G. Blottner, "Accurate Navier-Stokes Results for the Hypersonic Flow over a Spherical Nosetip", Journal of Spacecraft, Vol. 27, No. 2, March-April 1990, DOI: 10.2514/3.26115
 
