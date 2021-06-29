@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blottner Sphere | </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&amp;subset=latin-ext" />
+  <link rel="stylesheet" href="/static/m-dark.css" />
+  <link rel="canonical" href="/portfolio/blottner/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="Blottner Sphere" />
+  <meta name="twitter:title" content="Blottner Sphere" />
+  <meta property="og:url" content="/portfolio/blottner/" />
+  <meta property="og:description" content="pROMs for Hypersonic Aerodynamics" />
+  <meta name="twitter:description" content="pROMs for Hypersonic Aerodynamics" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:type" content="page" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="/" id="m-navbar-brand" class="m-col-t-9 m-col-m-none m-left-m">Pressio</a>
+      <a id="m-navbar-show" href="#navigation" title="Show navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <a id="m-navbar-hide" href="#" title="Hide navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-12 m-col-m-none">
+            <li>
+              <a href="/overview/proms/">Overview</a>
+              <ol>
+                <li><a href="/overview/proms/">What is Pressio</a></li>
+                <li><a href="/overview/design/">How does Pressio work?</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="/algos/roms/">Supported Algorithms</a>
+              <ol>
+                <li><a href="/algos/roms/">ROMs</a></li>
+                <li><a href="/algos/hyper/">Hyper-reduction</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="/portfolio/blottner/" id="m-navbar-current">Portfolio</a>
+              <ol>
+                <li><a href="/portfolio/blottner/" id="m-navbar-current">Hypersonic Aerodynamics: Blottner Sphere</a></li>
+                <li><a href="/portfolio/hifire/">Hypersonic Aerodynamics: HIFiRE-1</a></li>
+              </ol>
+            </li>
+            <li><a href="/blog/">Blog</a></li>
+            <li>
+              <a href="/">Various</a>
+              <ol>
+                <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main>
+<article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>Blottner Sphere</h1>
+<!-- content -->
+<p>One of our driving use cases for Pressio is for simulations of hypersonic
+aerodynamics. Model reduction is necessary because computational models
+are widely used in the hypersonic flight regime due to the expense and difficulty
+of flight tests and experiments. The reliance on computational models as well as
+the risk tolerances in hypersonic applications requires a greater emphasis on
+trustworthiness of these models. Unfortunately, crucial tasks including
+parameter calibration, uncertainty/error propogation, and (robust) design
+optimization require many model evalutations.</p>
+<p>Model reduction with Pressio enables these many query analysis for higher
+fidelity aerodynamic simulations such as finite volume models of the
+Navier-Stokes and Reynolds-Averaged Navier–Stokes (RANS) equations.
+This page presents some results obtained using Pressio and the Sandia
+Aerodynamics and Reentry Code (SPARC) <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2017-4407">[Howard et al. 2017][1]</a>.</p>
+<section id="description">
+<h2>Description</h2>
+<p>The Blottner Sphere is a commonly used verification case for hypersonic flow CFD codes <a href="https://arc.aiaa.org/doi/abs/10.2514/3.26115">[Blottner 1990][2]</a>.
+The main feature is the bow shockwave that forms just upstream of the sphere,
+which can be difficult to capture accurately due to the shock strength and a numerical phenomena know as the carbuncle problem.
+Non-dimensional quantities characterizing the problem are the Mach number, Ma = 5.0,
+and the Reynolds Number, Re=1,887,500.
+Despite the large Reynolds number, this problem is run without a turbulence model,
+and the boundary layer is assumed to be laminar.
+A schematic of the problem is shown below.</p>
+<figure class="m-figure">
+<img alt="Blottner Sphere Schematic" src="/static/img/blottner_sphere/blottner_schematic.png" style="width: 235px" />
+<figcaption><svg class="m-math" style="width: 5.897em; height: 1.093em; vertical-align: -0.243em;" viewBox="0 -8.169366 56.61276 10.493973">
+<title>
+\rho_{\infty}, V_{\infty}, T_{\infty}
+</title>
+<defs>
+<path id='eq1-g0-49' d='M4.303861-2.183811C3.833624-2.749689 3.769863-2.81345 3.490909-3.020672C3.124284-3.299626 2.638107-3.514819 2.11208-3.514819C1.139726-3.514819 .470237-2.662017 .470237-1.713574C.470237-.781071 1.131756 .079701 2.080199 .079701C2.733748 .079701 3.498879-.263014 4.160399-1.251308C4.630635-.68543 4.694396-.621669 4.97335-.414446C5.339975-.135492 5.826152 .079701 6.352179 .079701C7.324533 .079701 7.994022-.773101 7.994022-1.721544C7.994022-2.654047 7.332503-3.514819 6.38406-3.514819C5.730511-3.514819 4.96538-3.172105 4.303861-2.183811ZM4.542964-1.888917C4.845828-2.391034 5.499377-3.211955 6.439851-3.211955C7.292653-3.211955 7.770859-2.438854 7.770859-1.721544C7.770859-.948443 7.181071-.350685 6.479701-.350685S5.308095-.932503 4.542964-1.888917ZM3.921295-1.546202C3.618431-1.044085 2.964882-.223163 2.024408-.223163C1.171606-.223163 .6934-.996264 .6934-1.713574C.6934-2.486675 1.283188-3.084433 1.984558-3.084433S3.156164-2.502615 3.921295-1.546202Z'/>
+<path id='eq1-g1-26' d='M.37061 2.068244C.358655 2.12802 .334745 2.199751 .334745 2.271482C.334745 2.450809 .478207 2.570361 .657534 2.570361S1.004234 2.450809 1.075965 2.283437C1.123786 2.175841 1.458531 .74122 1.841096-.729265C2.080199-.131507 2.52254 .119552 2.988792 .119552C4.339726 .119552 5.869988-1.554172 5.869988-3.359402C5.869988-4.638605 5.092902-5.272229 4.267995-5.272229C3.21594-5.272229 1.936737-4.184309 1.542217-2.594271L.37061 2.068244ZM2.976837-.119552C2.163885-.119552 1.960648-1.06401 1.960648-1.207472C1.960648-1.279203 2.259527-2.414944 2.295392-2.594271C2.905106-4.97335 4.076712-5.033126 4.25604-5.033126C4.794022-5.033126 5.092902-4.542964 5.092902-3.837609C5.092902-3.227895 4.770112-2.044334 4.566874-1.542217C4.208219-.71731 3.58655-.119552 2.976837-.119552Z'/>
+<path id='eq1-g1-59' d='M2.331258 .047821C2.331258-.645579 2.10411-1.159651 1.613948-1.159651C1.231382-1.159651 1.0401-.848817 1.0401-.585803S1.219427 0 1.625903 0C1.78132 0 1.912827-.047821 2.020423-.155417C2.044334-.179328 2.056289-.179328 2.068244-.179328C2.092154-.179328 2.092154-.011955 2.092154 .047821C2.092154 .442341 2.020423 1.219427 1.327024 1.996513C1.195517 2.139975 1.195517 2.163885 1.195517 2.187796C1.195517 2.247572 1.255293 2.307347 1.315068 2.307347C1.41071 2.307347 2.331258 1.422665 2.331258 .047821Z'/>
+<path id='eq1-g1-84' d='M4.985305-7.292653C5.057036-7.579577 5.080946-7.687173 5.260274-7.734994C5.355915-7.758904 5.750436-7.758904 6.001494-7.758904C7.197011-7.758904 7.758904-7.711083 7.758904-6.77858C7.758904-6.599253 7.711083-6.144956 7.639352-5.702615L7.627397-5.559153C7.627397-5.511333 7.675218-5.439601 7.746949-5.439601C7.866501-5.439601 7.866501-5.499377 7.902366-5.69066L8.249066-7.806725C8.272976-7.914321 8.272976-7.938232 8.272976-7.974097C8.272976-8.105604 8.201245-8.105604 7.962142-8.105604H1.422665C1.147696-8.105604 1.135741-8.093649 1.06401-7.878456L.334745-5.726526C.32279-5.702615 .286924-5.571108 .286924-5.559153C.286924-5.499377 .334745-5.439601 .406476-5.439601C.502117-5.439601 .526027-5.487422 .573848-5.642839C1.075965-7.089415 1.327024-7.758904 2.917061-7.758904H3.718057C4.004981-7.758904 4.124533-7.758904 4.124533-7.627397C4.124533-7.591532 4.124533-7.567621 4.064757-7.352428L2.462765-.932503C2.343213-.466252 2.319303-.3467 1.052055-.3467C.753176-.3467 .669489-.3467 .669489-.119552C.669489 0 .800996 0 .860772 0C1.159651 0 1.470486-.02391 1.769365-.02391H3.634371C3.93325-.02391 4.25604 0 4.554919 0C4.686426 0 4.805978 0 4.805978-.227148C4.805978-.3467 4.722291-.3467 4.411457-.3467C3.335492-.3467 3.335492-.454296 3.335492-.633624C3.335492-.645579 3.335492-.729265 3.383313-.920548L4.985305-7.292653Z'/>
+<path id='eq1-g1-86' d='M7.400249-6.838356C7.806725-7.483935 8.177335-7.770859 8.787049-7.81868C8.9066-7.830635 9.002242-7.830635 9.002242-8.045828C9.002242-8.093649 8.978331-8.16538 8.870735-8.16538C8.655542-8.16538 8.141469-8.141469 7.926276-8.141469C7.579577-8.141469 7.220922-8.16538 6.886177-8.16538C6.790535-8.16538 6.670984-8.16538 6.670984-7.938232C6.670984-7.830635 6.77858-7.81868 6.826401-7.81868C7.268742-7.782814 7.316563-7.567621 7.316563-7.424159C7.316563-7.244832 7.149191-6.969863 7.137235-6.957908L3.383313-1.004234L2.546451-7.44807C2.546451-7.79477 3.16812-7.81868 3.299626-7.81868C3.478954-7.81868 3.58655-7.81868 3.58655-8.045828C3.58655-8.16538 3.455044-8.16538 3.419178-8.16538C3.21594-8.16538 2.976837-8.141469 2.773599-8.141469H2.10411C1.231382-8.141469 .872727-8.16538 .860772-8.16538C.789041-8.16538 .645579-8.16538 .645579-7.950187C.645579-7.81868 .729265-7.81868 .920548-7.81868C1.530262-7.81868 1.566127-7.711083 1.601993-7.412204L2.558406-.035866C2.594271 .215193 2.594271 .251059 2.761644 .251059C2.905106 .251059 2.964882 .215193 3.084433 .02391L7.400249-6.838356Z'/>
+</defs>
+<g id='eq1-page1'>
+<use x='0' y='0' xlink:href='#eq1-g1-26'/>
+<use x='6.037726' y='1.793263' xlink:href='#eq1-g0-49'/>
+<use x='15.004224' y='0' xlink:href='#eq1-g1-59'/>
+<use x='20.248383' y='0' xlink:href='#eq1-g1-86'/>
+<use x='27.072733' y='1.793263' xlink:href='#eq1-g0-49'/>
+<use x='36.03923' y='0' xlink:href='#eq1-g1-59'/>
+<use x='41.283389' y='0' xlink:href='#eq1-g1-84'/>
+<use x='48.144394' y='1.793263' xlink:href='#eq1-g0-49'/>
+</g>
+</svg> indicate freestream quantities.</figcaption>
+</figure>
+</section>
+<section id="full-order-model-fom">
+<h2>Full order model (FOM)</h2>
+<p>We focus on the pseudo-transient behavior of the system from a uniform Mach 5.0 flow to steady state.
+The pseudo time stepping is performed using the (implicit) backward Euler scheme with
+fixed time step of <svg class="m-math" style="width: 5.427em; height: 1.091em; vertical-align: -0.104em;" viewBox="0 -9.474739 52.096136 10.471011">
+<title>
+2.5\times 10^{-6}
+</title>
+<defs>
+<path id='eq2-g3-54' d='M1.099875-2.638107C1.099875-3.299626 1.155666-3.881445 1.44259-4.367621C1.681694-4.766127 2.088169-5.092902 2.590286-5.092902C2.749689-5.092902 3.116314-5.068991 3.299626-4.790037C2.940971-4.774097 2.909091-4.503113 2.909091-4.415442C2.909091-4.176339 3.092403-4.040847 3.283686-4.040847C3.427148-4.040847 3.658281-4.128518 3.658281-4.431382C3.658281-4.909589 3.299626-5.300125 2.582316-5.300125C1.474471-5.300125 .350685-4.24807 .350685-2.526526C.350685-.366625 1.354919 .167372 2.12802 .167372C2.510585 .167372 2.925031 .063761 3.283686-.278954C3.602491-.589788 3.873474-.924533 3.873474-1.617933C3.873474-2.662017 3.084433-3.395268 2.199751-3.395268C1.625903-3.395268 1.283188-3.028643 1.099875-2.638107ZM2.12802-.071731C1.705604-.071731 1.44259-.366625 1.323039-.589788C1.139726-.948443 1.123786-1.490411 1.123786-1.793275C1.123786-2.582316 1.554172-3.172105 2.16787-3.172105C2.566376-3.172105 2.805479-2.964882 2.956912-2.685928C3.124284-2.391034 3.124284-2.032379 3.124284-1.625903S3.124284-.868742 2.964882-.581818C2.757659-.215193 2.478705-.071731 2.12802-.071731Z'/>
+<path id='eq2-g0-0' d='M5.571108-1.809215C5.69863-1.809215 5.873973-1.809215 5.873973-1.992528S5.69863-2.175841 5.571108-2.175841H1.004234C.876712-2.175841 .70137-2.175841 .70137-1.992528S.876712-1.809215 1.004234-1.809215H5.571108Z'/>
+<path id='eq2-g1-2' d='M4.65056-3.323537L2.259527-5.702615C2.116065-5.846077 2.092154-5.869988 1.996513-5.869988C1.876961-5.869988 1.75741-5.762391 1.75741-5.630884C1.75741-5.547198 1.78132-5.523288 1.912827-5.391781L4.303861-2.988792L1.912827-.585803C1.78132-.454296 1.75741-.430386 1.75741-.3467C1.75741-.215193 1.876961-.107597 1.996513-.107597C2.092154-.107597 2.116065-.131507 2.259527-.274969L4.638605-2.654047L7.113325-.179328C7.137235-.167372 7.220922-.107597 7.292653-.107597C7.436115-.107597 7.531756-.215193 7.531756-.3467C7.531756-.37061 7.531756-.418431 7.49589-.478207C7.483935-.502117 5.583064-2.379078 4.985305-2.988792L7.173101-5.176588C7.232877-5.248319 7.412204-5.403736 7.47198-5.475467C7.483935-5.499377 7.531756-5.547198 7.531756-5.630884C7.531756-5.762391 7.436115-5.869988 7.292653-5.869988C7.197011-5.869988 7.149191-5.822167 7.017684-5.69066L4.65056-3.323537Z'/>
+<path id='eq2-g2-58' d='M2.199751-.573848C2.199751-.920548 1.912827-1.159651 1.625903-1.159651C1.279203-1.159651 1.0401-.872727 1.0401-.585803C1.0401-.239103 1.327024 0 1.613948 0C1.960648 0 2.199751-.286924 2.199751-.573848Z'/>
+<path id='eq2-g4-48' d='M5.355915-3.825654C5.355915-4.817933 5.296139-5.786301 4.865753-6.694894C4.375592-7.687173 3.514819-7.950187 2.929016-7.950187C2.235616-7.950187 1.3868-7.603487 .944458-6.611208C.609714-5.858032 .490162-5.116812 .490162-3.825654C.490162-2.666002 .573848-1.793275 1.004234-.944458C1.470486-.035866 2.295392 .251059 2.917061 .251059C3.957161 .251059 4.554919-.37061 4.901619-1.06401C5.332005-1.960648 5.355915-3.132254 5.355915-3.825654ZM2.917061 .011955C2.534496 .011955 1.75741-.203238 1.530262-1.506351C1.398755-2.223661 1.398755-3.132254 1.398755-3.969116C1.398755-4.94944 1.398755-5.834122 1.590037-6.539477C1.793275-7.340473 2.402989-7.711083 2.917061-7.711083C3.371357-7.711083 4.064757-7.436115 4.291905-6.40797C4.447323-5.726526 4.447323-4.782067 4.447323-3.969116C4.447323-3.16812 4.447323-2.259527 4.315816-1.530262C4.088667-.215193 3.335492 .011955 2.917061 .011955Z'/>
+<path id='eq2-g4-49' d='M3.443088-7.663263C3.443088-7.938232 3.443088-7.950187 3.203985-7.950187C2.917061-7.627397 2.319303-7.185056 1.08792-7.185056V-6.838356C1.362889-6.838356 1.960648-6.838356 2.618182-7.149191V-.920548C2.618182-.490162 2.582316-.3467 1.530262-.3467H1.159651V0C1.482441-.02391 2.642092-.02391 3.036613-.02391S4.578829-.02391 4.901619 0V-.3467H4.531009C3.478954-.3467 3.443088-.490162 3.443088-.920548V-7.663263Z'/>
+<path id='eq2-g4-50' d='M5.260274-2.008468H4.99726C4.961395-1.80523 4.865753-1.147696 4.746202-.956413C4.662516-.848817 3.981071-.848817 3.622416-.848817H1.41071C1.733499-1.123786 2.462765-1.888917 2.773599-2.175841C4.590785-3.849564 5.260274-4.471233 5.260274-5.654795C5.260274-7.029639 4.172354-7.950187 2.785554-7.950187S.585803-6.766625 .585803-5.738481C.585803-5.128767 1.111831-5.128767 1.147696-5.128767C1.398755-5.128767 1.709589-5.308095 1.709589-5.69066C1.709589-6.025405 1.482441-6.252553 1.147696-6.252553C1.0401-6.252553 1.016189-6.252553 .980324-6.240598C1.207472-7.053549 1.853051-7.603487 2.630137-7.603487C3.646326-7.603487 4.267995-6.75467 4.267995-5.654795C4.267995-4.638605 3.682192-3.753923 3.000747-2.988792L.585803-.286924V0H4.94944L5.260274-2.008468Z'/>
+<path id='eq2-g4-53' d='M1.530262-6.850311C2.044334-6.682939 2.462765-6.670984 2.594271-6.670984C3.945205-6.670984 4.805978-7.663263 4.805978-7.830635C4.805978-7.878456 4.782067-7.938232 4.710336-7.938232C4.686426-7.938232 4.662516-7.938232 4.554919-7.890411C3.88543-7.603487 3.311582-7.567621 3.000747-7.567621C2.211706-7.567621 1.649813-7.806725 1.422665-7.902366C1.338979-7.938232 1.315068-7.938232 1.303113-7.938232C1.207472-7.938232 1.207472-7.866501 1.207472-7.675218V-4.124533C1.207472-3.90934 1.207472-3.837609 1.350934-3.837609C1.41071-3.837609 1.422665-3.849564 1.542217-3.993026C1.876961-4.483188 2.438854-4.770112 3.036613-4.770112C3.670237-4.770112 3.981071-4.184309 4.076712-3.981071C4.27995-3.514819 4.291905-2.929016 4.291905-2.47472S4.291905-1.338979 3.957161-.800996C3.694147-.37061 3.227895-.071731 2.701868-.071731C1.912827-.071731 1.135741-.609714 .920548-1.482441C.980324-1.458531 1.052055-1.446575 1.111831-1.446575C1.315068-1.446575 1.637858-1.566127 1.637858-1.972603C1.637858-2.307347 1.41071-2.49863 1.111831-2.49863C.896638-2.49863 .585803-2.391034 .585803-1.924782C.585803-.908593 1.398755 .251059 2.725778 .251059C4.076712 .251059 5.260274-.884682 5.260274-2.402989C5.260274-3.825654 4.303861-5.009215 3.048568-5.009215C2.367123-5.009215 1.841096-4.710336 1.530262-4.375592V-6.850311Z'/>
+</defs>
+<g id='eq2-page1'>
+<use x='0' y='0' xlink:href='#eq2-g4-50'/>
+<use x='5.85299' y='0' xlink:href='#eq2-g2-58'/>
+<use x='9.104652' y='0' xlink:href='#eq2-g4-53'/>
+<use x='17.614305' y='0' xlink:href='#eq2-g1-2'/>
+<use x='29.569466' y='0' xlink:href='#eq2-g4-49'/>
+<use x='35.422456' y='0' xlink:href='#eq2-g4-48'/>
+<use x='41.275446' y='-4.338437' xlink:href='#eq2-g0-0'/>
+<use x='47.861953' y='-4.338437' xlink:href='#eq2-g3-54'/>
+</g>
+</svg> seconds, yielding 64 time instances.
+During the pseudo-transient phase, the bow shock
+upstream of the sphere moves and deforms until it reaches a steady state.
+We use a spatial discretization using a structured mesh with 4,192,304 cells shown below.</p>
+<figure class="m-figure">
+<img alt="Blottner Sphere Mesh and steady-state solution." src="/static/img/blottner_sphere/fom_meshflow.png" style="width: 694px" />
+</figure>
+</section>
+<section id="lspg-rom">
+<h2>LSPG ROM</h2>
+<section id="method">
+<h3>Method</h3>
+<p>The ROM results below are for a reconstructive case in which the ROM is run at the same inpute parameters, in this case flow conditions, as the FOM. The ROM is run using a basis comprised of the leading 8 POD modes computed from all FOM snapshots. The time integration scheme and step size were identical to that used for the FOM. Hyper-reduction is achieved using a sample mesh composed of 1,678 randomly selected cells
+in which the residual is sampled, along with neighboring cells and neighbors of neighbors, yielding 41,414 cells in total,
+equivalent to roughly 1% of the full mesh.
+It is shown below:</p>
+<figure class="m-figure">
+<img alt="Blottner Sphere Sample Mesh" src="/static/img/blottner_sphere/sample_mesh.png" style="width: 361px" />
+<figcaption>Sample mesh used for the ROM.</figcaption>
+</figure>
+</section>
+<section id="results">
+<h3>Results</h3>
+<p>Using this sample mesh resulted in a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively.</p>
+<figure class="m-figure">
+<img alt="Blottner Sphere Mesh and steady-state solution." src="/static/img/blottner_sphere/Picture2.png" style="width: 765px" />
+</figure>
+</section>
+</section>
+<section id="references">
+<h2>References</h2>
+<ul>
+<li>[1]: Micah Howard, Andrew Bradley, Steven W. Bova, James Overfelt, Ross Wagnild, Derek Dinzl, Mark Hoemmen and Alicia Klinvex. “Towards Performance Portability in a Compressible CFD Code,” AIAA 2017-4407. 23rd AIAA Computational Fluid Dynamics Conference. June 2017.</li>
+<li>[2]: F. G. Blottner, “Accurate Navier-Stokes Results for the Hypersonic Flow over a Spherical Nosetip”, Journal of Spacecraft, Vol. 27, No. 2, March-April 1990, DOI: 10.2514/3.26115</li>
+</ul>
+</section>
+<!-- /content -->
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>
+        Site created by the Pressio team. Powered by <a href="https://getpelican.com">Pelican</a>
+        and <a href="https://mcss.mosra.cz">m.css</a>, using a theme adapted from <a href="https://magnum.graphics/">magnum</a>.<br />
+        Pressio logo designed by Brent Haglund. This site content is <a href="https://github.com/Pressio/Pressio.github.io">available on GitHub</a>.<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
