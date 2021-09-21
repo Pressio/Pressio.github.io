@@ -52,8 +52,8 @@ Full order model (FOM)
 
 Since the HIFiRE-1 payload geometry is axisymmetric, but the angle of attack is non-zero, we assume symmetry about the centerline anduse the half mesh shown below 
 
-.. figure:: {static}/img/hifire1/mesh.eps
-    :scale: 50 %
+.. figure:: {static}/img/hifire1/mesh.png
+    :scale: 8 %
     :alt: HIFiRE-1 mesh
     
     HIFiRE-1 mesh [Blonigan et al., 2021][2] 
@@ -65,8 +65,8 @@ The stopping criteria were a 5 order of magnitude.
 
 A total of 36 FOMs are run at the sample points shown below
 
-.. figure:: {static}/img/hifire1/param_space.eps
-    :scale: 120 %
+.. figure:: {static}/img/hifire1/param_space.png
+    :scale: 50 %
     :alt: HIFiRE-1 FOM samples
     
     FOM samples [Blonigan et al., 2021][2] 
@@ -76,7 +76,7 @@ The 24 FOMs labeled "train" are used to construct a POD basis for the ROM; the F
 The plots below show several flow solutions. 
 
 .. figure:: {static}/img/hifire1/fom_solutions.png
-    :scale: 100 %
+    :scale: 50 %
     :alt: HIFiRE-1 FOM solutions
     
     FOM solutions colored by Mach number and wall heat flux [Blonigan et al., 2021][2] 
@@ -105,8 +105,8 @@ in which the residual is sampled, along with neighboring cells and neighbors of 
 equivalent to roughly 17.9% of the full mesh. 
 It is shown below:
 
-.. figure:: {static}/img/hifire1/sample_mesh8em3.eps
-    :scale: 100 %
+.. figure:: {static}/img/hifire1/sample_mesh8em3.png
+    :scale: 10 %
     :alt: HIFiRE-1 Sample Mesh
 
     Sample mesh used for the ROM.
@@ -122,7 +122,7 @@ TODO ROM vs. FOM flow visualization(s)
 The following figure shows the error of the wall pressure and heat flux computed by the ROM for test case 10. 
 
 .. figure:: {static}/img/hifire1/surface_error.png
-    :scale: 100 %
+    :scale: 65 %
     :alt: Relative error fields for the ROM solution to test case 10.
 
 The ROM computes the surface quantities with errors of 1-3% or less over most of the vehicle surface. 

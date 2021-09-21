@@ -33,9 +33,10 @@ The Galerkin ROM is one of the most widely used techniques in model reduction. *
 \
 
 **Related tutorials and demos**
-  1. `Galerkin ROM with explicit time stepping in C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_rom_tutorial2.html>`__
-  2. `Galerkin ROM with explicit time stepping in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_tutorials_tutorial3.html>`__
-  3. `Galerkin ROM with masked collocation in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo4.html>`__
+  1. `Galerkin ROM with explicit time stepping in C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_rom_galerkin_default_explicit.html>`__
+  2. `Galerkin ROM with implicit time stepping in C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_rom_galerkin_default_implicit.html>`__
+  3. `Galerkin ROM with explicit time stepping in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_tutorials_tutorial3.html>`__
+  4. `Galerkin ROM with masked collocation in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo4.html>`__
 
 \
 
@@ -63,10 +64,9 @@ Least-squares Petrov--Galerkin (LSPG) projection is a popular alternative to Gal
 
 **Related tutorials and demos**
   1. `LSPG ROM for the 1D advection diffusion equation in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo2.html>`_
-  2. `End-to-end example of setting up and running an LSPG ROM with hyperreduction in C++ <https://pressio.github.io/pressio-tutorials/html/md_pages_swe_main.html>`__
-  3. `LSPG ROM on a kernel PCA nonlinear manifold for the 1D advection diffusion equation in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo3.html>`__
-  4. `LSPG ROM on a multilayer perceptron nonlinear manifold for the 1D advection diffusion in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo6.html>`__
-  5. `Compare masked LSPG to masked Galerkin <https://pressio.github.io/pressio4py/html/md_pages_demos_demo5.html>`__
+  2. `LSPG ROM on a kernel PCA nonlinear manifold for the 1D advection diffusion equation in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo3.html>`__
+  3. `LSPG ROM on a multilayer perceptron nonlinear manifold for the 1D advection diffusion in pressio4py <https://pressio.github.io/pressio4py/html/md_pages_demos_demo6.html>`__
+  4. `Compare masked LSPG to masked Galerkin <https://pressio.github.io/pressio4py/html/md_pages_demos_demo5.html>`__
 
 \
 

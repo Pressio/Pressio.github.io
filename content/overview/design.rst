@@ -60,7 +60,7 @@ Fundamental Design
 
   .. block-primary:: Learn more about the adapter API:
 
-       .. button-default:: https://pressio.github.io/pressio/html/md_pages_coreconcepts_adapter_api.html
+       .. button-default:: https://pressio.github.io/pressio/html/md_pages_components_rom_fom_apis.html
 	   :class: m-fullwidth
 
 	   C++ API code details

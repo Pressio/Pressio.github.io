@@ -158,7 +158,12 @@ We use a spatial discretization using a structured mesh with 4,192,304 cells sho
 <h2>LSPG ROM</h2>
 <section id="method">
 <h3>Method</h3>
-<p>The ROM results below are for a reconstructive case in which the ROM is run at the same inpute parameters, in this case flow conditions, as the FOM. The ROM is run using a basis comprised of the leading 8 POD modes computed from all FOM snapshots. The time integration scheme and step size were identical to that used for the FOM. Hyper-reduction is achieved using a sample mesh composed of 1,678 randomly selected cells
+<p>We use a Least-Squares Petrov–Galerkin (LSPG) ROM for a reconstructive case in which the ROM is run at the same inpute parameters, in this case flow conditions, as the FOM. The LSPG ROM is solved the same backward Euler time integration scheme and time step size as the FOM.
+The residual is minimized using a Gauss-Newton solver which terminates when the relative residual of the normal equations is reduced by three orders of magnitude.
+The ROM is run using a basis comprised of the leading 8 POD modes computed from all FOM snapshots.
+Further details on the ROM method can be found in <a href="https://arxiv.org/abs/2003.07798">[Rizzi et al. 2020][3]</a>.</p>
+<p>TODO Corresponding code functionalities, including solver, ROM, etc.</p>
+<p>Hyper-reduction is achieved using a sample mesh composed of 1,678 randomly selected cells
 in which the residual is sampled, along with neighboring cells and neighbors of neighbors, yielding 41,414 cells in total,
 equivalent to roughly 1% of the full mesh.
 It is shown below:</p>
@@ -169,10 +174,17 @@ It is shown below:</p>
 </section>
 <section id="results">
 <h3>Results</h3>
-<p>Using this sample mesh resulted in a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively.</p>
+<p>Using this sample mesh resulted in a ROM with a <strong>speed-up of 100</strong>; that is, around 100 ROMs could be run with the computational resources required for a single FOM.
+This substantial cost reduction comes with <strong>almost no loss in accuracy</strong>: a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively.</p>
 <figure class="m-figure">
 <img alt="Blottner Sphere Mesh and steady-state solution." src="/static/img/blottner_sphere/Picture2.png" style="width: 765px" />
 </figure>
+<p>Additional results can be found in <a href="https://arxiv.org/abs/2003.07798">[Rizzi et al. 2020][3]</a>.</p>
+<aside class="m-block m-success">
+<h3>ROMs are low cost <strong>and</strong> accurate</h3>
+<aside class="m-note m-success">
+A hyper-reduced ROM produces results within 1% of the full model results, but only requires around 1% of the computational resources needed for the full model.</aside>
+</aside>
 </section>
 </section>
 <section id="references">
@@ -180,6 +192,7 @@ It is shown below:</p>
 <ul>
 <li>[1]: Micah Howard, Andrew Bradley, Steven W. Bova, James Overfelt, Ross Wagnild, Derek Dinzl, Mark Hoemmen and Alicia Klinvex. “Towards Performance Portability in a Compressible CFD Code,” AIAA 2017-4407. 23rd AIAA Computational Fluid Dynamics Conference. June 2017.</li>
 <li>[2]: F. G. Blottner, “Accurate Navier-Stokes Results for the Hypersonic Flow over a Spherical Nosetip”, Journal of Spacecraft, Vol. 27, No. 2, March-April 1990, DOI: 10.2514/3.26115</li>
+<li>[3]: F. Rizzi, P. Blonigan, and K. Carlberg. “PRESSIO: ENABLING PROJECTION-BASED MODEL REDUCTION FOR LARGE-SCALE NONLINEAR DYNAMICAL SYSTEMS”, arXiv preprint, 2020, arXiv:2003.07798.</li>
 </ul>
 </section>
 <!-- /content -->
