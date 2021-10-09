@@ -8,15 +8,15 @@
   <link rel="canonical" href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
-  <meta name="description" content="Projection-based model reduction for dynamical systems." />
+  <meta name="description" content="Model reduction for dynamical systems." />
   <meta property="og:site_name" content="" />
   <meta property="og:title" content="Pressio" />
   <meta name="twitter:title" content="Pressio" />
   <meta property="og:url" content="/" />
   <meta property="og:description" content="Model reduction for …" />
   <meta name="twitter:description" content="Model reduction for …" />
-  <meta property="og:image" content="/static/img/top1.jpg" />
-  <meta name="twitter:image" content="/static/img/top1.jpg" />
+  <meta property="og:image" content="/static/img/top3.jpg" />
+  <meta name="twitter:image" content="/static/img/top3.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:type" content="page" />
 </head>
@@ -30,18 +30,13 @@
       <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
         <div class="m-row">
           <ol class="m-col-t-12 m-col-m-none">
+            <li><a href="/interface/design/">Minimal Interface</a></li>
             <li>
-              <a href="/overview/proms/">Overview</a>
+              <a href="/proms/description/">Projection-based ROMs</a>
               <ol>
-                <li><a href="/overview/proms/">What is Pressio</a></li>
-                <li><a href="/overview/design/">How does Pressio work?</a></li>
-              </ol>
-            </li>
-            <li>
-              <a href="/algos/roms/">Supported Algorithms</a>
-              <ol>
-                <li><a href="/algos/roms/">ROMs</a></li>
-                <li><a href="/algos/hyper/">Hyper-reduction</a></li>
+                <li><a href="/proms/description">Overview</a></li>
+                <li><a href="/proms/roms/">Supported Algorithms</a></li>
+                <li><a href="/proms/hyper/">Hyper-reduction</a></li>
               </ol>
             </li>
             <li>
@@ -67,7 +62,7 @@
 </nav></header>
 <main>
 <article>
-  <div id="m-landing-image" style="background-image: url('/static/img/top1.jpg');">
+  <div id="m-landing-image" style="background-image: url('/static/img/top3.jpg');">
     <div id="m-landing-cover">
       <div class="m-container">
 <!-- landing -->
@@ -76,11 +71,43 @@
 <h1 style="text-transform:capitalize">Pressio</h1></div>
 </div>
 <div class="m-row">
-<div class="m-col-l-9 m-push-l-0">
-<p><em>Pressio is an open-source project aimed at alleviating the intrusive nature of</em> <a href="/overview/proms/">projection-based reduced-order models (pROMs)</a> <em>for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types and diverse programming models. Pressio provides several functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.</em></p>
-<p>The name stems from the Latin <em>compressionem</em>: pressing together, squeezing.</p>
+<div class="m-col-l-11 m-push-l-0">
+<p>Model reduction is a broad and active field.
+Several techniques exist, but there is no such thing as “one method to rule them all”.
+We believe that evaluating the quality of a reduced model requires accounting
+for several factors, e.g., the reduction in degrees of freedom, training cost,
+evaluation cost, robustness, simplicity, predictive accuracy, etc.
+There is no single metric to rely on; it is always a tradeoff and, typically,
+it depends on the application.</p>
+<p>We believe in model reduction techniques that use data but
+are grounded in physical laws.
+Projection-based model reduction falls in this category.
+This method has a large potential, but its main drawback
+is an intrusive nature and non-trivial complexity.
+This has been, historically, one of the key barriers (if not the main one)
+precluding this technique to impact more broadly science and engineering.
+As a consequence, this has also limited the range of
+applications and the capabilities tested.
+We believe this barrier can be broken, thus opening up large
+opportunities to explore and mature this field.
+This is especially true if this advancement is done by
+leveraging ideas from other fields.
+This is our “why” and motivates this project.</p>
 </div>
-<div class="m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2">
+</div>
+<div class="m-row">
+<div class="m-col-l-7 m-push-l-1">
+Pressio aims to advance model reduction for science and engineering.
+Our current focus is on mitigating the intrusive nature of <a href="/proms/description/">projection-based
+reduced-order models (pROMs)</a> for large-scale codes,
+and making this available to the community to foster research of new ideas
+and as well as more broad testing.
+The design of Pressio pivots on a <a href="/interface/design/">minimally intrusive interface</a>
+with external applications.
+The core of the project is a header-only C++ library that leverages generic
+programming to support shared or distributed memory applications using
+arbitrary data-types and diverse programming models.</div>
+<div class="m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-4 m-col-t-8 m-push-t-2">
 <figure class="m-figure">
 <img src="/static/img/plogo.png" />
 </figure>
@@ -91,10 +118,11 @@
 <dl>
 <dt><strong>Features of the Pressio C++ library include:</strong></dt>
 <dd><ul>
+<li>A minimally-intrusive interface that can be useful for a variety of purposes</li>
 <li>Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections</li>
 <li>Support for arbitrary datatypes via generic programming and custom operations</li>
 <li>Built-in support to use Eigen, Kokkos, and Trilinos (with more in progress)</li>
-<li>Several time integration schemes</li>
+<li>Several time integration schemes and nonlinear solvers</li>
 </ul>
 </dd>
 </dl>
@@ -103,43 +131,38 @@
 <dl>
 <dt><strong>The Pressio ecosystem also offers:</strong></dt>
 <dd><ul>
-<li><a href="https://pypi.org/project/pressio4py/">pressio4py</a>: Python bindings enabling Pressio’s C++ library to be used in pure-Python applications.</li>
+<li><a href="https://pressio.github.io/pressio4py/html/index.html">pressio4py</a>: Python bindings enabling Pressio’s C++ library to be used in pure-Python applications.</li>
 <li><a href="https://github.com/Pressio/pressio-tools">pressio-tools</a>: A library to compute large-scale SVD, QR, and sample meshes.</li>
-<li><a href="https://github.com/Pressio/pressio-demoapps">pressio-demoapps</a>: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.</li>
+<li><a href="https://github.com/Pressio/pressio-demoapps">pressio-demoapps</a>: A suite of 1d, 2d, and 3d demo applications for testing ROMs and hyper-reduction.</li>
 </ul>
 </dd>
 </dl>
 </div>
 </div>
 <div class="m-row m-container-inflate">
-<div class="m-col-m-4 m-text-center">
+<div class="m-col-m-6 m-text-center">
 <aside class="m-block m-primary">
 <h3>Core C++ library</h3>
 <p>Do you have a C++ application and want to know how to use <em>pressio</em> from C++?
 Follow this link to the userguide and documentation.</p>
 <div class="m-fullwidth m-button m-primary">
-<a href="https://pressio.github.io/pressio/html/index.html"><span>Take me there</span></a>
+<a href="https://pressio.github.io/pressio/html/index.html"><span>Documentation Website</span></a>
+</div>
+<div class="m-fullwidth m-button m-default">
+<a href="https://pressio.github.io/pressio-tutorials/html/index.html"><span>Tutorials/Demos</span></a>
 </div>
 </aside>
 </div>
-<div class="m-col-m-4 m-text-center">
+<div class="m-col-m-6 m-text-center">
 <aside class="m-block m-primary">
 <h3>Python bindings library</h3>
 <p>Do you have a Python application and would like to use Pressio
 <em>without</em> touching C++? We have Python bindings for that!</p>
 <div class="m-fullwidth m-button m-primary">
-<a href="https://pressio.github.io/pressio4py/html/index.html"><span>Take me there</span></a>
-</div>
-</aside>
-</div>
-<div class="m-col-m-4 m-text-center">
-<aside class="m-block m-flat">
-<h3>Skip directly to:</h3>
-<div class="m-fullwidth m-button m-default">
-<a href="https://pressio.github.io/pressio-tutorials/html/index.html"><span>c++ tutorials</span></a>
+<a href="https://pressio.github.io/pressio4py/html/index.html"><span>Documentation Website</span></a>
 </div>
 <div class="m-fullwidth m-button m-default">
-<a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html"><span>pressio4py demos</span></a>
+<a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html"><span>Tutorials/Demos</span></a>
 </div>
 </aside>
 </div>

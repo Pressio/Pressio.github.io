@@ -68,18 +68,15 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-M_LINKS_NAVBAR1 = [('Overview', 'overview/proms/', 'overview/proms',
+M_LINKS_NAVBAR1 = [('Minimal Interface', 'interface/design/', 'interface/design',
+                    []),
+                   ('Projection-based ROMs', 'proms/description/', 'proms/description',
                     [
-                      ("What is Pressio", 'overview/proms/', 'overview/proms'),
-                      ("How does Pressio work?", 'overview/design/', 'overview/design')
+                      ("Overview",     'proms/description', 'proms/description'),
+                      ("Supported Algorithms",      'proms/roms/',       'proms/roms'),
+                      ("Hyper-reduction", 'proms/hyper/',      'proms/hyper')
                     ]),
-                   ('Supported Algorithms', 'algos/roms/', 'algos/roms',
-                    [
-                      ("ROMs", 'algos/roms/', 'algos/roms'),
-                      ("Hyper-reduction", 'algos/hyper/', 'algos/hyper'),
-
-                    ]),
-                   ('Portfolio', 'portfolio/blottner/', 'portfolio/blottner', 
+                   ('Portfolio', 'portfolio/blottner/', 'portfolio/blottner',
                     [
                       ("Hypersonic Aerodynamics: Blottner Sphere", 'portfolio/blottner/', 'portfolio/blottner'),
                       ("Hypersonic Aerodynamics: HIFiRE-1", 'portfolio/hifire/', 'portfolio/hifire')

@@ -27,18 +27,13 @@
       <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
         <div class="m-row">
           <ol class="m-col-t-12 m-col-m-none">
+            <li><a href="/interface/design/">Minimal Interface</a></li>
             <li>
-              <a href="/overview/proms/">Overview</a>
+              <a href="/proms/description/">Projection-based ROMs</a>
               <ol>
-                <li><a href="/overview/proms/">What is Pressio</a></li>
-                <li><a href="/overview/design/">How does Pressio work?</a></li>
-              </ol>
-            </li>
-            <li>
-              <a href="/algos/roms/">Supported Algorithms</a>
-              <ol>
-                <li><a href="/algos/roms/">ROMs</a></li>
-                <li><a href="/algos/hyper/">Hyper-reduction</a></li>
+                <li><a href="/proms/description">Overview</a></li>
+                <li><a href="/proms/roms/">Supported Algorithms</a></li>
+                <li><a href="/proms/hyper/">Hyper-reduction</a></li>
               </ol>
             </li>
             <li>
@@ -259,6 +254,63 @@ A table with wind tunnel conditions corresponding to run 34 is included below:</
 <img alt="HIFiRE-1 mesh" src="/static/img/hifire1/mesh.png" style="width: 428px" />
 <figcaption>HIFiRE-1 mesh [Blonigan et al., 2021][2]</figcaption>
 </figure>
+<p>The mesh has 2,031,616 cells, corresponding to a state-space size of 12,189,696 since
+we are using the one-equation Spalart-Allmaras turbulence model.
+The FOMs were solved to a steady state using pseudo time stepping with a backward Euler integration scheme.
+The stopping criteria were a 5 order of magnitude.</p>
+<p>A total of 36 FOMs are run at the sample points shown below</p>
+<figure class="m-figure">
+<img alt="HIFiRE-1 FOM samples" src="/static/img/hifire1/param_space.png" style="width: 406px" />
+<figcaption>FOM samples [Blonigan et al., 2021][2]</figcaption>
+</figure>
+<p>The 24 FOMs labeled “train” are used to construct a POD basis for the ROM; the FOMs labeled “test” are used to compare the ROM against.
+The plots below show several flow solutions.</p>
+<figure class="m-figure">
+<img alt="HIFiRE-1 FOM solutions" src="/static/img/hifire1/fom_solutions.png" style="width: 720px" />
+<figcaption>FOM solutions colored by Mach number and wall heat flux [Blonigan et al., 2021][2]</figcaption>
+</figure>
+<p>The main feature of the flow field include a bow shock near the nose, an expansion wave just aft of the cone and an oblique shock upstream of the flange.
+Boundary layer transition is visible in the sudden jump in heat flux.</p>
+</section>
+<section id="lspg-rom">
+<h2>LSPG ROM</h2>
+<section id="method">
+<h3>Method</h3>
+<p>We use a Least-Squares Petrov–Galerkin (LSPG) ROM with a conservation constraint at the 12 test conditions shown previously.
+The conservation constraint is applied to the entire volume, as discussed in section III.B of <a href="https://arc.aiaa.org/doi/10.2514/1.J059785">[Blonigan et al. 2021][2]</a>.
+The constrained LSPG solver is implemented using a customized nonlinear solver in Pressio. The solver is run until the relative
+residual of the normal equations is reduced by 5 orders of magnitude.
+The initial guess for the ROM generalized coordinates were computed with inverse distance interpolation as suggested by Washabaugh (Algorithm 23) [Washabaugh 2016][5].
+The basis is constructed from the leading 4 POD modes computed from all 24 training snapshots.
+The POD modes are scaled to account for the different magnitudes of each conserved quantity; see section IV.C of <a href="https://arc.aiaa.org/doi/10.2514/1.J059785">[Blonigan et al. 2021][2]</a> for more details of the ROM method.</p>
+<p>TODO more details on what features of Pressio are used?</p>
+<p>Hyper-reduction is achieved using a sample mesh composed of 16,253 randomly selected cells
+in which the residual is sampled, along with neighboring cells and neighbors of neighbors, yielding 364,468 cells in total,
+equivalent to roughly 17.9% of the full mesh.
+It is shown below:</p>
+<figure class="m-figure">
+<img alt="HIFiRE-1 Sample Mesh" src="/static/img/hifire1/sample_mesh8em3.png" style="width: 535px" />
+<figcaption>Sample mesh used for the ROM.</figcaption>
+</figure>
+</section>
+<section id="results">
+<h3>Results</h3>
+<p>Using this sample mesh resulted in a ROM with a <strong>speed-up of 300-1,000</strong>; that is, around 300-1,000 ROMs could be run with the computational resources required for a single FOM.
+This substantial cost reduction comes with <strong>almost no loss in accuracy</strong>: a maximum state error of around than 0.3% across all 12 test cases, as well as errors of no more than 3% in integrated wall heat flux.</p>
+<p>TODO ROM vs. FOM flow visualization(s)</p>
+<p>The following figure shows the error of the wall pressure and heat flux computed by the ROM for test case 10.</p>
+<figure class="m-figure">
+<img alt="Relative error fields for the ROM solution to test case 10." src="/static/img/hifire1/surface_error.png" style="width: 915px" />
+</figure>
+<p>The ROM computes the surface quantities with errors of 1-3% or less over most of the vehicle surface.
+This is substantially more accurate surface quantities than the interpolation used for the initial guess shown on top.</p>
+<p>Additional results can be found in <a href="https://arxiv.org/abs/2003.07798">[Rizzi et al. 2020][3]</a>.</p>
+<aside class="m-block m-success">
+<h3>ROMs are low cost <strong>and</strong> accurate</h3>
+<aside class="m-note m-success">
+A hyper-reduced ROM produces results within 1% of the full model results, but only requires around 1% of the computational resources needed for the full model.</aside>
+</aside>
+</section>
 </section>
 <section id="references">
 <h2>References</h2>

@@ -3,8 +3,8 @@ Pressio
 
 :save_as: index.html
 :url:
-:cover: {static}/img/top1.jpg
-:description: Projection-based model reduction for dynamical systems.
+:cover: {static}/img/top3.jpg
+:description: Model reduction for dynamical systems.
 :summary: Model reduction for ...
 :hide_navbar_brand: True
 :landing:
@@ -19,13 +19,47 @@ Pressio
 
     .. container:: m-row
 
-        .. container:: m-col-l-9 m-push-l-0
+        .. container:: m-col-l-11 m-push-l-0
 
-                *Pressio is an open-source project aimed at alleviating the intrusive nature of* `projection-based reduced-order models (pROMs) <{filename}/overview/proms.rst>`_ *for large-scale codes. The core of the Pressio project is a header-only C++ library that leverages generic programming to interface with shared or distributed memory applications using arbitrary data-types and diverse programming models. Pressio provides several functionalities and solvers for performing model reduction, such as Galerkin and least-squares Petrov–Galerkin projections.*
+		Model reduction is a broad and active field.
+		Several techniques exist, but there is no such thing as "one method to rule them all".
+		We believe that evaluating the quality of a reduced model requires accounting
+		for several factors, e.g., the reduction in degrees of freedom, training cost,
+		evaluation cost, robustness, simplicity, predictive accuracy, etc.
+		There is no single metric to rely on; it is always a tradeoff and, typically,
+		it depends on the application.
 
-		The name stems from the Latin *compressionem*: pressing together, squeezing.
+		We believe in model reduction techniques that use data but
+		are grounded in physical laws.
+		Projection-based model reduction falls in this category.
+		This method has a large potential, but its main drawback
+		is an intrusive nature and non-trivial complexity.
+		This has been, historically, one of the key barriers (if not the main one)
+		precluding this technique to impact more broadly science and engineering.
+		As a consequence, this has also limited the range of
+		applications and the capabilities tested.
+		We believe this barrier can be broken, thus opening up large
+		opportunities to explore and mature this field.
+		This is especially true if this advancement is done by
+		leveraging ideas from other fields.
+		This is our "why" and motivates this project.
 
-        .. container:: m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-3 m-col-t-8 m-push-t-2
+    .. container:: m-row
+
+        .. container:: m-col-l-7 m-push-l-1
+
+                Pressio aims to advance model reduction for science and engineering.
+		Our current focus is on mitigating the intrusive nature of `projection-based
+		reduced-order models (pROMs) <{filename}/proms/description.rst>`_ for large-scale codes,
+		and making this available to the community to foster research of new ideas
+		and as well as more broad testing.
+		The design of Pressio pivots on a `minimally intrusive interface <{filename}/interface/design.rst>`_
+		with external applications.
+		The core of the project is a header-only C++ library that leverages generic
+		programming to support shared or distributed memory applications using
+		arbitrary data-types and diverse programming models.
+
+        .. container:: m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-4 m-col-t-8 m-push-t-2
 
 	   .. figure:: {static}/img/plogo.png
 
@@ -35,22 +69,23 @@ Pressio
         .. container:: m-col-l-15 m-push-l-0
 
           **Features of the Pressio C++ library include:**
+	    * A minimally-intrusive interface that can be useful for a variety of purposes
             * Numerous model reduction routines, including Galerkin, least-squares, and windowed least-squares projections
             * Support for arbitrary datatypes via generic programming and custom operations
             * Built-in support to use Eigen, Kokkos, and Trilinos (with more in progress)
-	    * Several time integration schemes
+	    * Several time integration schemes and nonlinear solvers
 
         .. container:: m-col-l-15 m-push-l-0
 
           **The Pressio ecosystem also offers:**
-            * `pressio4py <https://pypi.org/project/pressio4py/>`_: Python bindings enabling Pressio's C++ library to be used in pure-Python applications.
+            * `pressio4py <https://pressio.github.io/pressio4py/html/index.html>`_: Python bindings enabling Pressio's C++ library to be used in pure-Python applications.
             * `pressio-tools <https://github.com/Pressio/pressio-tools>`_: A library to compute large-scale SVD, QR, and sample meshes.
-            * `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_: A suite of 1d, 2d, and 3d demo applications for testing pROMs and hyper-reduction.
+            * `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_: A suite of 1d, 2d, and 3d demo applications for testing ROMs and hyper-reduction.
 
 
     .. container:: m-row m-container-inflate
 
-        .. container:: m-col-m-4 m-text-center
+        .. container:: m-col-m-6 m-text-center
 
             .. block-primary:: Core C++ library
 
@@ -60,10 +95,15 @@ Pressio
                 .. button-primary:: https://pressio.github.io/pressio/html/index.html
                     :class: m-fullwidth
 
-                    Take me there
+                    Documentation Website
+
+                .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
+                    :class: m-fullwidth
+
+                    Tutorials/Demos
 
 
-        .. container:: m-col-m-4 m-text-center
+        .. container:: m-col-m-6 m-text-center
 
             .. block-primary:: Python bindings library
 
@@ -73,19 +113,32 @@ Pressio
                 .. button-primary:: https://pressio.github.io/pressio4py/html/index.html
                     :class: m-fullwidth
 
-                    Take me there
-
-
-        .. container:: m-col-m-4 m-text-center
-
-            .. block-flat:: Skip directly to:
-
-                .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
-                    :class: m-fullwidth
-
-                    c++ tutorials
+                    Documentation Website
 
                 .. button-default:: https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html
                     :class: m-fullwidth
 
-                    pressio4py demos
+                    Tutorials/Demos
+
+
+	..
+	   .. container:: m-col-m-4 m-text-center
+
+	       .. block-flat:: Skip directly to:
+
+		   .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
+		       :class: m-fullwidth
+
+		       c++ tutorials
+
+		   .. button-default:: https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html
+		       :class: m-fullwidth
+
+		       pressio4py demos
+
+
+
+..
+   Pressio provides several functionalities and solvers for performing model reduction,
+   such as Galerkin and least-squares Petrov–Galerkin projections.*
+   <h5>(from the Latin *compressionem*: pressing together, squeezing)</h5>

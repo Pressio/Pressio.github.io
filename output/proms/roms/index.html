@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Supported ROM algorithms | </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&amp;subset=latin-ext" />
+  <link rel="stylesheet" href="/static/m-dark.css" />
+  <link rel="canonical" href="/proms/roms/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="Supported ROM algorithms" />
+  <meta name="twitter:title" content="Supported ROM algorithms" />
+  <meta property="og:url" content="/proms/roms/" />
+  <meta property="og:description" content="Galerkin method" />
+  <meta name="twitter:description" content="Galerkin method" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:type" content="page" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="/" id="m-navbar-brand" class="m-col-t-9 m-col-m-none m-left-m">Pressio</a>
+      <a id="m-navbar-show" href="#navigation" title="Show navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <a id="m-navbar-hide" href="#" title="Hide navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-12 m-col-m-none">
+            <li><a href="/interface/design/">Minimal Interface</a></li>
+            <li>
+              <a href="/proms/description/">Projection-based ROMs</a>
+              <ol>
+                <li><a href="/proms/description">Overview</a></li>
+                <li><a href="/proms/roms/" id="m-navbar-current">Supported Algorithms</a></li>
+                <li><a href="/proms/hyper/">Hyper-reduction</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="/portfolio/blottner/">Portfolio</a>
+              <ol>
+                <li><a href="/portfolio/blottner/">Hypersonic Aerodynamics: Blottner Sphere</a></li>
+                <li><a href="/portfolio/hifire/">Hypersonic Aerodynamics: HIFiRE-1</a></li>
+              </ol>
+            </li>
+            <li><a href="/blog/">Blog</a></li>
+            <li>
+              <a href="/">Various</a>
+              <ol>
+                <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main>
+<article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>Supported ROM algorithms</h1>
+<!-- content -->
+<p><strong>Pressio currently supports Galerkin projection, least-squares Petrov–Galerkin projection, and windowed least-squares projection model reduction schemes.</strong></p>
+<p>
+<br />
+</p>
+<section id="overview-of-the-galerkin-rom">
+<h2>Overview of the Galerkin ROM</h2>
+<p>The Galerkin ROM is one of the most widely used techniques in model reduction. <strong>Galerkin projection is most appropriate for symmetric systems</strong>, in which case the resulting ROM can be equipped with rigorous error bounds. For systems characterized by non-symmetric, nonlinear operators, Galerkin projection can yield inaccurate, or even unstable, dynamics. Nonetheless, Galerkin projection is widely used, and has been applied successfully to numerous linear and nonlinear systems.</p>
+<dl>
+<dt><strong>Advantages of the Galerkin ROM include</strong></dt>
+<dd><ol>
+<li>Ease of implementation</li>
+<li>Compatability with both explicit and implicit time schemes</li>
+<li>Computational efficiency</li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<dl>
+<dt><strong>Disadvantages of the Galerkin ROM include</strong></dt>
+<dd><ol>
+<li>Lack of robustness for non-symmetric systems</li>
+<li>Lack of robustness when equipped with hyperreduction techniques</li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<dl>
+<dt><strong>Related tutorials and demos</strong></dt>
+<dd><ol>
+<li><a href="https://pressio.github.io/pressio-tutorials/html/md_pages_rom_galerkin_default_explicit.html">Galerkin ROM with explicit time stepping in C++</a></li>
+<li><a href="https://pressio.github.io/pressio-tutorials/html/md_pages_rom_galerkin_default_implicit.html">Galerkin ROM with implicit time stepping in C++</a></li>
+<li><a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo1.html">Galerkin ROM with explicit time stepping in pressio4py</a></li>
+<li><a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo4.html">Galerkin ROM with masked collocation in pressio4py</a></li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<p>
+<br />
+</p>
+</section>
+<section id="overview-of-the-least-squares-petrov-galerkin-rom">
+<h2>Overview of the least-squares Petrov–Galerkin ROM</h2>
+<p>Least-squares Petrov–Galerkin (LSPG) projection is a popular alternative to Galerkin projection. Unlike Galerkin projection, which relies on residual orthogonality, LSPG relies on residual minimization. Specifically, LSPG operates by sequentially computing solutions that minimize the time-discrete residual within a low-dimensional trial subspace at each time step. In general, LSPG projection yields more robust ROMs than Galerkin projection for nonsymmetric systems. Additionally, as LSPG is defined from residual minimization principles, aspects such as hyper-reduction and physical contraints can be more easily integrated into the ROM framework.</p>
+<dl>
+<dt><strong>Advantages of the LSPG ROM include</strong></dt>
+<dd><ol>
+<li>Robustness for non-symmetric and nonlinear systems</li>
+<li>Robustness when eqipped with hyper-reduction techniques</li>
+<li>Ability to be equipped with physical constraints</li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<dl>
+<dt><strong>Disadvantages of the LSPG ROM include</strong></dt>
+<dd><ol>
+<li>Inherently implicit</li>
+<li>Generally more computationally expensive than the Galerkin ROM</li>
+<li>Display a significant dependence on the time step, with this dependence difficult to quantify</li>
+<li>More diffusive than Galerkin ROMs</li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<dl>
+<dt><strong>Related tutorials and demos</strong></dt>
+<dd><ol>
+<li><a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo2.html">LSPG ROM for the 1D advection diffusion equation in pressio4py</a></li>
+<li><a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo3.html">LSPG ROM on a kernel PCA nonlinear manifold for the 1D advection diffusion equation in pressio4py</a></li>
+<li><a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo6.html">LSPG ROM on a multilayer perceptron nonlinear manifold for the 1D advection diffusion in pressio4py</a></li>
+<li><a href="https://pressio.github.io/pressio4py/html/md_pages_demos_demo5.html">Compare masked LSPG to masked Galerkin</a></li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<p>
+<br />
+</p>
+</section>
+<section id="overview-of-the-windowed-least-squares-rom">
+<h2>Overview of the windowed least-squares ROM</h2>
+<p>Windowed least-squares (WLS) is an extension of LSPG. Similar to LSPG, WLS operates by computing solutions that minimize the residual over <em>time windows</em> (each time window can comprise many time steps). WLS more robust than both LSPG and Galerkin ROMs, particularly when applied to non-symmetric systems.</p>
+<dl>
+<dt><strong>Advantages of WLS include</strong></dt>
+<dd><ol>
+<li>Equipped with the same advantages of LSPG with an increased robustness</li>
+<li>Decopules the residual minimization statement from the time step, and displays reduced sensitivity to the time step as compared to LSPG.</li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<dl>
+<dt><strong>Disadvantages of WLS include</strong></dt>
+<dd><ol>
+<li>In general, more expensive than both Galerkin and LSPG projection.</li>
+<li>More diffusive than both Galerkin and LSPG.</li>
+</ol>
+</dd>
+</dl>
+<p></p>
+<p>Want to learn more about WLS? We are currently working on adding tutorials for WLS, but you can see our <a href="https://www.sciencedirect.com/science/article/pii/S0021999120307130">reference publication</a>.</p>
+</section>
+<!-- /content -->
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>
+        Site created by the Pressio team. Powered by <a href="https://getpelican.com">Pelican</a>
+        and <a href="https://mcss.mosra.cz">m.css</a>, using a theme adapted from <a href="https://magnum.graphics/">magnum</a>.<br />
+        Pressio logo designed by Brent Haglund. This site content is <a href="https://github.com/Pressio/Pressio.github.io">available on GitHub</a>.<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
