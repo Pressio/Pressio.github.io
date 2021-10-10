@@ -32,8 +32,7 @@ Pressio
 		We believe in model reduction techniques that use data but
 		are grounded in physical laws.
 		Projection-based model reduction falls in this category.
-		This method has a large potential, but its main drawback
-		is an intrusive nature and non-trivial complexity.
+		This method has a large potential, but its main drawback is an intrusive nature.
 		This has been, historically, one of the key barriers (if not the main one)
 		precluding this technique to impact more broadly science and engineering.
 		As a consequence, this has also limited the range of
