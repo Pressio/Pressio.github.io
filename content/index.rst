@@ -48,6 +48,8 @@ Pressio
 	   .. figure:: {static}/img/plogo.png
 
 
+    .. container:: m-row
+
         .. container:: m-col-l-11 m-push-l-0
 
           **Our philosophy**
