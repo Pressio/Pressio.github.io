@@ -21,34 +21,19 @@ Pressio
 
         .. container:: m-col-l-11 m-push-l-0
 
-		Model reduction is a broad and active field.
-		Several techniques exist, but there is no such thing as "one method to rule them all".
-		We believe that evaluating the quality of a reduced model requires accounting
-		for several factors, e.g., the reduction in degrees of freedom, training cost,
-		evaluation cost, robustness, simplicity, predictive accuracy, etc.
-		There is no single metric to rely on; it is always a tradeoff and, typically,
-		it depends on the application.
+	  Simulating parameterized systems of equations is ubiquitous in science and engineering.
+	  It is often the case that solving such systems with high level of accuracy is
+	  a computationally intensive process.
+	  For many-query analyses such as uncertainty quantification and optimization,
+	  reduced models are required to make the analysis tractable.
+	  Model reduction is a broad and active field.
+	  Several techniques exist, but there is no such thing as "one method to rule them all".
 
-		We believe in model reduction techniques that use data but
-		are grounded in physical laws.
-		Projection-based model reduction falls in this category.
-		This method has a large potential, but its main drawback is an intrusive nature.
-		This has been, historically, one of the key barriers (if not the main one)
-		precluding this technique to impact more broadly science and engineering.
-		As a consequence, this has also limited the range of
-		applications and the capabilities tested.
-		We believe this barrier can be broken, thus opening up large
-		opportunities to explore and mature this field.
-		This is especially true if this advancement is done by
-		leveraging ideas from other fields.
-		This is our "why" and motivates this project.
-
-    .. container:: m-row
 
         .. container:: m-col-l-7 m-push-l-1
 
-                Pressio aims to advance model reduction for science and engineering.
-		Our current focus is on mitigating the intrusive nature of `projection-based
+                Pressio aims to advance model reduction for science and engineering,
+		and our current focus is on mitigating the intrusive nature of `projection-based
 		reduced-order models (pROMs) <{filename}/proms/description.rst>`_ for large-scale codes,
 		and making this available to the community to foster research of new ideas
 		and as well as more broad testing.
@@ -61,6 +46,25 @@ Pressio
         .. container:: m-col-l-2 m-push-l-1 m-col-m-4 m-col-s-6 m-push-s-4 m-col-t-8 m-push-t-2
 
 	   .. figure:: {static}/img/plogo.png
+
+
+        .. container:: m-col-l-11 m-push-l-0
+
+          **Our philosophy**
+	     We believe in model reduction techniques that use data but
+	     are grounded in physical laws.
+	     Projection-based model reduction falls in this category due its basis in
+	     mathematically derived projection processes and adherence of physical laws
+	     This technique has shown large potential, but its main drawback is an intrusive nature.
+	     This has been, historically, one of the key barriers (if not the main one)
+	     precluding this technique to impact more broadly science and engineering.
+	     As a consequence, this has also limited the range of
+	     applications and the capabilities tested.
+	     We believe this barrier can be broken, thus opening up large
+	     opportunities to explore and mature this field.
+	     This is especially true if this advancement is done by
+	     leveraging ideas from other fields.
+	     This is our "why" and motivates this project.
 
 
     .. container:: m-row
