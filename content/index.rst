@@ -131,7 +131,7 @@ Pressio
 
 	       .. block-flat:: Skip directly to:
 
-		   .. button-default:: https://pressio.github.io/pressio-tutorials/html/index.html
+		   .. button-default:: https://pressio.github.io/pressio-tutorials
 		       :class: m-fullwidth
 
 		       c++ tutorials
