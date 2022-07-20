@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Algorithms &raquo; Sample mesh and hyper-reduction | </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&amp;subset=latin-ext" />
+  <link rel="stylesheet" href="/static/m-dark.css" />
+  <link rel="canonical" href="/algos/hyper/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="Sample mesh and hyper-reduction" />
+  <meta name="twitter:title" content="Sample mesh and hyper-reduction" />
+  <meta property="og:url" content="/algos/hyper/" />
+  <meta property="og:description" content="Algos" />
+  <meta name="twitter:description" content="Algos" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:type" content="page" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="/" id="m-navbar-brand" class="m-col-t-9 m-col-m-none m-left-m">Pressio</a>
+      <a id="m-navbar-show" href="#navigation" title="Show navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <a id="m-navbar-hide" href="#" title="Hide navigation" class="m-col-t-3 m-hide-m m-text-right"></a>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-12 m-col-m-none">
+            <li><a href="/interface/design/">Minimal Interface</a></li>
+            <li>
+              <a href="/proms/description/">Projection-based ROMs</a>
+              <ol>
+                <li><a href="/proms/description">What is Pressio</a></li>
+                <li><a href="/proms/roms/">ROMs</a></li>
+                <li><a href="/proms/hyper/">Hyper-reduction</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="/portfolio/blottner/">Portfolio</a>
+              <ol>
+                <li><a href="/portfolio/blottner/">Hypersonic Aerodynamics: Blottner Sphere</a></li>
+                <li><a href="/portfolio/hifire/">Hypersonic Aerodynamics: HIFiRE-1</a></li>
+              </ol>
+            </li>
+            <li><a href="/blog/">Blog</a></li>
+            <li>
+              <a href="/">Various</a>
+              <ol>
+                <li><a href="/various/license/">License</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main>
+<article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb">
+            <a href="/algos/">Algorithms</a> &raquo;
+          </span>
+          Sample mesh and hyper-reduction
+        </h1>
+<!-- content -->
+<p>The purpose of this page is to explain what hyper-reduction is,
+how it works, and what Pressio offers in this regard.
+Since these concepts are not trivial, we tried our best to explain them
+clearly, but any feedback on how to improve them is welcome!
+Open an <a href="https://github.com/Pressio/Pressio.github.io/issues">issue on Github</a>
+to provide feedback.</p>
+<section id="a-low-dimensional-manifold-is-not-always-enough">
+<h2>A low-dimensional manifold is not (always) enough!</h2>
+<p>The <a href="{filename}/overview/proms.rst">key idea of pROMs</a> is to
+approximate the full-order model (FOM) system with a low-dimensional one.
+However, when applied to systems that display non-polynomial nonlinearities
+in the state, or are non-affine in their parametric dependence,
+pROMs do not directly result in computational savings because the
+computational cost of evaluating the FOM velocity/residual operator (which ROMs
+need to manipulate) scales with the dimension of the full-order model.
+Hyper-reduction techniques aim to alleviate this issue.</p>
+<aside class="m-note m-success">
+Hyper-reduction techniques are sampling-based methods that
+try to approximate the FOM operators by querying
+the full-order model for only a subset of elements of the velocity or residual vectors.
+This, combined with the low-dimensional system approximation mentioned above,
+enables ROMs to be computationally efficient.</aside>
+<p>At the core of hyper-reduction implementations there are two main concepts:</p>
+<blockquote>
+<ol>
+<li><strong>sample mesh</strong>: a disjoint collection of nodes or elements at which the velocity (or residual) operator is computed. More details on how to select these nodes are discussed below.</li>
+<li><strong>stencil mesh</strong>: the set of all nodes or elements needed to compute the velocity or residual on the sample mesh.</li>
+</ol>
+</blockquote>
+<p>The sample mesh serves two main purposes:</p>
+<blockquote>
+<ol>
+<li>Reduce the cost of computing the velocity or residual operators by only focusing on a given subset of nodes or elements.</li>
+<li>Minimize the memory footprint of storing the ROM basis and other ROM operators.</li>
+</ol>
+<p>These are both crucial to enable the ROM to be run on smaller, less powerful computers than the corresponding full order model.</p>
+</blockquote>
+</section>
+<section id="a-picture-is-worth-a-thousand-words">
+<h2>A picture is worth a thousand words</h2>
+<p>The idea of sample and stencil mesh is better explained using figures.
+Consider a 2D domain and let’s assume you are using a 2nd-order finite-difference scheme
+to discretize the derivatives in your governing equations, using for example
+the <a href="https://en.wikipedia.org/wiki/Five-point_stencil">five-point stencil</a>,
+as show in the left figure below. In this full-mesh scenario,
+you evaluate your operators at every cell in the domain,
+where any given cell needs the nearest-neighboring elements
+along each axis as shown in the left figure just below.</p>
+<p>Now, assume that you are only interested in evaluating the operators at a subset of nodes.
+(For the time being, assume that the choice of nodes is given, more details on this below).
+The right figure below shows a sample and stencil mesh for an example selection of cells.
+The <em>sample mesh is color-coded cyan</em>, while the other unfilled cells
+complete the stencil mesh. It is clear that, for a given sample mesh,
+the stencil mesh is determined by the choice of stencil and numerical schemes.
+Obviously, this is not restricted to a specific stencil size: if you need
+a larger or custom stencil, you end up with a difference stencil mesh.</p>
+<figure class="m-figure">
+<img src="/static/img/2dsm.png" style="width: 683px" />
+</figure>
+<p>Here is another example for a three dimensional mesh:</p>
+<figure class="m-figure">
+<img src="/static/img/3dsm.png" style="width: 673px" />
+</figure>
+<p>
+<br />
+</p>
+<aside class="m-block m-warning">
+<h3>Key question</h3>
+<p>How does one select the sample mesh nodes?</p>
+</aside>
+<p>A number of techniques have been proposed to determine which elements/nodes should be included in the sample mesh. Some popular approaches include the empirical interpolation method (EIM), discrete empirical interpolation (DEIM), and Gauss-Newton with approximate tensors (GNAT); references for these methods are included below. This is an area of active research so more options are becoming available.</p>
+<aside class="m-note m-success">
+The Pressio ecosystem offers such sampling techniques (some are already implemented
+while some are not yet supported) in the <a href="https://github.com/Pressio/pressio-tools">pressio-tools repository</a>.</aside>
+</section>
+<section id="how-does-pressio-support-hyper-reduction">
+<h2>How does Pressio support hyper-reduction?</h2>
+<p>Hyperreduction is composed of two aspects. First, hyper-reduction places a burden on the application to only compute the velocity/residual on the sample mesh. As this burden is on the application, Pressio is unable to provide this functionality to a code. The second aspect of hyper-reduction is a modification to the underlying pROM problem. Pressio has support for this aspect of hyper-reduction, as it is application agnostic. Specifically, Pressio supports hyper-reduction in the following ways:</p>
+<ol>
+<li>Pressio assumes the velocity/residual is returned at the sample nodes/elements</li>
+<li>Pressio assumes that the basis is provided at the stencil nodes/elements</li>
+<li>Pressio keeps track of the bookkeeping between the sample and stencil nodes/elements</li>
+<li>Pressio modifies the projection process as required by the hyper-reduction method of interest.</li>
+</ol>
+<p><strong>We emphasize that if the target application cannot return the residual/velocity at only the sample nodes/elements, Pressio will not be able to provide the code with real hyper-reduction.</strong></p>
+<p>
+<br />
+</p>
+</section>
+<section id="what-type-of-hyper-reduction-does-pressio-support">
+<h2>What type of hyper-reduction does Pressio support?</h2>
+<dl>
+<dt><strong>Pressio supports</strong></dt>
+<dd><ol>
+<li>Collocation-based hyper-reduction</li>
+<li>Weighted hyper-reduction techniques such as Gappy POD, Discrete Empirical Interpolation, etc., via an abstract projection operator</li>
+<li>Masked hyper-reduction. Masked hyper-reduction mimics real hyper-reduction, but doesn’t result in computational savings</li>
+</ol>
+</dd>
+</dl>
+<p>For a quick-start guide on how to set up hyper-reduction in Pressio, see our syntax synopsis for C++ (needs to be added) and <a href="https://pressio.github.io/pressio4py/html/md_pages_synopsis_galerkin.html">Python</a>, as well as our <a href="https://pressio.github.io/pressio-tutorials/html/md_pages_swe_main.html">C++ tutorial</a>.</p>
+</section>
+<section id="to-learn-more-about-hyper-reduction">
+<h2>To learn more about hyper-reduction:</h2>
+<p>A selection of papers on sampling techniques:</p>
+<ul>
+<li>Maxime Barrault, Yvon Maday, Ngoc Cuong Nguyen, Anthony T. Patera,
+<em>An ‘empirical interpolation’ method: application to efficient reduced-basis discretization of partial differential equations</em>, Comptes Rendus Mathematique, Volume 339, Issue 9, 2004, Pages 667-672, ISSN 1631-073X, <a class="m-link-wrap" href="https://doi.org/10.1016/j.crma.2004.08.006">https://doi.org/10.1016/j.crma.2004.08.006</a>.</li>
+<li>Saifon Chaturantabut and Danny C. Sorensen,
+<em>Nonlinear Model Reduction via Discrete Empirical Interpolation</em>, SIAM Journal on Scientific Computing, Volume 32, Issue 5, Pages 2737-2764, <a class="m-link-wrap" href="https://doi.org/10.1137/090766498">https://doi.org/10.1137/090766498</a>.</li>
+<li>Zlatko Drmač and Serkan Gugercin,
+<em>A New Selection Operator for the Discrete Empirical Interpolation Method—Improved A Priori Error Bound and Extensions</em>, SIAM Journal on Scientific Computing, Volume 38, Issue 2, Pages A631-A648, <a class="m-link-wrap" href="https://doi.org/10.1137/15M1019271">https://doi.org/10.1137/15M1019271</a>.</li>
+<li>Kevin Carlberg, Charbel Farhat, Julien Cortial, David Amsallem,
+<em>The GNAT method for nonlinear model reduction: Effective implementation and application to computational fluid dynamics and turbulent flows</em>, Journal of Computational Physics, Volume 242, 2013, Pages 623-647, ISSN 0021-9991, <a class="m-link-wrap" href="https://doi.org/10.1016/j.jcp.2013.02.028">https://doi.org/10.1016/j.jcp.2013.02.028</a>.</li>
+</ul>
+</section>
+<!-- /content -->
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>
+        Site created by the Pressio team. Powered by <a href="https://getpelican.com">Pelican</a>
+        and <a href="https://mcss.mosra.cz">m.css</a>, using a theme adapted from <a href="https://magnum.graphics/">magnum</a>.<br />
+        Pressio logo designed by Brent Haglund. This site content is <a href="https://github.com/Pressio/Pressio.github.io">available on GitHub</a>.<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

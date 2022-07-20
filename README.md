@@ -2,38 +2,25 @@
 
 This repo hosts the content for https://pressio.github.io.
 
-The site is writtein in rst, leverages the [m.css](https://mcss.mosra.cz/) library and is built using [Pelican](https://docs.getpelican.com/en/latest/#).
 
-# Building and working on it
+## Requirements to build html page locally
 
-Follow these steps:
+This is needed just for local render of documentation, so it can be checked before push.
+Requirements are in `build_requirements.txt`
+Could be installed with: `pip install -r build_requirements.txt`
 
-1. Fork, clone or download this project
+## Build
 
-2. Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/)
+```
+cd docs
+make html
+```
 
-3. run `docker-compose up`, and wait until it says: `Serving at port 8080, server .`
-
-4. Open your browser on: http://localhost:8080/
-
-5. Now, leave the browser open so that any edits you make to the files inside the `./content` will be reflected on the website after just refreshing it.
-
-<!-- - Needs python 3.7
-
-- Install pelican (MUST BE 4.2)
-`pip install pelican==4.2`
-
-- cd Pressio.github.io
-
-- Build it with: `pelican -o docs/ -s pelicanconf.py`
-
-  * It should say at the end: ``Done: Processed 0 articles...``
-
-  * Disregard errors related to date.
-
-- Start the webserver for it: `pelican -Dlr`
-- View it on your local browser: http://localhost:8080/
- -->
+To clean:
+```
+cd docs
+make clean
+```
 
 # Questions?
 Find us on Slack: https://pressioteam.slack.com or open an issue [here](https://github.com/Pressio/Pressio.github.io/issues).

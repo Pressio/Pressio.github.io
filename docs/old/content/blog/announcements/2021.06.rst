@@ -1,0 +1,11 @@
+Pressio-demoapps released
+#########################
+
+:category: Announcements
+:date: 2021-06-21
+:tags: Euler, Weno, Finite-volumes, C++, Python, Hyper-reduction, Sample mesh
+:summary: We released pressio-demoapps
+
+We have made substantial progress on the `pressio-demoapps <https://github.com/Pressio/pressio-demoapps>`_ repository.
+This repository contains a suite of 1D, 2D and 3D demo problems of varying complexity (from linear advection, to 2D and 3D compressible Euler).
+The main feature of this work is the built-in support for hyper-reduction. This code, in fact, was originally started as part of the Pressio project to create a suite of benchmark problems to test ROMs and hyper-reduction techniques, but it is being developed to be self-contained, so it can be used for different purposes. For example, you can just use it for doing "standard" simulations, or you can just leverage the Python meshing scripts, or leverage the hyper-reduction capability to study function approximations. Its main scope is to provide a testbed of problems that are well-known to be hard for ROMs, explore the impact of the numerical scheme, and test news ideas for hyper-reduction.
