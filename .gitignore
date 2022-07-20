@@ -4,5 +4,6 @@ venv
 .vscode
 _build/
 /docs/generated_docs
+/generated_docs
 /.pytest_cache
 /dist
