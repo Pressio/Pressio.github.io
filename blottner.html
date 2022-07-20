@@ -1,0 +1,387 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Seismic Shear Waves" href="seismic.html" /><link rel="prev" title="HIFiRE-1" href="hifire.html" />
+
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
+        <title>Blottner Sphere - Model Reduction Ecosystem</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/hacks.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #336790;
+  --color-brand-content: #336790;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  --color-brand-primary: #6ed0f5;
+  --color-brand-content: #6ed0f5;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  --color-brand-primary: #6ed0f5;
+  --color-brand-content: #6ed0f5;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Model Reduction Ecosystem</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Model Reduction Ecosystem</span>
+  
+</a><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="description.html">pROMs and Pressio</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio/html/index.html">C++ library</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio4py/html/index.html">pressio4py</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Pressio/pressio-tools">pressio-tools</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-demoapps/index.html">pressio-demoapps</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-tutorials">pressio-tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hifire.html">HIFiRE-1</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Blottner Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seismic.html">Seismic Shear Waves</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellanea</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="blottner-sphere">
+<h1>Blottner Sphere<a class="headerlink" href="#blottner-sphere" title="Permalink to this heading">#</a></h1>
+<p>One of our driving use cases for Pressio is for simulations of hypersonic
+aerodynamics. Model reduction is necessary because computational models
+are widely used in the hypersonic flight regime due to the expense and difficulty
+of flight tests and experiments. The reliance on computational models as well as
+the risk tolerances in hypersonic applications requires a greater emphasis on
+trustworthiness of these models. Unfortunately, crucial tasks including
+parameter calibration, uncertainty/error propogation, and (robust) design
+optimization require many model evalutations.</p>
+<p>Model reduction with Pressio enables these many query analysis for higher
+fidelity aerodynamic simulations such as finite volume models of the
+Navier-Stokes and Reynolds-Averaged Navier–Stokes (RANS) equations.
+This page presents some results obtained using Pressio and the Sandia
+Aerodynamics and Reentry Code (SPARC) <a class="reference external" href="https://arc.aiaa.org/doi/abs/10.2514/6.2017-4407">[Howard et al. 2017][1]</a>.</p>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<p>The Blottner Sphere is a commonly used verification case for hypersonic flow CFD codes <a class="reference external" href="https://arc.aiaa.org/doi/abs/10.2514/3.26115">[Blottner 1990][2]</a>.
+The main feature is the bow shockwave that forms just upstream of the sphere,
+which can be difficult to capture accurately due to the shock strength and a numerical phenomena know as the carbuncle problem.
+Non-dimensional quantities characterizing the problem are the Mach number, Ma = 5.0,
+and the Reynolds Number, Re=1,887,500.
+Despite the large Reynolds number, this problem is run without a turbulence model,
+and the boundary layer is assumed to be laminar.
+A schematic of the problem is shown below.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/blottner_schematic.png"><img alt="Blottner Sphere Schematic" src="_images/blottner_schematic.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-text"><span class="math notranslate nohighlight">\(\rho_{\infty}, V_{\infty}, T_{\infty}\)</span> indicate freestream quantities.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="full-order-model-fom">
+<h2>Full order model (FOM)<a class="headerlink" href="#full-order-model-fom" title="Permalink to this heading">#</a></h2>
+<p>We focus on the pseudo-transient behavior of the system from a uniform Mach 5.0 flow to steady state.
+The pseudo time stepping is performed using the (implicit) backward Euler scheme with
+fixed time step of <span class="math notranslate nohighlight">\(2.5\times 10^{-6}\)</span> seconds, yielding 64 time instances.
+During the pseudo-transient phase, the bow shock
+upstream of the sphere moves and deforms until it reaches a steady state.
+We use a spatial discretization using a structured mesh with 4,192,304 cells shown below.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/fom_meshflow.png"><img alt="Blottner Sphere Mesh and steady-state solution." src="_images/fom_meshflow.png" style="width: 694.5px; height: 512.5px;" /></a>
+</figure>
+</section>
+<section id="lspg-rom">
+<h2>LSPG ROM<a class="headerlink" href="#lspg-rom" title="Permalink to this heading">#</a></h2>
+<section id="method">
+<h3>Method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h3>
+<p>We use a Least-Squares Petrov–Galerkin (LSPG) ROM for a reconstructive case in which the ROM is run at the same inpute parameters, in this case flow conditions, as the FOM. The LSPG ROM is solved the same backward Euler time integration scheme and time step size as the FOM.
+The residual is minimized using a Gauss-Newton solver which terminates when the relative residual of the normal equations is reduced by three orders of magnitude.
+The ROM is run using a basis comprised of the leading 8 POD modes computed from all FOM snapshots.
+Further details on the ROM method can be found in <a class="reference external" href="https://arxiv.org/abs/2003.07798">[Rizzi et al. 2020][3]</a>.</p>
+<p>TODO Corresponding code functionalities, including solver, ROM, etc.</p>
+<p>Hyper-reduction is achieved using a sample mesh composed of 1,678 randomly selected cells
+in which the residual is sampled, along with neighboring cells and neighbors of neighbors, yielding 41,414 cells in total,
+equivalent to roughly 1% of the full mesh.
+It is shown below:</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/sample_mesh.png"><img alt="Blottner Sphere Sample Mesh" src="_images/sample_mesh.png" style="width: 361.8px; height: 446.4px;" /></a>
+<figcaption>
+<p><span class="caption-text">Sample mesh used for the ROM.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h3>
+<p>Using this sample mesh resulted in a ROM with a <strong>speed-up of 100</strong>; that is, around 100 ROMs could be run with the computational resources required for a single FOM.
+This substantial cost reduction comes with <strong>almost no loss in accuracy</strong>: a maximum state error of around than 0.5%, as well as errors of no more than 0.4% in wall heat flux and skin friction. The following pictures show the Mach number and wall heat flux computed using the FOM and ROM, respectively. ROM results are shown on the sample mesh, and reconstructed on the full mesh, respectively.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/Picture2.png"><img alt="Blottner Sphere Mesh and steady-state solution." src="_images/Picture2.png" style="width: 765.6px; height: 436.40000000000003px;" /></a>
+</figure>
+<p>Additional results can be found in <a class="reference external" href="https://arxiv.org/abs/2003.07798">[Rizzi et al. 2020][3]</a>.</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[1]: Micah Howard, Andrew Bradley, Steven W. Bova, James Overfelt, Ross Wagnild, Derek Dinzl, Mark Hoemmen and Alicia Klinvex. “Towards Performance Portability in a Compressible CFD Code,” AIAA 2017-4407. 23rd AIAA Computational Fluid Dynamics Conference. June 2017.</p></li>
+<li><p>[2]: F. G. Blottner, “Accurate Navier-Stokes Results for the Hypersonic Flow over a Spherical Nosetip”, Journal of Spacecraft, Vol. 27, No. 2, March-April 1990, DOI: 10.2514/3.26115</p></li>
+<li><p>[3]: F. Rizzi, P. Blonigan, and K. Carlberg. “PRESSIO: ENABLING PROJECTION-BASED MODEL REDUCTION FOR LARGE-SCALE NONLINEAR DYNAMICAL SYSTEMS”, arXiv preprint, 2020, arXiv:2003.07798.</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="seismic.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Seismic Shear Waves</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="hifire.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">HIFiRE-1</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, National Technology &amp; Engineering Solutions of Sandia, LLC (NTESS)
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on Jul 20, 2022</div>
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Blottner Sphere</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#full-order-model-fom">Full order model (FOM)</a></li>
+<li><a class="reference internal" href="#lspg-rom">LSPG ROM</a><ul>
+<li><a class="reference internal" href="#method">Method</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
