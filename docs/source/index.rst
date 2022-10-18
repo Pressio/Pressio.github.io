@@ -40,7 +40,7 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
    * - ``pressio``
      -  C++ core library: ode, solvers, ROMs, etc
      - 0.13.0
-     - `Documentation <https://pressio.github.io/pressio/html/index.html>`__
+     - `Documentation <https://pressio.github.io/pressio>`__
 
    * - ``pressio-tutorials``
      - Tutorials suite for the pressio C++ library
@@ -50,7 +50,7 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
    * - ``pressio-demoapps``
      - Suite of 1D, 2D, 3D problems spanning multiple physics and native support for sample mesh
      - 0.13.0
-     - `Documentation <https://pressio.github.io/pressio-demoapps/index.html>`__
+     - `Documentation <https://pressio.github.io/pressio-demoapps>`__
 
    * - ``pressio-tools``
      - Distributed and on-node SVD and QR; sample mesh indices computation
@@ -80,12 +80,11 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
     :maxdepth: 1
     :hidden:
 
-    C++ library <https://pressio.github.io/pressio/html/index.html>
+    C++ library <https://pressio.github.io/pressio>
     pressio-tutorials <https://pressio.github.io/pressio-tutorials>
-    pressio-demoapps <https://pressio.github.io/pressio-demoapps/index.html>
+    pressio-demoapps <https://pressio.github.io/pressio-demoapps>
     pressio-tools <https://github.com/Pressio/pressio-tools>
     pressio4py <https://pressio.github.io/pressio4py/html/index.html>
-
 
 .. toctree::
     :caption: Portfolio
@@ -95,7 +94,6 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
     hifire
     blottner
     seismic
-
 
 .. toctree::
     :caption: Miscellanea
