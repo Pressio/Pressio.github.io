@@ -59,7 +59,7 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
 
    * - ``pressio4py``
      - Python bindings to the core C++ library
-     - 0.12.0
+     - 0.12.0 (see disclaimer below)
      - `Documentation <https://pressio.github.io/pressio4py/html/index.html>`__
 
 
