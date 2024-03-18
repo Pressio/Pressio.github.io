@@ -52,11 +52,6 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
      - 0.14.0
      - `Documentation <https://pressio.github.io/pressio-demoapps>`__
 
-   * - ``pressio-tools``
-     - Distributed and on-node SVD and QR; sample mesh indices computation
-     - na
-     - `Documentation <https://github.com/Pressio/pressio-tools>`__
-
    * - ``pressio4py``
      - Python bindings to the core C++ library
      - 0.12.0 (see disclaimer below)
@@ -83,7 +78,6 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
     C++ library <https://pressio.github.io/pressio>
     pressio-tutorials <https://pressio.github.io/pressio-tutorials>
     pressio-demoapps <https://pressio.github.io/pressio-demoapps>
-    pressio-tools <https://github.com/Pressio/pressio-tools>
     pressio4py <https://pressio.github.io/pressio4py/html/index.html>
 
 .. toctree::
