@@ -39,27 +39,27 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
 
    * - ``pressio-rom``
      - C++ core library: ode, solvers, ROMs, etc
-     - 0.15.0
+     - 0.16.0
      - `Documentation <https://pressio.github.io/pressio-rom>`__
 
    * - ``pressio-ops``
      - Core operations for the Pressio ecosystem
-     - 0.15.0
+     - 0.16.0
      - `Documentation <https://pressio.github.io/pressio-ops>`__
 
    * - ``pressio-log``
      - Header-only logging utility for Pressio libraries
-     - 0.15.0
+     - 0.16.0
      - `GitHub <https://github.com/Pressio/pressio-log>`__
 
    * - ``pressio-tutorials``
      - Tutorials suite for the pressio C++ library
-     - 0.14.0
+     - 0.16.0
      - `Documentation <https://pressio.github.io/pressio-tutorials/>`__
 
    * - ``pressio-demoapps``
      - Suite of 1D, 2D, 3D problems spanning multiple physics and native support for sample mesh
-     - 0.14.0
+     - 0.16.0
      - `Documentation <https://pressio.github.io/pressio-demoapps>`__
 
    * - ``pressio4py``
