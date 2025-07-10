@@ -37,30 +37,35 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
      - Latest Release
      -
 
-   * - ``pressio-rom``
-     - C++ core library: ode, solvers, ROMs, etc
+   * - ``pressio-demoapps``
+     - Suite of 1D, 2D, 3D problems spanning multiple physics and native support for sample mesh
      - 0.16.0
-     - `Documentation <https://pressio.github.io/pressio-rom>`__
-
-   * - ``pressio-ops``
-     - Core operations for the Pressio ecosystem
-     - 0.16.0
-     - `Documentation <https://pressio.github.io/pressio-ops>`__
+     - `Documentation <https://pressio.github.io/pressio-demoapps>`__
 
    * - ``pressio-log``
      - Header-only logging utility for Pressio libraries
      - 0.16.0
      - `GitHub <https://github.com/Pressio/pressio-log>`__
 
+   * - ``pressio-ops``
+     - Core operations for the Pressio ecosystem
+     - 0.16.0
+     - `Documentation <https://pressio.github.io/pressio-ops>`__
+
+   * - ``pressio-rom``
+     - C++ core library: ode, solvers, ROMs, etc
+     - 0.16.0
+     - `Documentation <https://pressio.github.io/pressio-rom>`__
+
    * - ``pressio-tutorials``
      - Tutorials suite for the pressio C++ library
      - 0.16.0
      - `Documentation <https://pressio.github.io/pressio-tutorials/>`__
 
-   * - ``pressio-demoapps``
-     - Suite of 1D, 2D, 3D problems spanning multiple physics and native support for sample mesh
+   * - ``pressio-schwarz``
+     - Schwarz coupling for projection-based ROMs with Pressio
      - 0.16.0
-     - `Documentation <https://pressio.github.io/pressio-demoapps>`__
+     - `GitHub <https://github.com/Pressio/pressio-schwarz>`__
 
    * - ``pressio4py``
      - Python bindings to the core C++ library
@@ -85,11 +90,12 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
     :maxdepth: 1
     :hidden:
 
-    C++ library <https://pressio.github.io/pressio-rom>
-    pressio-ops <https://pressio.github.io/pressio-rom>
-    pressio-log <https://github.com/Pressio/pressio-log>
-    pressio-tutorials <https://pressio.github.io/pressio-tutorials>
     pressio-demoapps <https://pressio.github.io/pressio-demoapps>
+    pressio-log <https://github.com/Pressio/pressio-log>
+    pressio-ops <https://pressio.github.io/pressio-rom>
+    pressio-rom <https://pressio.github.io/pressio-rom>
+    pressio-tutorials <https://pressio.github.io/pressio-tutorials>
+    pressio-schwarz <https://github.com/Pressio/pressio-schwarz>
     pressio4py <https://pressio.github.io/pressio4py/html/index.html>
 
 .. toctree::
