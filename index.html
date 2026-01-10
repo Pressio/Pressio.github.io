@@ -167,11 +167,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-demoapps">pressio-demoapps</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Pressio/pressio-log">pressio-log</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-rom">pressio-ops</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-ops">pressio-ops</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-rom">pressio-rom</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio-tutorials">pressio-tutorials</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Pressio/pressio-schwarz">pressio-schwarz</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pressio.github.io/pressio4py/html/index.html">pressio4py</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Pressio/rom-tools-and-workflows">rom-tools-and-workflows</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul>
@@ -181,6 +182,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Miscellanea</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Pressio">Pressio GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
@@ -216,27 +218,11 @@
         <article role="main">
           <section id="motivation-and-philosophy">
 <h1>Motivation and Philosophy<a class="headerlink" href="#motivation-and-philosophy" title="Permalink to this heading">#</a></h1>
-<p>Simulating parameterized systems of equations is ubiquitous in science and engineering.
-It is often the case that solving such systems with high level of accuracy is
-a computationally intensive process.
-For many-query analyses such as uncertainty quantification and optimization,
-reduced models are required to make the analysis tractable.
-Model reduction is a broad and active field.
-Several techniques exist, but there is no such thing as “one method to rule them all”.</p>
-<p>We believe in model reduction techniques that use data but are grounded in physical laws.
-<a class="reference external" href="description.html">Projection-based reduced-order modeling (pROM)</a> falls in this category,
-and it is our current focus. This technique relies on a projection process applied to the governing
-equations of interest and, therefore, it adheres to physical laws.
-It has shown large potential, but its main drawback is an intrusive nature.
-This has been, historically, one of the key barriers (if not the main one) precluding
-this technique from impacting more broadly science and engineering.
-As a consequence, this has also limited the range of applications and the capabilities tested.
-We believe this barrier can be broken, thus opening up large
-opportunities to explore and mature this field.</p>
-<p>The Pressio ecosystem is aimed at mitigating the intrusive nature of pROMs for large-scale codes,
-and providing a framework available to the community to foster research
-of new ideas and as well as more broad testing. This is our “why” and motivates this project.</p>
+<p>Simulating parameterized systems of equations is fundamental in science and engineering but is often computationally expensive. In many-query settings such as uncertainty quantification and optimization, reduced-order models (ROMs) are required to make these analyses tractable. Model reduction comprises a range of approaches with different tradeoffs, and no single method is universally applicable.</p>
+<p>Projection-based reduced-order modeling (pROM) constructs reduced models by projecting the governing equations onto low-dimensional subspaces, thereby preserving key physical structure. Despite demonstrated effectiveness, pROM adoption has been limited by its intrusive implementation requirements, which constrain applicability and large-scale testing.</p>
+<p>The Pressio ecosystem addresses this limitation by providing a framework that reduces the intrusiveness of pROMs for large-scale simulation codes and supports the development, evaluation, and comparison of reduced-order modeling methods across applications.</p>
 <p>The <a class="reference external" href="https://github.com/Pressio">Pressio EcoSystem</a> includes:</p>
+<p>Main GitHub org: <a class="reference external" href="https://github.com/Pressio">https://github.com/Pressio</a></p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-left">
 <colgroup>
@@ -288,6 +274,11 @@ of new ideas and as well as more broad testing. This is our “why” and motiva
 <td><p>0.12.0 (see disclaimer below)</p></td>
 <td><p><a class="reference external" href="https://pressio.github.io/pressio4py/html/index.html">Documentation</a></p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rom-tools-and-workflows</span></code></p></td>
+<td><p>Tools and workflows for reduced-order modeling</p></td>
+<td><p>0.2.0</p></td>
+<td><p><a class="reference external" href="https://github.com/Pressio/rom-tools-and-workflows">GitHub</a></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -332,7 +323,7 @@ we will find the time to update it and push another release.</p>
             
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on Sep 10, 2025</div>
+              Last updated on Jan 10, 2026</div>
           </div>
           <div class="right-details">
             <div class="icons">
