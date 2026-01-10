@@ -10,8 +10,6 @@ The Pressio ecosystem addresses this limitation by providing a framework that re
 
 The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
 
-Main GitHub org: `https://github.com/Pressio <https://github.com/Pressio>`_
-
 .. list-table::
    :widths: 25 35 20 20
    :header-rows: 1
