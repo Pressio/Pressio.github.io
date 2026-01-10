@@ -1,31 +1,16 @@
 Motivation and Philosophy
 =========================
 
-Simulating parameterized systems of equations is ubiquitous in science and engineering.
-It is often the case that solving such systems with high level of accuracy is
-a computationally intensive process.
-For many-query analyses such as uncertainty quantification and optimization,
-reduced models are required to make the analysis tractable.
-Model reduction is a broad and active field.
-Several techniques exist, but there is no such thing as "one method to rule them all".
+Simulating parameterized systems of equations is fundamental in science and engineering but is often computationally expensive. In many-query settings such as uncertainty quantification and optimization, reduced-order models (ROMs) are required to make these analyses tractable. Model reduction comprises a range of approaches with different tradeoffs, and no single method is universally applicable.
 
-We believe in model reduction techniques that use data but are grounded in physical laws.
-`Projection-based reduced-order modeling (pROM) <description.html>`_ falls in this category,
-and it is our current focus. This technique relies on a projection process applied to the governing
-equations of interest and, therefore, it adheres to physical laws.
-It has shown large potential, but its main drawback is an intrusive nature.
-This has been, historically, one of the key barriers (if not the main one) precluding
-this technique from impacting more broadly science and engineering.
-As a consequence, this has also limited the range of applications and the capabilities tested.
-We believe this barrier can be broken, thus opening up large
-opportunities to explore and mature this field.
+Projection-based reduced-order modeling (pROM) constructs reduced models by projecting the governing equations onto low-dimensional subspaces, thereby preserving key physical structure. Despite demonstrated effectiveness, pROM adoption has been limited by its intrusive implementation requirements, which constrain applicability and large-scale testing.
 
-The Pressio ecosystem is aimed at mitigating the intrusive nature of pROMs for large-scale codes,
-and providing a framework available to the community to foster research
-of new ideas and as well as more broad testing. This is our "why" and motivates this project.
+The Pressio ecosystem addresses this limitation by providing a framework that reduces the intrusiveness of pROMs for large-scale simulation codes and supports the development, evaluation, and comparison of reduced-order modeling methods across applications.
 
 
 The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
+
+Main GitHub org: `https://github.com/Pressio <https://github.com/Pressio>`_
 
 .. list-table::
    :widths: 25 35 20 20
@@ -72,6 +57,11 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
      - 0.12.0 (see disclaimer below)
      - `Documentation <https://pressio.github.io/pressio4py/html/index.html>`__
 
+   * - ``rom-tools-and-workflows``
+     - Tools and workflows for reduced-order modeling
+     - 0.2.0
+     - `GitHub <https://github.com/Pressio/rom-tools-and-workflows>`__
+
 
 .. warning::
 
@@ -92,11 +82,12 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
 
     pressio-demoapps <https://pressio.github.io/pressio-demoapps>
     pressio-log <https://github.com/Pressio/pressio-log>
-    pressio-ops <https://pressio.github.io/pressio-rom>
+    pressio-ops <https://pressio.github.io/pressio-ops>
     pressio-rom <https://pressio.github.io/pressio-rom>
     pressio-tutorials <https://pressio.github.io/pressio-tutorials>
     pressio-schwarz <https://github.com/Pressio/pressio-schwarz>
     pressio4py <https://pressio.github.io/pressio4py/html/index.html>
+    rom-tools-and-workflows <https://github.com/Pressio/rom-tools-and-workflows>
 
 .. toctree::
     :caption: Portfolio
@@ -112,4 +103,5 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
     :maxdepth: 1
     :hidden:
 
+    Pressio GitHub <https://github.com/Pressio>
     license
