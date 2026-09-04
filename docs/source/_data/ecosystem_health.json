@@ -37,7 +37,7 @@
       "name": "pressio4py",
       "display_name": "pressio4py",
       "role": "Python bindings for the Pressio C++ libraries",
-      "lifecycle": "modernization",
+      "lifecycle": "modernization-planned",
       "lifecycle_note": "Modernization work is planned",
       "documentation": "https://pressio.github.io/pressio4py/html/index.html",
       "release_fallback": "0.12.0",

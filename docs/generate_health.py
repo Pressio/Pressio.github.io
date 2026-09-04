@@ -28,6 +28,7 @@ OWNER = "Pressio"
 STATUS_LABELS = {
     "healthy": "Healthy",
     "attention": "Needs attention",
+    "modernization-planned": "Modernization planned",
     "modernization": "Modernization underway",
     "maintenance": "Maintenance only",
     "unmaintained": "Unmaintained",
@@ -182,7 +183,7 @@ are curated by the Pressio team; releases, CI, and issue counts come from GitHub
      <div><strong>{len(repositories)}</strong><span>Repositories tracked</span></div>
      <div><strong>{counts.get('healthy', 0)}</strong><span>Healthy</span></div>
      <div><strong>{counts.get('attention', 0)}</strong><span>Need attention</span></div>
-     <div><strong>{counts.get('modernization', 0)}</strong><span>Being modernized</span></div>
+     <div><strong>{counts.get('modernization-planned', 0)}</strong><span>Modernization planned</span></div>
    </div>
 
 Repository health
@@ -198,9 +199,11 @@ How to read this page
 
 ``Healthy`` means the repository is actively maintained and expected to work
 on its supported platforms. ``Needs attention`` identifies a usable repository
-with specific maintenance work. ``Modernization underway`` indicates a larger
-planned migration. These lifecycle assessments are deliberately separate from
-the latest CI result: a passing build alone does not establish project health.
+with specific maintenance work. ``Modernization planned`` identifies an
+approved recovery or migration that has not necessarily begun, while
+``Modernization underway`` means that implementation is active. These lifecycle
+assessments are deliberately separate from the latest CI result: a passing
+build alone does not establish project health.
 
 The dashboard does not treat a large issue count as inherently unhealthy.
 Release blockers are issues explicitly classified by maintainers and are the

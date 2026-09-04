@@ -214,7 +214,8 @@
   border-left-color: #bf8700;
 }
 
-.health-card[data-status="modernization"] {
+.health-card[data-status="modernization"],
+.health-card[data-status="modernization-planned"] {
   border-left-color: #8250df;
 }
 
@@ -261,7 +262,8 @@
   background: #f2cc60;
 }
 
-.health-status--modernization {
+.health-status--modernization,
+.health-status--modernization-planned {
   background: #8250df;
 }
 
