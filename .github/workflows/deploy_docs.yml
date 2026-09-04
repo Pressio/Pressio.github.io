@@ -3,6 +3,12 @@ name: Deploy docs
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 13 * * 1'
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy-docs:
@@ -23,7 +29,10 @@ jobs:
           pip3 install -r ./build_requirements.txt
       - name: Build documentation
         working-directory: ${{ env.docs-directory }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python3 generate_health.py
           make html
       # .nojekyll file is needed for GitHub Pages to know it's getting a ready webpage
       # and there is no need to generate anything
