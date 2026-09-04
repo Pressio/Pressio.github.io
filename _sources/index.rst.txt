@@ -10,6 +10,9 @@ The Pressio ecosystem addresses this limitation by providing a framework that re
 
 The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
 
+See the :doc:`ecosystem health dashboard <health>` for current release, CI,
+and maintenance information across the core repositories.
+
 .. list-table::
    :widths: 25 35 20 20
    :header-rows: 1
@@ -72,6 +75,7 @@ The `Pressio EcoSystem <https://github.com/Pressio>`_ includes:
     :hidden:
 
     description
+    health
 
 .. toctree::
     :caption: Libraries

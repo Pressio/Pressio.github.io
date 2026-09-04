@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="License" href="license.html" /><link rel="prev" title="Blottner Sphere" href="blottner.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="HIFiRE-1" href="hifire.html" /><link rel="prev" title="pROMs and Pressio" href="description.html" />
 
     <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
-        <title>Seismic Shear Waves - Model Reduction Ecosystem</title>
+        <title>Pressio ecosystem health - Model Reduction Ecosystem</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -160,9 +160,9 @@
   <span class="sidebar-brand-text">Model Reduction Ecosystem</span>
   
 </a><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="description.html">pROMs and Pressio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html">Pressio ecosystem health</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Pressio ecosystem health</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
 <ul>
@@ -176,10 +176,10 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Pressio/rom-tools-and-workflows">rom-tools-and-workflows</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="hifire.html">HIFiRE-1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blottner.html">Blottner Sphere</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Seismic Shear Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seismic.html">Seismic Shear Waves</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Miscellanea</span></p>
 <ul>
@@ -217,21 +217,218 @@
           </label>
         </div>
         <article role="main">
-          <section id="seismic-shear-waves">
-<h1>Seismic Shear Waves<a class="headerlink" href="#seismic-shear-waves" title="Permalink to this heading">#</a></h1>
-<p>This work focuses on projection-based reduced-order models (ROMs) of linear time-invariant (LTI) dynamical systems.
-For such systems, current practice relies on ROM formulations expressing the state as a rank-1 tensor (i.e., a vector),
-leading to computational kernels that are memory bandwidth bound and, therefore, ill-suited for scalable performance on modern architectures. This weakness can be particularly limiting when tackling many-query studies, where one needs to run a large number of simulations.
-This work introduces a reformulation, called rank-2 Galerkin, of the Galerkin ROM for LTI dynamical systems which converts the nature of the ROM problem from memory bandwidth to compute bound. We present the details of the formulation and its implementation, and demonstrate its utility through numerical experiments using, as a test case, the simulation of elastic seismic shear waves in an axisymmetric domain. We quantify and analyze performance and scaling results for varying numbers of threads and problem sizes. Finally, we present an end-to-end demonstration of using the rank-2 Galerkin ROM for a Monte Carlo sampling study. We show that the rank-2 Galerkin ROM is one order of magnitude more efficient than the rank-1 Galerkin ROM (the current practice) and about 970 times more efficient than the full-order model, while maintaining accuracy in both the mean and statistics of the field.</p>
-<p>The code for shear wave simulation code developed for this work is <a class="reference external" href="https://github.com/Pressio/SHAW">available here</a>.</p>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><ol class="upperalpha simple" start="6">
-<li><p>Rizzi, E.J.Parish, P.J.Blonigan, J.Tencer, A compute-bound formulation of Galerkin model reduction for linear time-invariant dynamical systems, CMAME, Volume 384, 1 October 2021</p></li>
-</ol>
-</li>
-</ul>
+          <section id="pressio-ecosystem-health">
+<h1>Pressio ecosystem health<a class="headerlink" href="#pressio-ecosystem-health" title="Permalink to this heading">#</a></h1>
+<p>This dashboard gives maintainers a shared view of release readiness and the
+most important work across the core Pressio repositories. Repository data was
+last collected <strong>2026-09-04 01:06 UTC</strong>. Lifecycle assessments and next objectives
+are curated by the Pressio team; releases, CI, and issue counts come from GitHub.</p>
+<div class="health-summary" aria-label="Ecosystem summary">
+  <div><strong>5</strong><span>Repositories tracked</span></div>
+  <div><strong>4</strong><span>Healthy</span></div>
+  <div><strong>0</strong><span>Need attention</span></div>
+  <div><strong>1</strong><span>Modernization planned</span></div>
+</div><section id="repository-health">
+<h2>Repository health<a class="headerlink" href="#repository-health" title="Permalink to this heading">#</a></h2>
+<div class="health-grid">
+
+<article class="health-card" data-status="healthy">
+  <div class="health-card__header">
+    <div>
+      <h2><a href="https://github.com/Pressio/pressio-rom">pressio-rom</a></h2>
+      <p class="health-role">Core C++ library for projection-based reduced-order modeling</p>
+    </div>
+    <span class="health-status health-status--healthy">Healthy</span>
+  </div>
+  <div class="health-metrics">
+    <a class="health-metric" href="https://github.com/Pressio/pressio-rom/releases/tag/0.17.0">
+      <span>Latest release</span><strong>0.17.0</strong>
+      <small>2025-09-10</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-rom/actions/runs/17616318704">
+      <span>Default-branch CI</span><strong class="ci-success">Success</strong>
+      <small>Latest completed run</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-rom/issues?q=is%3Aissue+is%3Aopen">
+      <span>Open issues</span><strong>14</strong>
+      <small>Pull requests excluded</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-rom/issues?q=is%3Aissue+is%3Aopen+label%3Arelease-blocker">
+      <span>Release blockers</span><strong>0</strong>
+      <small>Curated by label</small>
+    </a>
+  </div>
+  <div class="health-next">
+    <span>Next objective</span>
+    <p>Keep the core API, supported toolchains, and downstream libraries release-ready.</p>
+
+  </div>
+  <div class="health-card__footer">
+    <span>Actively maintained core library</span>
+    <a href="https://pressio.github.io/pressio-rom">Documentation <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+<article class="health-card" data-status="healthy">
+  <div class="health-card__header">
+    <div>
+      <h2><a href="https://github.com/Pressio/pressio-ops">pressio-ops</a></h2>
+      <p class="health-role">Portable linear algebra operations used across Pressio</p>
+    </div>
+    <span class="health-status health-status--healthy">Healthy</span>
+  </div>
+  <div class="health-metrics">
+    <a class="health-metric" href="https://github.com/Pressio/pressio-ops/releases/tag/0.17.0">
+      <span>Latest release</span><strong>0.17.0</strong>
+      <small>2025-09-08</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-ops/actions/runs/17556985390">
+      <span>Default-branch CI</span><strong class="ci-success">Success</strong>
+      <small>Latest completed run</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-ops/issues?q=is%3Aissue+is%3Aopen">
+      <span>Open issues</span><strong>3</strong>
+      <small>Pull requests excluded</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-ops/issues?q=is%3Aissue+is%3Aopen+label%3Arelease-blocker">
+      <span>Release blockers</span><strong>0</strong>
+      <small>Curated by label</small>
+    </a>
+  </div>
+  <div class="health-next">
+    <span>Next objective</span>
+    <p>Maintain backend coverage and compatibility with pressio-rom.</p>
+
+  </div>
+  <div class="health-card__footer">
+    <span>Actively maintained core library</span>
+    <a href="https://pressio.github.io/pressio-ops">Documentation <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+<article class="health-card" data-status="healthy">
+  <div class="health-card__header">
+    <div>
+      <h2><a href="https://github.com/Pressio/pressio-demoapps">pressio-demoapps</a></h2>
+      <p class="health-role">Reference applications and reproducible ROM demonstrations</p>
+    </div>
+    <span class="health-status health-status--healthy">Healthy</span>
+  </div>
+  <div class="health-metrics">
+    <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/releases/tag/0.17.0">
+      <span>Latest release</span><strong>0.17.0</strong>
+      <small>2025-09-09</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/actions/runs/17574823969">
+      <span>Default-branch CI</span><strong class="ci-success">Success</strong>
+      <small>Latest completed run</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/issues?q=is%3Aissue+is%3Aopen">
+      <span>Open issues</span><strong>26</strong>
+      <small>Pull requests excluded</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/issues?q=is%3Aissue+is%3Aopen+label%3Arelease-blocker">
+      <span>Release blockers</span><strong>0</strong>
+      <small>Curated by label</small>
+    </a>
+  </div>
+  <div class="health-next">
+    <span>Next objective</span>
+    <p>Keep examples building against supported Pressio releases.</p>
+
+  </div>
+  <div class="health-card__footer">
+    <span>Actively maintained validation repository</span>
+    <a href="https://pressio.github.io/pressio-demoapps">Documentation <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+<article class="health-card" data-status="modernization-planned">
+  <div class="health-card__header">
+    <div>
+      <h2><a href="https://github.com/Pressio/pressio4py">pressio4py</a></h2>
+      <p class="health-role">Python bindings for the Pressio C++ libraries</p>
+    </div>
+    <span class="health-status health-status--modernization-planned">Modernization planned</span>
+  </div>
+  <div class="health-metrics">
+    <a class="health-metric" href="https://github.com/Pressio/pressio4py/releases/tag/v0.12.0">
+      <span>Latest release</span><strong>v0.12.0</strong>
+      <small>2021-10-15</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio4py/actions">
+      <span>Default-branch CI</span><strong class="ci-unknown">Unknown</strong>
+      <small>Latest completed run</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio4py/issues?q=is%3Aissue+is%3Aopen">
+      <span>Open issues</span><strong>12</strong>
+      <small>Pull requests excluded</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/pressio4py/issues?q=is%3Aissue+is%3Aopen+label%3Arelease-blocker">
+      <span>Release blockers</span><strong>0</strong>
+      <small>Curated by label</small>
+    </a>
+  </div>
+  <div class="health-next">
+    <span>Next objective</span>
+    <p>Restore packaging and CI, then port the bindings to the current pressio-rom API.</p>
+    <p class="health-tracking">Tracking: <a href="https://github.com/Pressio/pressio4py/issues/29">#29</a>, <a href="https://github.com/Pressio/pressio4py/issues/30">#30</a></p>
+  </div>
+  <div class="health-card__footer">
+    <span>Modernization work is planned</span>
+    <a href="https://pressio.github.io/pressio4py/html/index.html">Documentation <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+<article class="health-card" data-status="healthy">
+  <div class="health-card__header">
+    <div>
+      <h2><a href="https://github.com/Pressio/rom-tools-and-workflows">rom-tools-and-workflows</a></h2>
+      <p class="health-role">Python tools and workflows for constructing and using ROMs</p>
+    </div>
+    <span class="health-status health-status--healthy">Healthy</span>
+  </div>
+  <div class="health-metrics">
+    <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/releases/tag/v0.2.0">
+      <span>Latest release</span><strong>v0.2.0</strong>
+      <small>2025-09-29</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/actions/runs/33421873202">
+      <span>Default-branch CI</span><strong class="ci-success">Success</strong>
+      <small>Latest completed run</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/issues?q=is%3Aissue+is%3Aopen">
+      <span>Open issues</span><strong>27</strong>
+      <small>Pull requests excluded</small>
+    </a>
+    <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/issues?q=is%3Aissue+is%3Aopen+label%3Arelease-blocker">
+      <span>Release blockers</span><strong>0</strong>
+      <small>Curated by label</small>
+    </a>
+  </div>
+  <div class="health-next">
+    <span>Next objective</span>
+    <p>Maintain tested workflows, examples, and a dependable release process.</p>
+
+  </div>
+  <div class="health-card__footer">
+    <span>Actively maintained workflow library</span>
+    <a href="https://github.com/Pressio/rom-tools-and-workflows#readme">Documentation <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+</div></section>
+<section id="how-to-read-this-page">
+<h2>How to read this page<a class="headerlink" href="#how-to-read-this-page" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Healthy</span></code> means the repository is actively maintained and expected to work
+on its supported platforms. <code class="docutils literal notranslate"><span class="pre">Needs</span> <span class="pre">attention</span></code> identifies a usable repository
+with specific maintenance work. <code class="docutils literal notranslate"><span class="pre">Modernization</span> <span class="pre">planned</span></code> identifies an
+approved recovery or migration that has not necessarily begun, while
+<code class="docutils literal notranslate"><span class="pre">Modernization</span> <span class="pre">underway</span></code> means that implementation is active. These lifecycle
+assessments are deliberately separate from the latest CI result: a passing
+build alone does not establish project health.</p>
+<p>The dashboard does not treat a large issue count as inherently unhealthy.
+Release blockers are issues explicitly classified by maintainers and are the
+most useful starting point for release planning.</p>
 </section>
 </section>
 
@@ -240,23 +437,23 @@ This work introduces a reformulation, called rank-2 Galerkin, of the Galerkin RO
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="license.html">
+          <a class="next-page" href="hifire.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">License</div>
+                <div class="title">HIFiRE-1</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="blottner.html">
+          <a class="prev-page" href="description.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Blottner Sphere</div>
+                <div class="title">pROMs and Pressio</div>
                 
               </div>
             </a>
@@ -293,8 +490,9 @@ This work introduces a reformulation, called rank-2 Galerkin, of the Galerkin RO
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Seismic Shear Waves</a><ul>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#">Pressio ecosystem health</a><ul>
+<li><a class="reference internal" href="#repository-health">Repository health</a></li>
+<li><a class="reference internal" href="#how-to-read-this-page">How to read this page</a></li>
 </ul>
 </li>
 </ul>
