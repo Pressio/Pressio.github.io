@@ -1,0 +1,60 @@
+{
+  "repositories": [
+    {
+      "name": "pressio-rom",
+      "display_name": "pressio-rom",
+      "role": "Core C++ library for projection-based reduced-order modeling",
+      "lifecycle": "healthy",
+      "lifecycle_note": "Actively maintained core library",
+      "documentation": "https://pressio.github.io/pressio-rom",
+      "release_fallback": "0.17.0",
+      "priority_query": "label:release-blocker",
+      "next_goal": "Keep the core API, supported toolchains, and downstream libraries release-ready."
+    },
+    {
+      "name": "pressio-ops",
+      "display_name": "pressio-ops",
+      "role": "Portable linear algebra operations used across Pressio",
+      "lifecycle": "healthy",
+      "lifecycle_note": "Actively maintained core library",
+      "documentation": "https://pressio.github.io/pressio-ops",
+      "release_fallback": "0.17.0",
+      "priority_query": "label:release-blocker",
+      "next_goal": "Maintain backend coverage and compatibility with pressio-rom."
+    },
+    {
+      "name": "pressio-demoapps",
+      "display_name": "pressio-demoapps",
+      "role": "Reference applications and reproducible ROM demonstrations",
+      "lifecycle": "healthy",
+      "lifecycle_note": "Actively maintained validation repository",
+      "documentation": "https://pressio.github.io/pressio-demoapps",
+      "release_fallback": "0.17.0",
+      "priority_query": "label:release-blocker",
+      "next_goal": "Keep examples building against supported Pressio releases."
+    },
+    {
+      "name": "pressio4py",
+      "display_name": "pressio4py",
+      "role": "Python bindings for the Pressio C++ libraries",
+      "lifecycle": "modernization-planned",
+      "lifecycle_note": "Modernization work is planned",
+      "documentation": "https://pressio.github.io/pressio4py/html/index.html",
+      "release_fallback": "0.12.0",
+      "priority_query": "label:release-blocker",
+      "next_goal": "Restore packaging and CI, then port the bindings to the current pressio-rom API.",
+      "tracking_issues": [29, 30]
+    },
+    {
+      "name": "rom-tools-and-workflows",
+      "display_name": "rom-tools-and-workflows",
+      "role": "Python tools and workflows for constructing and using ROMs",
+      "lifecycle": "healthy",
+      "lifecycle_note": "Actively maintained workflow library",
+      "documentation": "https://github.com/Pressio/rom-tools-and-workflows#readme",
+      "release_fallback": "0.2.0",
+      "priority_query": "label:release-blocker",
+      "next_goal": "Maintain tested workflows, examples, and a dependable release process."
+    }
+  ]
+}

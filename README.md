@@ -13,8 +13,15 @@ Could be installed with: `pip install -r build_requirements.txt`
 
 ```
 cd docs
+python3 generate_health.py
 make html
 ```
+
+The health dashboard combines curated project information from
+`docs/source/_data/ecosystem_health.json` with current release, CI, and issue
+metadata from GitHub. Set `GITHUB_TOKEN` when refreshing the live metadata, or
+use `python3 generate_health.py --offline` to build with the configured release
+fallbacks.
 
 To clean:
 ```
