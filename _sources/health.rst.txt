@@ -5,7 +5,7 @@ Pressio ecosystem health
 
 This dashboard gives maintainers a shared view of release readiness and the
 most important work across the core Pressio repositories. Repository data was
-last collected **2026-09-04 01:06 UTC**. Lifecycle assessments and next objectives
+last collected **2026-09-07 18:14 UTC**. Lifecycle assessments and next objectives
 are curated by the Pressio team; releases, CI, and issue counts come from GitHub.
 
 .. raw:: html
@@ -185,12 +185,12 @@ Repository health
          <span>Latest release</span><strong>v0.2.0</strong>
          <small>2025-09-29</small>
        </a>
-       <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/actions/runs/33421873202">
+       <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/actions/runs/34109286088">
          <span>Default-branch CI</span><strong class="ci-success">Success</strong>
          <small>Latest completed run</small>
        </a>
        <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/issues?q=is%3Aissue+is%3Aopen">
-         <span>Open issues</span><strong>27</strong>
+         <span>Open issues</span><strong>28</strong>
          <small>Pull requests excluded</small>
        </a>
        <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/issues?q=is%3Aissue+is%3Aopen+label%3Arelease-blocker">
