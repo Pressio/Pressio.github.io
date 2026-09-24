@@ -68,6 +68,14 @@ class CollectCiTests(unittest.TestCase):
         self.assertEqual(status, "unknown")
         self.assertTrue(url.endswith("/actions"))
 
+    def test_skipped_workflow_does_not_count_as_passing(self):
+        runs = [
+            run(TEST_PATH, "success", ident=1),
+            run(".github/workflows/other-test.yml", "skipped", ident=2),
+        ]
+        (status, _), _ = self.collect(runs, workflows=("install-and-test.yaml", "other-test.yml"))
+        self.assertEqual(status, "unknown")
+
     def test_publishing_can_be_explicitly_configured_as_ci(self):
         (status, _), _ = self.collect(
             [run(".github/workflows/publish_pypi_package.yaml", "failure")],

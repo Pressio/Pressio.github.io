@@ -98,7 +98,7 @@ def collect_ci(repo: str, branch: str, workflows: list[str], token: str | None) 
         return "failure", str(failures[0]["html_url"])
     if pending:
         return "pending", str(pending[0]["html_url"])
-    if any(run.get("conclusion") == "success" for run in selected):
+    if all(run.get("conclusion") == "success" for run in selected):
         return "success", str(selected[0]["html_url"])
     return "unknown", actions_url
 
