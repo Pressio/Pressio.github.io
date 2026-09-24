@@ -2,6 +2,7 @@
   "repositories": [
     {
       "name": "pressio-rom",
+      "ci_workflows": ["ci-baseline.yml", "ci-kokkos.yml", "ci-trilinos.yml"],
       "display_name": "pressio-rom",
       "role": "Core C++ library for projection-based reduced-order modeling",
       "lifecycle": "healthy",
@@ -13,6 +14,7 @@
     },
     {
       "name": "pressio-ops",
+      "ci_workflows": ["ci-baseline.yml", "ci-kokkos.yml", "ci-trilinos.yml"],
       "display_name": "pressio-ops",
       "role": "Portable linear algebra operations used across Pressio",
       "lifecycle": "healthy",
@@ -24,6 +26,7 @@
     },
     {
       "name": "pressio-demoapps",
+      "ci_workflows": ["test-all.yml"],
       "display_name": "pressio-demoapps",
       "role": "Reference applications and reproducible ROM demonstrations",
       "lifecycle": "healthy",
@@ -35,6 +38,7 @@
     },
     {
       "name": "pressio4py",
+      "ci_workflows": ["test_install.yml"],
       "display_name": "pressio4py",
       "role": "Python bindings for the Pressio C++ libraries",
       "lifecycle": "modernization-planned",
@@ -47,6 +51,7 @@
     },
     {
       "name": "rom-tools-and-workflows",
+      "ci_workflows": ["install-and-test.yaml"],
       "display_name": "rom-tools-and-workflows",
       "role": "Python tools and workflows for constructing and using ROMs",
       "lifecycle": "healthy",

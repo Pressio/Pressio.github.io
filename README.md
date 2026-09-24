@@ -23,6 +23,12 @@ metadata from GitHub. Set `GITHUB_TOKEN` when refreshing the live metadata, or
 use `python3 generate_health.py --offline` to build with the configured release
 fallbacks.
 
+The `ci_workflows` list for each repository names the GitHub Actions workflow
+files that count as CI. The dashboard checks their runs on the current default
+branch commit; publishing and documentation workflows are excluded unless added
+to this list. A failure takes precedence over a pending or successful run, and
+repositories without a matching run show `Unknown`.
+
 To clean:
 ```
 cd docs
