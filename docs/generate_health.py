@@ -55,6 +55,54 @@ def issue_count(repo: str, qualifier: str, token: str | None) -> int:
     return int(result["total_count"])
 
 
+def collect_ci(repo: str, branch: str, workflows: list[str], token: str | None) -> tuple[str, str]:
+    """Summarize configured Actions workflows on the current default-branch HEAD."""
+    actions_url = f"https://github.com/{OWNER}/{repo}/actions"
+    if not workflows:
+        return "unknown", actions_url
+
+    branch_path = urllib.parse.quote(branch, safe="")
+    head = request_json(f"/repos/{OWNER}/{repo}/branches/{branch_path}", token)["commit"]["sha"]
+    wanted = {f".github/workflows/{name}" for name in workflows}
+    latest: dict[str, dict[str, object]] = {}
+    page = 1
+    while True:
+        response = request_json(
+            f"/repos/{OWNER}/{repo}/actions/runs?head_sha={head}&per_page=100&page={page}",
+            token,
+        )
+        runs = response["workflow_runs"]
+        for run in runs:
+            path = run.get("path")
+            if (run.get("head_sha") != head or path not in wanted
+                    or run.get("event") not in {"push", "schedule", "workflow_dispatch"}):
+                continue
+            previous = latest.get(path)
+            if previous is None or (run.get("created_at", ""), run.get("id", 0)) > (
+                previous.get("created_at", ""), previous.get("id", 0)
+            ):
+                latest[path] = run
+        if len(runs) < 100:
+            break
+        page += 1
+
+    selected = list(latest.values())
+    if not selected:
+        return "unknown", actions_url
+
+    failures = [run for run in selected if run.get("status") == "completed"
+                and run.get("conclusion") not in {"success", "neutral", "skipped", None}]
+    pending = [run for run in selected if run.get("status") != "completed"
+               or run.get("conclusion") is None]
+    if failures:
+        return "failure", str(failures[0]["html_url"])
+    if pending:
+        return "pending", str(pending[0]["html_url"])
+    if any(run.get("conclusion") == "success" for run in selected):
+        return "success", str(selected[0]["html_url"])
+    return "unknown", actions_url
+
+
 def collect_repository(config: dict[str, object], token: str | None) -> dict[str, object]:
     repo = str(config["name"])
     result = dict(config)
@@ -79,14 +127,9 @@ def collect_repository(config: dict[str, object], token: str | None) -> dict[str
             result["release_url"] = f"{result['github_url']}/releases"
             result["release_date"] = ""
 
-        runs = request_json(
-            f"/repos/{OWNER}/{repo}/actions/runs?branch="
-            f"{urllib.parse.quote(str(result['default_branch']))}&status=completed&per_page=10",
-            token,
-        )["workflow_runs"]
-        run = next((item for item in runs if item.get("event") in {"push", "schedule"}), None)
-        result["ci"] = run["conclusion"] if run else "unknown"
-        result["ci_url"] = run["html_url"] if run else f"{result['github_url']}/actions"
+        result["ci"], result["ci_url"] = collect_ci(
+            repo, str(result["default_branch"]), config.get("ci_workflows", []), token
+        )
     except (OSError, KeyError, TypeError, ValueError) as error:
         result["collection_error"] = str(error)
         result.setdefault("open_issues", "—")
@@ -138,7 +181,7 @@ def repo_card(repo: dict[str, object]) -> str:
     </a>
     <a class="health-metric" href="{escape(repo['ci_url'])}">
       <span>Default-branch CI</span><strong class="ci-{escape(ci)}">{escape(ci_label)}</strong>
-      <small>Latest completed run</small>
+      <small>Current default-branch commit</small>
     </a>
     <a class="health-metric" href="{escape(issue_url)}">
       <span>Open issues</span><strong>{escape(repo['open_issues'])}</strong>
