@@ -330,6 +330,10 @@
   color: #1a7f37;
 }
 
+.ci-pending {
+  color: #9a6700;
+}
+
 .ci-failure,
 .ci-cancelled,
 .ci-timed_out {
