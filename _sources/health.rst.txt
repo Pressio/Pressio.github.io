@@ -5,7 +5,7 @@ Pressio ecosystem health
 
 This dashboard gives maintainers a shared view of release readiness and the
 most important work across the core Pressio repositories. Repository data was
-last collected **2026-10-26 19:15 UTC**. Lifecycle assessments and next objectives
+last collected **2026-11-02 22:17 UTC**. Lifecycle assessments and next objectives
 are curated by the Pressio team; releases, CI, and issue counts come from GitHub.
 
 .. raw:: html
@@ -37,8 +37,8 @@ Repository health
          <span>Latest release</span><strong>0.17.0</strong>
          <small>2025-09-10</small>
        </a>
-       <a class="health-metric" href="https://github.com/Pressio/pressio-rom/actions/runs/17616318704">
-         <span>Default-branch CI</span><strong class="ci-success">Success</strong>
+       <a class="health-metric" href="https://github.com/Pressio/pressio-rom/actions">
+         <span>Default-branch CI</span><strong class="ci-unknown">Unknown</strong>
          <small>Current default-branch commit</small>
        </a>
        <a class="health-metric" href="https://github.com/Pressio/pressio-rom/issues?q=is%3Aissue+is%3Aopen">
@@ -111,8 +111,8 @@ Repository health
          <span>Latest release</span><strong>0.17.0</strong>
          <small>2025-09-09</small>
        </a>
-       <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/actions/runs/17574823969">
-         <span>Default-branch CI</span><strong class="ci-success">Success</strong>
+       <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/actions">
+         <span>Default-branch CI</span><strong class="ci-unknown">Unknown</strong>
          <small>Current default-branch commit</small>
        </a>
        <a class="health-metric" href="https://github.com/Pressio/pressio-demoapps/issues?q=is%3Aissue+is%3Aopen">
@@ -185,7 +185,7 @@ Repository health
          <span>Latest release</span><strong>v0.2.0</strong>
          <small>2025-09-29</small>
        </a>
-       <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/actions/runs/38602918272">
+       <a class="health-metric" href="https://github.com/Pressio/rom-tools-and-workflows/actions/runs/40733839921">
          <span>Default-branch CI</span><strong class="ci-failure">Failure</strong>
          <small>Current default-branch commit</small>
        </a>
